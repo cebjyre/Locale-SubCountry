@@ -1,11 +1,11 @@
 #------------------------------------------------------------------------------
-# Test script for Locale::SubCountry.pm 
+# Test script for CPAN moduleLocale::SubCountry 
 #                                            
 # Author: Kim Ryan 
-# Date  : April 2000                         
 #------------------------------------------------------------------------------
 
 use strict;
+use locale;
 use Locale::SubCountry;
 
 # We start with some black magic to print on failure.

@@ -303,12 +303,10 @@ TJ Mather supplied the FIPS codes and many ammendments to the sub country data
 
 use strict;
 use locale;
-use FileHandle;
-
 
 use Exporter;
 use vars qw ($VERSION);
-$VERSION = '1.31';
+$VERSION = '1.32';
 
 #-------------------------------------------------------------------------------
 

@@ -1,9 +1,11 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.32 13 Feb 2004
+    Added 'use locale' to main.t to stop 'make test' errors
+
 1.31 12 Feb 2004
     Moved XML data back into main module.
     Corrected documentation
-
 
 1.30 8 Feb 2004
 
