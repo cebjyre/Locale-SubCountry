@@ -381,8 +381,8 @@ and/or modify it under the terms of the Perl Artistic License
 
 =head1 AUTHOR
 
-Locale::SubCountry was written by Kim Ryan <kimaryan@ozemail.com.au>.
-<http://members.ozemail.com.au/~kimaryan/data_distillers/>
+Locale::SubCountry was written by Kim Ryan <kimryan@cpan.org>.
+<http://www.data-distillers.com>
 
 
 =head1 CREDITS
@@ -409,7 +409,7 @@ use locale;
 use Exporter;
 use vars qw (@ISA $VERSION @EXPORT);
 
-$VERSION = '1.10';
+$VERSION = '1.11';
 @ISA     = qw(Exporter);
 @EXPORT  = qw(&all_country_names &all_country_codes);
 
@@ -1881,7 +1881,8 @@ Code=FR
 17:Charente-Maritime
 18:Cher
 19:Correze
-20:Corse-du-Sud
+2A:Corse-du-Sud
+2B:Haute Corse
 21:Cote-d'Or
 22:Cotes-d'Armour
 23:Creuse

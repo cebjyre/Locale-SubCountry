@@ -1,5 +1,12 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.11 23 Mar 2002
+    Corrected codes for Corsica, France, thanks to Mathias Herberts
+
+1.10 04 Jan 2002
+    Repalced INIT block with annonymous subroutine. This removed problems
+    that occured when mod_perl or eval statements were used.
+
 1.09 25 Jul 2001
     Added code for US, West Virginia (WV), thanks to Michelle Agnew
 
