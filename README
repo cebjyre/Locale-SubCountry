@@ -48,13 +48,12 @@ This module allows you to convert the full name for a countries administrative
 region to the code commonly used for postal addressing. The reverse conversion
 can also be done.
 
-Sub country regions are defined as states in the US and Australia, provinces 
+Subcountry regions are defined as states in the US and Australia, provinces 
 in Canada and counties in the UK.
 
-Additionally, names and codes for all sub-country regions in a country can be 
+Additionally, names and codes for all subcountry regions in a country can be 
 returned as either a hash or an array. 
 
-  
 
 =head1 COPYRIGHT
 

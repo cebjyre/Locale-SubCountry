@@ -1,12 +1,16 @@
 
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.02 14 May 2000: Added Canadian province of Nunavut, thanks to Steve Taylor 
+                  Removed @EXPORT and @EXPORT_OK as they are not needed
+
+
 1.01 25 Apr 2000: To follow the approach of ISO 3166-2 
                   - renamed module from RegionAbbrev to SubCountry
-                  - replaced all referecces to 'abbreviation' with 'code'
+                  - replaced all references to 'abbreviation' with 'code'
                                    
                   Cleaned up regexes in _clean, thanks to Mark Summerfield
                   Replaced regexp with hash lookup for valid countries
-				  Accepted all forms of upper/lower case in country name
+                  Accepted all forms of upper/lower case in country name
 
 1.00  8 Apr 2000: First Release

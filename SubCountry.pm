@@ -41,20 +41,20 @@ This module allows you to convert the full name for a countries administrative
 region to the code commonly used for postal addressing. The reverse conversion
 can also be done.
 
-Sub country regions are defined as states in the US and Australia, provinces 
-in Canada and  counties in the UK.
+Subcountry regions are defined as states in the US and Australia, provinces 
+in Canada and counties in the UK.
 
-Additionally, names and codes for all sub-country regions in a country can be 
+Additionally, names and codes for all subcountry regions in a country can be 
 returned as either a hash or an array. 
 
 =head1 METHODS
 
 =head2 new
 
-The C<new> method creates an instance of a state object. This must be called 
-before any of the following methods are invoked. The method takes a single
-argument, the name of the country that contains the states, counties etc
-that you want to work with. These are currently:
+The C<new> method creates an instance of a subcountry object. This must be 
+called  before any of the following methods are invoked. The method takes a 
+single argument, the name of the country that contains the subcountries 
+ that you want to work with. These are currently:
 
    Australia
    Brazil
@@ -69,17 +69,17 @@ country name is supplied that the module doesn't recognise, it will die.
 
 =head2 code
 
-The C<code> method takes the full name of a region in the currently
+The C<code> method takes the full name of a subcountry in the currently
 assigned country and returns the regions code. The full name can appear
 in mixed case. All white space and non alphabetic characters are ignored, 
-except the single space used to separate region names such as "New South Wales". 
-The code is returned as a capitalised string, or "unknown" if  no match is
-found.
+except the single space used to separate subcountries names such as 
+"New South Wales".  The code is returned as a capitalised string, or 
+"unknown" if  no match is found.
 
 =head2 full_name
 
-The C<name> method takes the code of a region in the currently
-assigned country and returns the regions full name. The code can appear
+The C<name> method takes the code of a subcountry in the currently
+assigned country and returns the subcountries full name. The code can appear
 in mixed case. All white space and non alphabetic characters are ignored. The
 full  name is returned as a title cased string, such as "South Australia".
 
@@ -90,22 +90,22 @@ returned as an upper cased string.
 =head2 full_name_code_hash
 
 Returns a hash of name/code pairs for the currently assigned country, 
-keyed by name.
+keyed by subcountry name.
 
 =head2 code_full_name_hash
 
 Returns a hash of code/name pairs for the currently assigned country,
-keyed by code.
+keyed by subcountry code.
 
 
 =head2 all_full_names
 
-Returns an array of region names for the currently assigned country, 
+Returns an array of subcountry names for the currently assigned country, 
 sorted alphabetically. 
 
 =head2 all_codes
 
-Returns an array of region codes for the currently assigned country, 
+Returns an array of subcountry codes for the currently assigned country, 
 sorted alphabetically. 
 
 
@@ -119,7 +119,14 @@ Geography::States
 =head1 LIMITATIONS
 
 If a regions full name contains the word 'and', it is represented by an
-ampersand, as in Dumfries & Galloway
+ampersand, as in 'Dumfries & Galloway'.
+
+ISO 3166-2:1998 defines all subcountry codes as being 2 letters. This works
+for USA, Canada etc. In Australia and the UK, this method of abbreviation is
+not widely accepted.	 For example, the ISO code for 'New South Wales' is 'NS',
+but 'NSW' is the only abbreviation that is actually used. I could add an
+enforce ISO-3166 flag if  needed.
+
 
 
 =head1 BUGS
@@ -159,14 +166,16 @@ require 5.005;  # Needed for use of the INIT subroutine
 
 
 use Exporter;
-use vars qw (@ISA @EXPORT_OK $VERSION);
+use vars qw (@ISA $VERSION);
 
-$VERSION   = '1.01';
+$VERSION   = '1.02';
 @ISA       = qw(Exporter);
 
 my %lookup;
 
 #------------------------------------------------------------------------------
+# Create new instance of a sub country object
+
 sub new
 {
    my $class = shift;
@@ -183,7 +192,7 @@ sub new
    );
    
    $country = uc($country);
-   unless ( $countries{$country} )
+   unless ( exists $countries{$country} )
    {
       die "Invalid country name: $country chosen";
    }
@@ -229,7 +238,9 @@ sub code
    }
 }
 #------------------------------------------------------------------------------
-# Given the code for a region, return the full name
+# Given the code for a subcountry region, return the full name
+# Parameters are the code and a flag, which if set to true will 
+# cause the full name to be uppercased 
 
 sub full_name
 {
@@ -239,12 +250,15 @@ sub full_name
    $code = _clean($code);
    $code = uc($code);
    
-   my $name = $lookup{$state->{country}}{code_keyed}{$code};
-   $uc_name and ($name = uc($name) );
-   
-   if ( $name )
+   my $full_name = $lookup{$state->{country}}{code_keyed}{$code};
+   if ( $uc_name )
    {
-      return($name); 
+	   $full_name = uc($full_name);
+   }
+   
+   if ( $full_name )
+   {
+      return($full_name); 
    }
    else
    {
@@ -301,8 +315,8 @@ INIT
          {
             my ($code,$name) = split(/:/,$_);
             
-            # Create two hashes, both grouped by coturny, one keyed by
-            # abbrevaiton and one by full name. Although data is repeated,
+            # Create two hashes, both grouped by country, one keyed by
+            # abbrevaiton and one by full name. Although data is duplicated,
             # this provided the fastest lookup and simplest code.
             
             $lookup{$country}{code_keyed}{$code} = $name;
@@ -388,11 +402,13 @@ NB:New Brunswick
 NF:Newfoundland
 NS:Nova Scotia
 NT:Northwest Territories
+NT:Nunavut
 ON:Ontario
 PE:Prince Edward Island
 QC:Quebec
 SK:Saskatchewan
 YT:Yukon Territory
+
 
 Country=NETHERLANDS
 
@@ -536,6 +552,4 @@ VI:Virgin Islands
 VT:Vermont
 WA:Washington
 WI:Wisconsin
-WY:Wyoming 
-
-__END__
+WY:Wyoming
