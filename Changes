@@ -1,5 +1,11 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.34 17 Apr 2004
+    Fixed typo in XML data for American Samoa
+
+    Added 'has_sub_countries' method to determine if a country has any sub countries
+    (some such a Singapore do not). Updated synopsis to show it's use. 
+
 1.33 13 Feb 2004
     Fixed pattern matching in data loader to allow for accented characters
 
@@ -12,15 +18,15 @@ Revision history for Perl CPAN module Locale::SubCountry
 
 1.30 8 Feb 2004
 
-    Completley updated data, many new coutries and sub countries added
+    Completely updated data, many new countries and sub countries added
     Added countries without sub countries, such as Singapore
-    Stored data in seperate file in XML format
+    Stored data in separate file in XML format
 
-    Addeded method 'category' to return the type of subcountry such as state, city etc
+    Added method 'category' to return the type of subcountry such as state, city etc
     NOTE: this replaces the 'sub_country_type' method
 
-    Addeded method 'regional_division' to return the regional_division of subcountry 
-    such as SCT (Scotland) for Edingburgh
+    Added method 'regional_division' to return the regional_division of subcountry 
+    such as SCT (Scotland) for Edinburgh
 
 1.23 16 Jul 2003
     

@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-# Test script for CPAN moduleLocale::SubCountry 
+# Test script for CPAN module Locale::SubCountry 
 #                                            
 # Author: Kim Ryan 
 #------------------------------------------------------------------------------

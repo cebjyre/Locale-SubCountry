@@ -4,30 +4,36 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
 
 =head1 SYNOPSIS
 
-   my $UK_counties = new Locale::SubCountry('GB');
-   print($UK_counties->full_name('DGY'),"\n");           # Dumfries and Galloway
-   print($UK_counties->regional_division('DGY'),"\n");   # SCT  (Scotland)
+   my $UK = new Locale::SubCountry('GB');
+   if ( $UK->has_sub_countries )
+   {
+       print($UK->full_name('DGY'),"\n");           # Dumfries and Galloway
+       print($UK->regional_division('DGY'),"\n");   # SCT (Scotland)
+   }
 
    my $australia = new Locale::SubCountry('AUSTRALIA');
-   print($australia->code('New South Wales '),"\n");     # NSW
-   print($australia->full_name('S.A.'),"\n");            # South Australia
-   my $upper_case = 1;
-   print($australia->full_name('Qld',$upper_case),"\n"); # QUEENSLAND
-   print($australia->country,"\n");                      # AUSTRALIA
-   print($australia->country_code,"\n");                 # AU
-   print($australia->category('NSW'),"\n");              # state
-   print($australia->FIPS10_4_code('ACT'),"\n");         # 01
-   print($australia->ISO3166_2_code('02'),"\n");         # NSW
-   
+   print($australia->country,"\n");                 # AUSTRALIA
+   print($australia->country_code,"\n");            # AU
 
-   my @aus_state_names  = $australia->all_full_names;
-   my @aus_code_names   = $australia->all_codes;
-   my %aus_states_keyed_by_code  = $australia->code_full_name_hash;
-   my %aus_states_keyed_by_name  = $australia->full_name_code_hash;
-
-   foreach my $code ( sort keys %aus_states_keyed_by_code )
+   if ( $australia->has_sub_countries )
    {
-      printf("%-3s : %s\n",$code,$aus_states_keyed_by_code{$code});
+       print($australia->code('New South Wales '),"\n");     # NSW
+       print($australia->full_name('S.A.'),"\n");            # South Australia
+       my $upper_case = 1;
+       print($australia->full_name('Qld',$upper_case),"\n"); # QUEENSLAND
+       print($australia->category('NSW'),"\n");              # state
+       print($australia->FIPS10_4_code('ACT'),"\n");         # 01
+       print($australia->ISO3166_2_code('02'),"\n");         # NSW
+
+       my @aus_state_names  = $australia->all_full_names;
+       my @aus_code_names   = $australia->all_codes;
+       my %aus_states_keyed_by_code  = $australia->code_full_name_hash;
+       my %aus_states_keyed_by_name  = $australia->full_name_code_hash;
+
+       foreach my $code ( sort keys %aus_states_keyed_by_code )
+       {
+          printf("%-3s : %s\n",$code,$aus_states_keyed_by_code{$code});
+       }
    }
    
    # Methods for country codes and names
@@ -306,7 +312,7 @@ use locale;
 
 use Exporter;
 use vars qw ($VERSION);
-$VERSION = '1.33';
+$VERSION = '1.34';
 
 #-------------------------------------------------------------------------------
 
@@ -705,12 +711,27 @@ sub full_name
     }
 }
 #-------------------------------------------------------------------------------
+# Returns 1 if the current country has sub countires. otherwise 0.
+
+sub has_sub_countries
+{
+    my $sub_country = shift;
+    if ( $::subcountry_lookup{$sub_country->{_country}}{_code_keyed} )
+    {
+        return(1);
+    }
+    else
+    {
+        return(0);
+    }
+}
+#-------------------------------------------------------------------------------
 # Returns a hash of code/full name pairs, keyed by sub country code.
 
 sub code_full_name_hash
 {
     my $sub_country = shift;
-    if ( $::subcountry_lookup{$sub_country->{_country}}{_code_keyed} )
+    if ( $sub_country->has_sub_countries )
     {
         return( %{ $::subcountry_lookup{$sub_country->{_country}}{_code_keyed} } );
     }
@@ -725,7 +746,7 @@ sub code_full_name_hash
 sub full_name_code_hash
 {
     my $sub_country = shift;
-    if ( $::subcountry_lookup{$sub_country->{_country}}{_full_name_keyed}  )
+    if ( $sub_country->has_sub_countries )
     {
         return( %{ $::subcountry_lookup{$sub_country->{_country}}{_full_name_keyed} } );
     }
@@ -22506,7 +22527,7 @@ __DATA__
 
 <country>
   <name>AMERICAN SAMOA</name>
-  <code>AS></code>
+  <code>AS</code>
 </country>
 
 <country>
