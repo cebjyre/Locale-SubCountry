@@ -42,7 +42,7 @@ foreach $country ( @all_countries )
    }
 }
 
-# There are 12 sub countries with duplicate codes 
-print $mis_match == 12 ? "ok 4\n" : "not ok 4\n";
+# There are 13 sub countries with duplicate codes 
+print $mis_match == 13 ? "ok 4\n" : "not ok 4\n";
 
 

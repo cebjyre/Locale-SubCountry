@@ -1,39 +1,51 @@
 
 Revision history for Perl CPAN module Locale::SubCountry
 
-1.06 20 Feb 2001: Allowed countries to be specified by either full name or code 
-                  Made country names compatible with ISO 3166 standard
-                  Added country_code method to retreive ISO code for current object
-                  Added all_country_codes method to retreive ISO codes for all countries
-                  Corrected abbreviation for Canadian province of Nunavut 
-                  Thanks to Trevor Schellhorn for these suggestions
+1.07 12 Mar 2001 
+	Corrected errors in German sub countries thanks to Lars Steubesand
+	Corrected errors in data for Austria, Poland, Rommainia, Turkey 
+	Germany and Columbia. Thanks to Philip Newton.
 
-                  Corrected two Belgium sub countires. Thanks to Wim Verhaegen 
+1.06 20 Feb 2001 
+	Allowed countries to be specified by either full name or two letter code 
+    Made country names compatible with ISO 3166 standard
+    Added country_code method to retreive ISO code for current object
+    Added all_country_codes method to retreive ISO codes for all countries
+    Corrected abbreviation for Canadian province of Nunavut 
+    Thanks to Trevor Schellhorn for these suggestions
+
+    Corrected two Belgium sub countires. Thanks to Wim Verhaegen 
 
 
-1.05 15 Oct 2000: sub_country_type method returns 'unknown' when no data defined 
-                  Fixed bug in mismatch count in main.t test module
+1.05 15 Oct 2000
+	sub_country_type method returns 'unknown' when no data defined 
+    Fixed bug in mismatch count in main.t test module
 
-1.04 04 Oct 2000: Added all remaining countries, thanks to Alastair McKinstry  
-                  Included sub country type (state, county etc) in lookup data
-                  Added country and sub_country_type methods
-                  Accounted for sub country codes of 0
+1.04 04 Oct 2000
+	Added all remaining countries, thanks to Alastair McKinstry  
+    Included sub country type (state, county etc) in lookup data
+    Added country and sub_country_type methods
+    Accounted for sub country codes of 0
 
-1.03 20 Aug 2000: Added many more countries, thanks to Alastair McKinstry  
-                  Now account for any incorrect capitalization of sub country names
-                  _clean subroutine only removes dots and spaces, dashes are now allowed
-                  Added subroutine to return array of countries that have lookup data
-                  Added test in main.t to convert all codes to names and back again 
-                  Allowed for leading or trailing white space in __DATA__ entries
+1.03 20 Aug 2000 
+	Added many more countries, thanks to Alastair McKinstry  
+    Now account for any incorrect capitalization of sub country names
+    _clean subroutine only removes dots and spaces, dashes are now allowed
+    Added subroutine to return array of countries that have lookup data
+    Added test in main.t to convert all codes to names and back again 
+    Allowed for leading or trailing white space in __DATA__ entries
 
-1.02 14 May 2000: Added Canadian province of Nunavut, thanks to Steve Taylor 
+1.02 14 May 2000
+	Added Canadian province of Nunavut, thanks to Steve Taylor 
 
-1.01 25 Apr 2000: To follow the approach of ISO 3166-2 
-                  - renamed module from RegionAbbrev to SubCountry
-                  - replaced all references to 'abbreviation' with 'code'
-                                   
-                  Improved up regexes in _clean, thanks to Mark Summerfield
-                  Replaced regexp with hash lookup for valid countries
-                  Accepted all forms of upper/lower case in country name
+1.01 25 Apr 2000
+	To follow the approach of ISO 3166-2 
+    - renamed module from RegionAbbrev to SubCountry
+    - replaced all references to 'abbreviation' with 'code'
+                     
+    Improved up regexes in _clean, thanks to Mark Summerfield
+    Replaced regexp with hash lookup for valid countries
+    Accepted all forms of upper/lower case in country name
 
-1.00  8 Apr 2000: First Release
+1.00  8 Apr 2000
+	 First Release

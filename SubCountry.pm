@@ -254,14 +254,14 @@ Returns the two lwttwr current country of the sub country object
 
 =head2 sub_country_type
 
-Returns the current sub country type (state, county etc) for the
-sub country object, or 'unknown' if a value is not defined. Currently
-sub country types are defined for:
+Returns the current sub country type (state, county etc) for 
+the sub country object, or 'unknown' if a value is not defined. 
+Currently sub country types are defined for:
 
 Australia : State
 Canada    : Province
 France    : Department
-Germany   : Lander
+Germany   : Länder
 Ireland   : County
 UK        : County
 USA       : State
@@ -403,7 +403,7 @@ use locale;
 use Exporter;
 use vars qw (@ISA $VERSION @EXPORT);
 
-$VERSION = '1.06';
+$VERSION = '1.07';
 @ISA     = qw(Exporter);
 @EXPORT  = qw(&all_country_names &all_country_codes);
 
@@ -679,7 +679,7 @@ sub _clean
 #-------------------------------------------------------------------------------
 return(1);
 
-=head
+=pod
 
 Code/Sub country data. Comments (lines starting with #) and 
 blank lines are ignored. Read in at start up by INIT subroutine.
@@ -882,9 +882,9 @@ Country=AUSTRIA
 Code=AT
 
 1:Burgenland
-2:Karnten
-3:Niederosterreich
-4:Oberosterreich
+2:Kärnten
+3:Niederösterreich
+4:Oberösterreich
 5:Salzburg
 6:Steiermark
 7:Tirol
@@ -1450,7 +1450,7 @@ Code=CN
 Country=COLOMBIA
 Code=CO
 
-DC:Distrito Capltal de Santa Fe de Bogotã
+DC:Distrito Capltal de Santa Fe de Bogotá
 AMA:Amazonea
 ANT:Antioquia
 ARA:Arauca
@@ -1959,9 +1959,9 @@ ZUG:Zuqdidi
 
 Country=GERMANY
 Code=DE
-SubCountryType=Lander
+SubCountryType=Bundesländ
 
-BW:Baden-Wuerttemberg
+BW:Baden-Württemberg
 BY:Bayern
 HB:Bremen
 HH:Hamburg
@@ -1976,7 +1976,7 @@ BB:Brandenburg
 MV:Mecklenburg-Vorpommern
 SN:Sachsen
 ST:Sachsen-Anhalt
-TH:Thueringen
+TH:Thüringen
 
 Country=GHANA
 Code=GH
@@ -3034,7 +3034,7 @@ Code=MN
 067:Bulgan
 037:Darhan uul
 061:Dornod
-063:Dornogov,
+063:Dornogov
 059:DundgovL
 057:Dzavhan
 065:Govi-Altay
@@ -3583,6 +3583,7 @@ BY:Bydgoszcz
 CH:Chelm
 CI:Ciechanów
 CZ:Czestochowa
+DS:Dolnos´laskie
 EL:Elblag
 GD:Gdansk
 GO:Gorzaw
@@ -3592,21 +3593,30 @@ KA:Katowice
 KI:Kielce
 KN:Konin
 KO:Koszalin
+KP:Kujawsko-pomorskie
+
 KR:Kraków
 KS:Krosno
+LB:Lubuskie
+LD:ódzkie
 LG:Legnica
 LE:Leszno
 LU:Lublin
 LO:Lomza
 LD:Lódz
+MA:Ma opolskie
+MZ:Mazowieckie
 NS:Nowy Sacz
 OL:Olsztyn
 OP:Opole
 OS:Ostroleka
+PD:Podlaskie
 PI:Pila
+PK:Podkarpackie
 PL:Plock
 PL-TO:Torun
 PL-WB:Walbrzych
+PM:Pomorskie
 PO:Poznañ
 PR:Przemysl
 PT:Piotrków
@@ -3615,6 +3625,7 @@ RZ:Rzeszów
 SE:Siedlce
 SI:Sieradz
 SR:Skierniewice
+SK:S´wietokrzyskie
 SL:Slupsk
 SU:Suwalki
 SZ:Szczecin
@@ -3624,9 +3635,12 @@ T0:Toruñ
 WB:Wañblzych
 WA:Warazawa
 WL:Wloclawek
+WN:Warmi´nsko-mazurskie
+WP:Wielkopolskie
 WR:Wroclaw
 ZA:Zamosc
 ZG:Zielona Góra
+ZP:Zachodniopomorskie
 
 Country=PORTUGAL
 Code=PT
@@ -3674,25 +3688,6 @@ ASU:Asunción
 15:Presidente Hayes
 2:San Pedro
 
-Country=POLAND
-Code=PL
-
-DS:Dolnos ´ l a skie
-KP:Kujawsko-pomorskie
-LU:Lubelskie
-LB: Lubuskie
-LD:ódzkie
-MA:Ma opolskie
-MZ:Mazowieckie
-OP:Opolskie
-PK:Podkarpackie
-PD:Podlaskie
-PM:Pomorskie
-SL:S ´ l a skie
-SK:S ´ wi e tokrzyskie
-WN:Warmi´ n sko-mazurskie
-WP:Wielkopolskie
-ZP:Zachodniopomorskie
 
 Country=QATAR
 Code=QA
@@ -3727,35 +3722,35 @@ H:Ruhengeri
 Country=ROMANIA
 Code=RO
 
-B:Bucures ¸ ti
+B:Bucuresti
 AB:Alba
 AR:Arad
-AG:Arges ¸
-BC:Baca u
+AG:Arges
+BC:Bacau
 BH:Bihor
-BN:Bistrit ¸ a-Na sa ud
-BT:Botos ¸ ani
-BV:Bras ¸ ov
-BR:Bra ila
-BZ:Buza u
-CS:Caras ¸ -Severin
-CL:Ca la ras ¸ i
+BN:Bistrita-Nasaud
+BT:Botosani
+BV:Brasov
+BR:Braila
+BZ:Buzau
+CS:Caras-Severin
+CL:Calarasi
 CJ:Cluj
-CT:Constant ¸ a
+CT:Constanta
 CV:Covasna
-DB:Dâmbovit ¸ a
+DB:Dâmbovita
 DJ:Dolj
-GL:Galat ¸ i
+GL:Galati
 GR:Giurgiu
 GJ:Gorj
 HR:Harghita
 HD:Hunedoara
-IL:Ialomit ¸ a
-IS:Ias ¸ i
-MM:Maramures ¸
-MH:Mehedint ¸ i
-MS:Mures ¸
-NT:Neamt ¸
+IL:Ialomita
+IS:Iasi
+MM:Maramures
+MH:Mehedinti
+MS:Mures
+NT:Neamt
 OT:Olt
 PH:Prahova
 SM:Satu Mare
@@ -3763,7 +3758,7 @@ SJ:Sa laj
 SB:Sibiu
 SV:Suceava
 TR:Teleorman
-TM:Timis ¸
+TM:Timis
 TL:Tulcea
 VS:Vaslui
 VL:Vâlcea
@@ -4421,26 +4416,26 @@ Code=TR
 23:Elaz g
 24:Erzincan
 25:Erzurum
-26:Eskis ¸ ehir
+26:Eskisehir
 27:Gaziantep
 28:Giresun
-29:Gümüs ¸ hane
+29:Gümüshane
 30:Hakkâri
 31:Hatay
-76:Ig d r
+76:Igdr
 32:Isparta
-33:I çel
-34:I stanbul
-35:I zmir
-46:Kahramanmaras ¸
+33:Içel
+34:Istanbul
+35:Izmir
+46:Kahamanmaras
 78:Karabük
 70:Karaman
 36:Kars
 37:Kastamonu
 38:Kayseri
-71:K r kkale
-39:K rklareli
-40:K rs ¸ ehir
+71:Krkkale
+39:Krklareli
+40:Krsehir
 79:Kilis
 41:Kocaeli
 42:Konya
@@ -4449,24 +4444,24 @@ Code=TR
 45:Manisa
 47:Mardin
 48:Mug la
-49:Mus ¸
-50:Nevs ¸ ehir
+49:Mus
+50:Nevsehir
 51:Nig de
 52:Ordu
-80: Osmaniye
+80:Osmaniye
 53:Rize
 54:Sakarya
 55:Samsun
 56:Siirt
 57:Sinop
 58:Sivas
-63:S ¸ anl urfa
-73:S ¸ rnak
+63:Sanlurfa
+73:Srnak
 59:Tekirdag
 60:Tokat
 61:Trabzon
 62:Tunceli
-64:Us ¸ ak
+64:Usak
 65:Van
 77:Yalova
 66:Yozgat
