@@ -59,8 +59,8 @@ Perl 5.005 or above
 
 This module allows you to convert the full name for a countries administrative
 region to the code commonly used for postal addressing. The reverse conversion
-can also be done. Sub country codes are deinfed in "ISO 3166-2:1998, 
-Standard for naming sub country codes".
+can also be done. Sub country codes are defied in "ISO 3166-2:1998, 
+Codes for the representation of names of countries and their subdivisions".
 
 Subcountry regions are defined as states in the US and Australia, provinces 
 in Canada and counties in the UK.
