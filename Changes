@@ -1,6 +1,12 @@
 
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.04 04 Oct 2000: Added all remaining countries, thanks to Alastair McKinstry  
+                  Included sub country type (state, county etc) in lookup data
+                  Added country and sub_country_type methods
+                  Accounted for sub country codes of 0
+
+
 1.03 20 Aug 2000: Added many more countries, thanks to Alastair McKinstry  
                   Now account for any incorrect capitalization of sub country names
                   _clean subroutine only removes dots and spaces, dashes are now allowed

@@ -1,6 +1,6 @@
 =head1 NAME
 
-Locale::SubCountry - convert state, province, county etc names to/from code
+Locale::SubCountry - convert state, province, county etc. names to/from code
 
 =head1 SYNOPSIS
 
@@ -25,6 +25,9 @@ Locale::SubCountry - convert state, province, county etc names to/from code
    
    $upper_case = 1;
    print($australia->full_name('Qld',$upper_case)); # QUEENSLAND
+	print $australia->country;	# AUSTRALIA
+	print $australia->sub_country_type; # State
+   
    
    %all_australian_states = $australia->full_name_code_hash;
    foreach $abbrev ( sort keys %australian_states )
@@ -37,12 +40,10 @@ Locale::SubCountry - convert state, province, county etc names to/from code
    @all_australian_states = $australia->all_full_names;
    @all_australian_codes = $australia->all_codes;
    
-   
 
 =head1 REQUIRES
 
 Perl 5.005 or above
-
 
 
 =head1 DESCRIPTION
@@ -63,35 +64,197 @@ returned as either a hash or an array.
 
 The C<new> method creates an instance of a sub country object. This must be 
 called before any of the following methods are invoked. The method takes a 
-single argument, the name of the country that contains the sub countries 
+single argument, the name of the country that contains the sub country 
 that you want to work with. These are currently:
 
-   Australia
-   Belarus
-   Brazil
-   Canada
-   Denmark
-   Dominican Republic
-   Eritrea
-   France
-   Germany
-   Indonesia
-   Italy
-   Netherlands
-   Nigeria
-   Poland
-   Romania
-   Russia
-   South Korea
-   Spain
-   Turkey
+   AFGHANISTAN
+   ALGERIA
+   ANGOLA
+   ARGENTENIA
+   ARMENIA
+   AUSTRALIA
+   AUSTRIA
+   AZERBAIJAN
+   BAHAMAS
+   BAHRAIN
+   BANGLADESH
+   BELARUS
+   BELGIUM
+   BELIZE
+   BENIN
+   BHUTAN
+   BOLIVIA
+   BOSNIA-HERZEGOVINA
+   BOTSWANA
+   BRAZIL
+   BRUNEI DARUSSALAM
+   BULGARIA
+   BURKINA FASO
+   CAMBODIA
+   CAMEROON
+   CANADA
+   CAPE VERDE
+   CENTRAL AFRICAN REPUBLIC
+   CHAD
+   CHILE
+   CHINA
+   COLOMBIA
+   COMORROS
+   CONGO
+   COSTA RICA
+   CROATIA
+   CUBA
+   CYPRUS
+   CZECH REPUBLIC
+   DEMOCRATIC REPUBLIC OF CONGO
+   DENMARK
+   DJIBOUTI
+   DOMINICAN REPUBLIC
+   ECUADOR
+   EGYPT
+   EL SALVADOR
+   EQUATORIAL GUINEA
+   ERITREA
+   ESTONIA
+   ETHIOPIA
+   FEDERATED STATES OF MICRONESIA
+   FIGI
+   FRANCE
+   GABON
+   GAMBIA
+   GEORGIA
+   GERMANY
+   GHANA
+   GREECE
+   GUATEMALA
+   GUINEA
+   GUINEA BISSAU
+   GUYANA
+   HAITI
+   HONDURAS
+   HUNGARY
+   ICELAND
+   INDIA
+   INDONESIA
+   IRAN
+   IRAQ
+   IRELAND
+   ITALY
+   IVORY COAST
+   JAMAICA
+   JAPAN
+   JORDAN
+   KAZAKHSTAN
+   KENYA
+   KIRIBATI
+   KUWAIT
+   KYRGYSTAN
+   LAOS
+   LATVIA
+   LEBANON
+   LESOTHO
+   LIBERIA
+   LIBYA
+   LITHUANIA
+   MADAGASCAR
+   MALAWI
+   MALAYSIA
+   MALDIVES
+   MALI
+   MARSHALL ISLANDS
+   MAURITANIA
+   MAURITIUS
+   MEXICO
+   MOLDOVA
+   MONGOLIA
+   MOROCCO
+   MOZAMBIQUE
+   MYANMAR
+   NAMIBIA
+   NETHERLANDS
+   NEW ZEALAND
+   NICARAGUA
+   NIGER
+   NIGERIA
+   NORTH KOREA
+   NORWAY
+   OMAN
+   PAKISTAN
+   PANAMA
+   PAPUA NEW GUINEA
+   PARAGUAY
+   PERU
+   PHILIPPINES
+   POLAND
+   PORTUGAL
+   QATAR
+   ROMANIA
+   RUSSIA
+   RWANDA
+   SAINT HELENA
+   SAO TOME
+   SAUDI ARABIA
+   SENEGAL
+   SIERRA LEONE
+   SLOVAKIA
+   SLOVENIA
+   SOLOMON ISLANDS
+   SOMALIA
+   SOUTH AFRICA
+   SOUTH KOREA
+   SPAIN
+   SRI LANKA
+   SUDAN
+   SURINAME
+   SWAZILAND
+   SWEDEN
+   SWITZERLAND
+   SYRIA
+   TAIWAN
+   TAJIKISTAN
+   TANZANIA
+   THAILAND
+   TOGO
+   TRINIDAD AND TOBAGO
+   TUNISIA
+   TURKEY
+   TURKMENISTAN
+   UGANDA
    UK
+   UKRAINE
+   UNITED ARAB EMIRAYES
+   UNITED STATES MINOR OUTLYING ISLANDS
+   URUGUAY
    USA
-   Vietnam
-   Yugoslavia
+   UZBEKISTAN
+   VANUATU
+   VENEZUELA
+   VIETNAM
+   WALLIS AND FORTUNA
+   YEMEN
+   YUGOSLAVIA
+   ZAMBIA
+   ZIMBABWE
    
 All forms of upper/lower case are acceptable in the country's spelling. If a 
 country name is supplied that the module doesn't recognise, it will die.
+
+=head2 country
+
+Returns the current country of the sub country object
+
+=head2 sub_country_type
+
+Returns the current sub country type (state, county etc) of the 
+sub country object. Currently only defined for
+
+Australia : State
+Canada    : Province
+France    : Department
+Germany   : Lander
+Ireland   : County
+UK	       : County
+USA       : State
 
 
 =head2 code
@@ -146,8 +309,7 @@ before actually creating the lookup object.
 
 ISO 3166-2:1998, Standard for naming sub country codes
 Locale::Country
-Geography::States
-
+Locale::US
 
 =head1 LIMITATIONS
 
@@ -167,10 +329,23 @@ province name. For Russia, the BGN (1947) Romanization is used.
 The ISO 3166-2 standard for Italy lists alphabetic codes for provinces and 
 numeric codes for the regions they belong to, both are listed.
 
-The Indonesian sub region of Kalimantan Timur has two codes, KI and KT.
+The following sub country names have more than one code, and may not return  
+the correct code for that sub country.
+
+AZERBAIJAN : Länkäran; LA,LAN
+AZERBAIJAN : Säki; SA,SAK
+AZERBAIJAN : Susa; SS,SUS
+AZERBAIJAN : Yevlax; YE,YEV
+INDONESIA  : Kalimantan Timur; KI,KT
+LAOS       : Vientiane VI,VT
+MOLDOVA    : Hahul; CA,CHL
+MOLDOVA    : Bubasari; DU,DBI
+MOLDOVA    : Hrhei; OR,OHI
+MOLDOVA    : Coroca; SO,SOA
+MOLDOVA    : Gngheni; UN,UGI
+MOZAMBIQUE : Maputo; MPM,L
 
 =head1 BUGS
-
   
 
 =head1 COPYRIGHT
@@ -188,17 +363,13 @@ Locale::SubCountry was written by Kim Ryan <kimaryan@ozemail.com.au> in 2000.
 
 =head1 CREDITS
 
-Terrence Brannon produced Locale::US, which was the starting point for
-this module. 
+Alastair McKinstry provided nearly all the sub country codes and names.
 
-Codes for Canadian, Netherlands and Brazilian sub countries were taken from 
-the Geography::States module.
+Terrence Brannon produced Locale::US, which was the starting point for
+this module. Some of the ideas in Geography::States were also used.
 
 Mark Summerfield and Guy Fraser provided the list of UK counties.
 
-Alastair McKinstry provided the data for Belarus, Denmark, the Dominican
-Republic, Eritrea, France, Germany, Indonesia, Ireland, Italy, Japan, Nigera, 
-Poland, Romania, Russia, South Korea, Spain, Turkey, Vietnam and Yugoslavia.
 
 =cut
 
@@ -214,7 +385,7 @@ use locale;
 use Exporter;
 use vars qw (@ISA $VERSION @EXPORT);
 
-$VERSION = '1.03';
+$VERSION = '1.04';
 @ISA     = qw(Exporter);
 @EXPORT  = qw(&all_countries);
 
@@ -235,10 +406,28 @@ sub new
    my $sub_country = {};
    bless($sub_country,$class);
    $sub_country->{country} = $country;
+   $sub_country->{sub_country_type} = $::lookup{$country}{sub_country_type};
    
    return($sub_country);
 }
 
+#------------------------------------------------------------------------------
+# Returns the current country of the sub country object
+
+sub country
+{
+   my $sub_country = shift;
+   return( $sub_country->{country} );
+}
+#------------------------------------------------------------------------------
+# Returns the current sub country type (state, county etc) of the 
+# sub country object
+
+sub sub_country_type
+{
+   my $sub_country = shift;
+   return( $sub_country->{sub_country_type} );
+}
 #------------------------------------------------------------------------------
 # Given the full name for a sub country, return the code
 
@@ -258,7 +447,7 @@ sub code
    # the user may have supplied the sub country "Ag R" (in Turkey) but the 
    # ISO standard defines the spelling as "Ag r".
    
-   unless ( $code )
+   unless ( defined $code )
    {
       # For every sub country, compare upper cased full name supplied by user
       # to upper cased full name from lookup hash. If they match, return the
@@ -275,7 +464,7 @@ sub code
       }
    }
    
-   if ( $code )
+   if ( defined $code )
    {
       return($code); 
    }
@@ -365,9 +554,13 @@ INIT
       unless ( /^#/ or /^s*$/ )  # ignore commented and empty lines
       {
          chomp;
-         if ( /^Country=(.*)/ )
+         if ( /^Country\s*=(.*)/i )
          {
-            $country = $1;
+            $country = _clean($1);
+         }
+         elsif ( /^SubCountryType\s*=(.*)/i )
+         {
+            $::lookup{$country}{sub_country_type} = _clean($1);
          }
          else
          {
@@ -406,12 +599,172 @@ sub _clean
 #------------------------------------------------------------------------------
 return(1);
 
-# Abbreivation/State data. Comments (lines starting with #) and blank lines
-# are ignored. Read in at start up by INIT subroutine
+# Code/Sub country data. Comments (lines starting with #) and 
+# blank lines are ignored. Read in at start up by INIT subroutine.
+# Format is:
+# Country=<COUNTRY NAME>
+# CODE:Full Name
 
 __DATA__
 
+Country=UNITED ARAB EMIRAYES
+
+AZ:Abu Zaby
+AJ:'Ajman
+FU:Al Fujayrah
+SH:Ash Shariqah
+DU:Dubayy
+RK:R'as al Khaymah
+UQ:Umm al Qaywayn
+
+Country=AFGHANISTAN
+
+BDS:Badakhshan
+BDG:Badghis
+BGL:Baghlan
+BAL:Balkh
+BAM:Bamian
+FRA:Farah
+FYB:Faryab
+GHA:Ghazni
+GHO:Ghowr
+HEL:Helmand
+HER:Herat
+JOW:Jowzjan
+KAB:Kabul 
+KAN:Kandahar
+KAP:Kapisa
+KNR:Konar
+KDZ:Kondoz
+LAG:Laghman
+LOW:Lowgar
+NAN:Nangrahar
+NIM:Nimruz
+ORU:Oruzgan
+PIA:Paktia
+PKA:Paktika
+PAR:Parwan
+SAM:Samangan
+SAR:Sar-e Pol
+TAK:Takhar
+WAR:Wardak
+ZAB:Zabol
+
+Country=ALGERIA
+
+01:Adrar
+44:Ain Defla
+46:Aïn T6mouchent
+16:Alger
+23:Annaba
+05:Batna
+08:Béchar
+06:Béjaïa
+07:Biskra
+09:Blida
+34:Bordj Bou Arréridj
+10:Bouira
+35:Boumerdès
+02:Chlef
+25:Constantine
+17:Djelfa
+32:El Bayadh
+39:El Oued
+36:El Tarf
+47:Ghardaïa
+24:Guelma
+33:Illizi
+18:Jijel
+40:Khenchela
+03:Laghouat
+29:Mascara
+26:Médéa
+43:Mila
+27:Mostaganem
+28:Msila
+45:Naama
+31:Oran
+30:Ouargla
+04:Oum el Bouaghi
+48:Relizane
+20:Saïda
+19:Sétif
+22:Sidi Bel Abbès
+21:Skikda
+41:Souk Ahras
+11:Tamanghasset
+12:Tébessa
+14:Tiaret
+37:Tindouf
+42:Tipaza
+38:Tissemsilt
+15:Tizi Ouzou
+13:Tlemcen
+
+
+Country=ARMENIA
+
+ER:Erevan
+AG:Aragacotn
+AR:Ararat
+AV:Armavir
+GR:Gegark'unik'
+KT:Kotayk'
+LO:Lory
+SH:Sirak
+SU:Syunik'
+TV:Tavus
+VD:Vayoc Jor
+
+Country=ANGOLA
+
+BGO:Bengo
+BGU:Benguela
+BIE:Bié
+CAB:Cabinda
+CCU:Cuando-Cubango
+CNO:Cuanza Norte
+CUS:Cuanza Sul
+CNN:Cunene
+HUA:Huambo
+HUI:Huíla
+LUA:Luanda
+LNO:Lunda Norte
+LSU:Lunda Sul
+MAL:Malange
+MOX:Moxico
+NAM:Namibe
+UIG:Uíge
+ZAI:Zaire
+
+Country=ARGENTINA
+
+C:Capital federal
+B:Buenos Aires
+K:Catamarca
+X:Cordoba
+W:Corrientes
+H:Chaco
+U:Chubut
+E:Entre Rios
+P:Formosa
+Y:Jujuy
+L:La Pampa
+M:Mendoza
+N:Misiones
+Q:Neuquén
+R:Rió Negro
+A:Salta
+J:San Juan
+D:San Luis
+Z:Santa Cruz
+S:Santa Fe
+G:Santiago del Estero
+V:Tierra del Fuego
+T:Tucumán
+
 Country=AUSTRALIA
+SubCountryType=State
 
 AAT:Australian Antarctic Territory
 ACT:Australian Capital Territory
@@ -423,6 +776,171 @@ TAS:Tasmania
 VIC:Victoria
 WA:Western Australia
 
+
+Country=AUSTRIA
+
+1:Burgenland
+2:Karnten
+3:Niederosterreich
+4:Oberosterreich
+5:Salzburg
+6:Steiermark
+7:Tirol
+8:Vorarlberg
+9:Wien
+
+Country=AZERBAIJAN
+
+MM:Naxçivan
+AB:Äli Bayramli
+BA:Bäki
+GA:Gäncä
+LA:Länkäran
+MI:Mingäçevir
+NA:Naftalan
+SA:Säki
+SM:Sumqayit
+SS:Susa 
+XA:Xankandi
+YE:Yevlax
+ABS:Abseron
+AGC:Agcabädi
+AGM:Agdam
+AGS:Agdas 
+AGA:Agstafa
+AGU:Agsu
+AST:Astara
+BAB:Babäk
+BAL:Balakän
+BAR:Bärdä
+BEY:Beylägan
+BIL:Biläsuvar
+CAB:Cäbrayll
+CAL:Cälilabad
+CUL:Culfa
+DAS:Daskäsän
+DAV:Däväçi
+FUZ:Fuzuli
+GAD:Gädäbäy
+GOR:Goranboy
+GOY:Göyçay
+HAC:Haciqabul
+IMI:Imisli
+ISM:Ismayilli
+KAL:Kälbäcär
+KUR:Kurdämir
+LAC:Laçin
+LAN:Länkäran
+LER:Lerik
+MAS:Masalli
+NEF:Neftcala
+OGU:Oguz
+ORD:Ordubad
+QAB:Qäbälä
+QAX:Qax
+QAZ:Qazax
+QOB:Qobustan
+QBA:Quba
+QBI:Qubadli
+QUS:Qusar
+SAT:Saatli
+SAB:Sabirabad
+SAD:Sadarak
+SAH:Sahbuz
+SAK:Säki
+SAL:Salyan
+SMI:Samaxi
+SKR:Sämkir
+SMX:Samux
+SAR:Särur
+SIY:Siyäzän
+SUS:Susa
+TAR:Tartar
+TOV:Tovuz
+UCA:Ucar
+XAC:Xacmaz
+XAN:Xanlar
+XIZ:Xizi
+XCI:Xocali
+XVD:Xocavand
+YAR:Yardimli
+YEV:Yevlax
+ZAN:Zängilan
+ZAQ:Zaqatala
+ZAR:Zärdab
+
+Country=BOSNIA-HERZEGOVINA
+
+BIH:Federacija Bosna i Hercegovina
+SRP:Republika Srpska
+
+Country=BANGLADESH
+
+05:Bagerhat zila
+01:Bandarban zila
+02:Barguna zila
+06:Barisal zila
+07:Bhola zila
+03:Bogra zila
+04:Brahmanbaria zila
+09:Chandpur zila
+10:Chittagong zila
+12:Chuadanga zila
+08:Comilla zila
+11:Cox's Bazar zila
+13:Dhaka zila
+14:Dinajpur zila
+15:Faridpur zila
+16:Feni zila
+19:Gaibandha zila
+18:Gazipur zila
+17:Gopalganj zila
+20:Habiganj zila
+24:Jaipurhat zila
+21:Jamalpur zila
+22:Jessore zila
+25:Jhalakati zila
+23:Jhenaidah zila
+29:Khagrachari zila
+27:Khulna zila
+26:Kishorganj zila
+28:Kurigram zila
+30:Kushtia zila
+31:Lakshmipur zila
+32:Lalmonirhat zila
+36:Madaripur zila
+37:Magura zila
+33:Manikganj zila
+39:Meherpur zila
+38:Moulvibazar zila
+35:Munshiganj zila
+34:Mymensingh zila
+48:Naogaon zila
+43:Narail zila
+40:Narayanganj zila
+42:Narsingdi zila
+44:Natore zila
+45:Nawabganj zila
+41:Netrakona zila
+46:Nilphamari zila
+47:Noakhali zila
+49:Pabna zila
+52:Panchagarh zila
+51:Patuakhali zila
+50:Pirojpur zila
+53:Rajbari zila
+54:Rajshahi zila
+56:Rangamati zila
+55:Rangpur zila
+58:Satkhira zila
+62:Shariatpur zila
+57:Sherpur zila
+59:SirajOanj zila
+61:SunamOanj zila
+60:Sylhet zila
+63:Tangail zila
+64:Thakurgaon zila
+
 Country=BELARUS
 
 BR:Brèsckaja voblasc
@@ -432,6 +950,191 @@ MA:Mahilëuskaja voblasc'
 MI:Minskaja voblasc'
 VI:Vicebskaja voblasc'
 
+
+Country=BELGIUM
+
+VAN:Antwerpen
+WBR:Brabant Wallon
+WHT:Hainaut
+WLG:Liêge
+VLI:Limburg
+WLX:Luxembourg
+WNA:Namur
+VOV:Ooat-Vlaanderen
+VBR:Vlaams Brabant
+VWV:West-Vlaanderen
+
+Country=BURKINA FASO
+
+BAL:Balé
+BAM:Bam
+BAN:Banwa
+BAZ:Bazega
+BGR:Bougouriba
+BLG:Boulgou
+BLK:Boulkiemdé
+COM:Comoé
+GAN:Ganzourgou
+GNA:Gnagna
+GOU:Gourma
+HOU:Houet
+IOB:Ioba
+KAD:Kadiogo
+KEN:Kénédougou
+KMD:Komondjari
+KMP:Kompienga
+KOS:Kossi
+KOP:KoulpÚlogo
+KOT:Kouritenga
+KOW:Kourweogo
+LER:Léraba
+LOR:Loroum
+MOU:Mouhoun
+NAO:Nahouri
+NAM:Namentenga
+NAY:Nayala
+NOU:Noumbiel
+OUB:Oubritenga
+OUD:Oudalan
+PAS:Passoré
+PON:Poni
+SNG:Sanguié
+SMT:Sanmatenga
+SEN:Séno
+SIS:Siasili
+SOM:Soum
+SOR:Sourou
+TAP:Tapoa
+TUI:Tui
+YAG:Yagha
+YAT:Yatenga
+ZIR:Ziro
+ZON:Zondoma
+ZOU:Zoundwéogo
+
+Country=BULGARIA
+
+02:Burgas
+09:Haskovo
+04:Lovec
+05:Montana
+06:Plovdiv
+07:Ruse
+08:Sofija
+01:Sofija-Grad
+03:Varna
+
+Country=BAHRAIN
+
+01:Al Hadd
+03:Al Manamah
+10:Al Mintaqah al Gharbiyah
+07:Al Mintagah al Wustá
+05:Al Mintaqah ash Shamaliyah
+02:Al Muharraq
+09:Ar Rifa
+04:Jidd Hafs
+12:Madluat Jamad
+08:Madluat Isã
+11:Mintaqat Juzur tawar
+06:Sitrah
+
+Country=BENIN
+
+AK:Atakora
+AQ:Atlantique
+BO:Borgou
+MO:Mono
+OU:Ouémé
+ZO:Zou
+
+Country=BRUNEI DARUSSALAM
+
+BE:Belait
+BM:Brunei-Muara
+TE:Temburong
+TU:Tutong
+
+Country=BOLIVIA
+
+C:Cochabamba
+H:Chuquisaca
+B:El Beni
+L:La Paz
+O:Oruro
+N:Pando
+P:Potosi
+S:Santa Cruz
+T:Tarija
+
+Country=BAHAMAS
+
+AC:Acklins and Crooked Islands
+BI:Bimini
+CI:Cat Island
+EX:Exuma
+FP:Freeport
+FC:Fresh Creek
+GH:Governor's Harbour
+GT:Green Turtle Cay
+HI:Harbour Island
+HR:High Rock
+IN:Inagua
+KB:Kemps Bay
+LI:Long Island
+MH:Marsh Harbour
+MG:Mayaguana
+NP:New Providence
+NB:Nicholls Town and Berry Islands
+RI:Ragged Island
+RS:Rock Sound
+SP:Sandy Point
+SR:San Salvador and Rum Cay
+
+Country=BHUTAN
+
+33:Bumthang
+12:Chhukha
+22:Dagana
+GA:Gasa
+13:Ha
+44:Lhuentse
+42:Monggar
+11:Paro
+43:Pemagatshel
+23:Punakha
+45:Samdrup Jongkha
+14:Samtee
+31:Sarpang
+15:Thimphu
+41:Trashigang
+TY:Trashi Yangtse
+32:Trongsa
+21:Tsirang
+24:Wangdue Phodrang
+34:Zhemgang
+
+Country=BOTSWANA
+
+CE:Central 
+CH:Chobe
+GH:Ghanzi
+KG:Kgalagadi
+KL:Kgatleng
+KW:Kweneng
+NG:Ngamiland 
+NE:North-East
+SE:South-East
+SO:Southern
+
+Country=BELIZE
+
+BZ:Belize
+CY:Cayo
+CZL:Corozal
+OW:Orange Walk
+SC:Stann Creek
+TOL:Toledo
 Country=BRAZIL
 
 AC:Acre
@@ -464,6 +1167,7 @@ SP:Sao Paulo
 TO:Tocatins
 
 Country=CANADA
+SubCountryType=Province
 
 AB:Alberta
 BC:British Columbia
@@ -478,6 +1182,266 @@ PE:Prince Edward Island
 QC:Quebec
 SK:Saskatchewan
 YT:Yukon Territory
+
+Country=DEMOCRATIC REPUBLIC OF CONGO
+
+KN:Kinshasa
+BN:Bandundu
+BC:Bas-Congo
+EQ:Équateur
+HC:Haut-Congo
+KW:Kasai-Occidental
+KE:Kasai-Oriental
+KA:Katanga
+MA:Maniema
+NK:Nord-Kivu
+SK:Sud-Kivu
+
+Country=COMORROS
+
+A:Anjouan Ndzouani
+G:Grande Comore Ngazidja
+M:Mohéli Moili
+
+Country=CENTRAL AFRICAN REPUBLIC
+
+BGF:Bangui
+BB:Bamingui-Bangoran
+BK:Baase-Kotto
+HK:Haute-Kotto
+HM:Haut-Mbomou
+KG:Kémo
+LB:Lobaye
+HS:Mambéré-Kadéï
+MB:Mbomou
+KB:Nana-Grébizi
+NM:Nana-Mambéré
+MP:Ombella-Mpoko
+UK:Ouaka
+AC:Ouham
+OP:Ouham-Pendé
+SE:Sangha-Mbaéré
+VR:Vakaga
+
+Country=CONGO
+
+BZV:Brazzaville
+11:Bouenza
+8:Cuvette
+15:Cuvette-Ouest
+5:Kouilou
+2:Lékoumou
+7:Likouala
+9:Niari
+14:Plateaux
+12:Pool
+13:Sangha
+
+Country=CHAD
+
+BA:Batha
+BI:Biltine
+BET:Borkou-Ennedi-Tibesti
+CB:Chari-Baguirmi
+GR:Guéra
+KA:Kanem
+LC:Lac
+LO:Logone-Occidental
+LR:Logone-Oriental
+MK:Mayo-Kébbi
+MC:Moyen-Chari
+OD:Ouaddaï
+SA:Salamat
+TA:Tandjilé
+
+Country=CHILE
+
+AI:Aisén del General Carlos Ibáñez del Campo
+AN:Antofagasta
+AR:Araucanía
+AT:Atacama
+BI:Bío-Bío
+CO:Coquimbo
+LI:Libertador General Bernardo O'Higgins
+LL:Los Lagos
+MA:Magallanes
+ML:Maule
+RM:Region Metropolitana de Santiago
+TA:Tarapacá
+VS:Valparaíso
+
+Country=CAMEROON
+
+AD:Adamaoua
+CE:Centre
+ES:East
+EN:Far North
+LT:Littoral
+NO:North
+NW:North-West
+SW:South
+SW:South-Weat
+OU:West
+
+Country=CHINA
+
+11:Beijing
+50:Chongqing
+31:Shanghai
+12:Tianjin
+34:Anhui
+35:Fujian
+62:Gansu
+44:Guangdong
+52:Gulzhou
+46:Hainan
+13:Hebei
+23:Heilongjiang
+41:Henan
+42:Hubei
+43:Hunan
+32:Jiangsu
+36:Jiangxi
+22:Jilin
+21:Liaoning
+63:Qinghai
+61:Shaanxi
+37:Shandong
+14:Shanxi
+51:Sichuan
+71:Taiwan
+53:Yunnan
+33:Zhejiang
+45:Guangxi
+15:Nei Monggol
+64:Ningxia
+65:Xinjiang
+54:Xizang
+91:Hong Kong
+
+Country=COLOMBIA
+
+DC:Distrito Capltal de Santa Fe de Bogotã
+AMA:Amazonea
+ANT:Antioquia
+ARA:Arauca
+ATL:Atlántico
+BOL:Bolívar
+BOY:Boyacá
+CAL:Caldea
+CAQ:Caquetá
+CAS:Casanare
+CAU:Cauca
+CES:Cesar
+COR:Córdoba
+CUN:Cundinamarca
+CHO:Chocó
+GUA:Guainía
+GUV:Guaviare
+HUI:Huila
+LAG:La Guajira
+MAG:Magdalena
+MET:Meta
+NAR:Nariño
+NSA:Norte de Santander
+PUT:Putumayo
+QUI:Quindío
+RIS:Risaralda
+SAP:San Andrés, Providencia y Santa Catalina
+SAN:Santander
+SUC:Sucre
+TOL:Tolima
+VAC:Valle del Cauca
+VAU:Vaupés
+VID:Vichada
+
+Country=COSTA RICA
+
+A:Alajuela
+C:Cartago
+G:Guanacaste
+H:Heredia
+L:Limón
+P:Puntarenas
+SJ:San José
+
+Country=CROATIA
+
+07:Bjelovarsko-bilogorska zupanija
+12:Brodsko-posavska zupanija
+19:Dubrovacko-neretvanska zupanija
+18:Istarska zupanija
+04:Karlovacka zupanija
+06:Koprivoickco-krizeva6ka zupanija
+02:Krapinako-zagorska zupanija
+09:Licko-senjska zupanija
+20:Medjimuraka zupanija
+14:Osjecko-baranjska zupanija
+11:Pozesko-slavonska zupanija
+08:Primorsko-goranska zupanija
+03:Sisasko-moelavacka Iupanija
+17:Splitako-dalmatinska zupanija
+15:Sibenako-kninska zupanija
+05:Varaidinska zupanija
+10:VirovitiEko-podravska zupanija
+16:VuRovarako-srijemska zupanija
+13:Zadaraka 
+01:Zagrebacka zupanija
+
+Country=CUBA
+
+09:Camagüey
+08:Ciego de `vila
+06:Cienfuegos
+03:Ciudad de La Habana
+12:Granma
+14:Guantánamo
+11:Holquin
+02:La Habana
+10:Las Tunas
+04:Matanzas
+01:Pinar del Río
+07:Sancti Spiritus
+13:Santiago de Cuba
+05:Villa Clara
+99:Isla de la Juventud
+
+Country=CAPE VERDE
+
+BV:Boa Vista
+BR:Brava
+FO:Fogo
+MA:Maio
+PA:Paul
+PN:Porto Novo
+PR:Praia
+RG:Ribeira Grande
+SL:Sal
+CA:Santa Catarina
+CR:Santa Cruz
+SN:Sao Nicolau
+SV:Sao Vicente
+TA:Tarrafal
+
+Country=CYPRUS
+
+04:Ammochostos Magusa
+06:Keryneia
+03:Larnaka
+01:Lefkosia
+02:Lemesos
+05:Pafos
+
+Country=CZECH REPUBLIC
+
+PRG:Praha
+CJC:Jihocesky kraj
+CJM:Jihomoravsky kraj
+CSC:Severoceaky kraj
+CSM:Soveromoravsky kraj
+CST:Stredocesky kraj
+CVC:Vychodocesky kraj
+CZC:Západocesky kraj
 
 Country=DENMARK
 
@@ -495,6 +1459,14 @@ Country=DENMARK
 070:Århus
 076:Viborg
 080:Nordjyllands
+
+Country=DJIBOUTI
+
+AS:Ali Sabiah
+DI:Dikhil
+DJ:Djibouti
+OB:Obock
+TA:Tadjoura
 
 Country=DOMINICAN REPUBLIC
 
@@ -529,6 +1501,60 @@ Country=DOMINICAN REPUBLIC
 26:Santiago Rodríguez
 27:Valverde
 
+
+Country=ECUADOR
+
+A:Azuay
+B:Bolívar
+F:Cañar
+C:Carchi
+X:Cotopaxi
+H:Chimborazo
+O:El Oro
+E:Esmeraldas
+W:Galápagos
+G:Guayas
+I:Imbabura
+L:Loja
+R:Los Rios
+M:Manabi
+S:Morona-Santiago
+N:Napo
+Y:Pastaza
+P:Pichincha
+U:Sucumbíos
+T:Tungurahua
+Z:Zamora-Chinchipe
+
+Country=EGYPT
+
+DK:Ad Daqahllyah
+BA:Al Bahr al Ahmar
+BH:Al Buhayrah
+FYM:Al FayyÜm
+GH:Al Gharbîyah
+ALX:Al Iskandarlyah
+IS:Al Isma îllyah
+GZ:Al Jîzah
+MNF:Al Minuflyah
+MN:Al Minya
+C:Al Qahirah
+KB:Al Qalyûblyah
+WAD:Al Wadi al Jadîd
+SHR:Ash Sharqiyah
+SUZ:As Suways
+ASN:Aswan
+AST:Asyut
+BNS:Bani Suwayf
+PTS:Bûr Sa'îd
+DT:Dumyàt
+JS:Janûb Sîna'
+KFS:Kafr ash Shaykh
+MT:Matrûh
+KN:Qinå
+SIN:Shamâl Sinã'
+SHG:Suhâj
+
 Country=ERITREA
 
 AN:Anseba
@@ -538,7 +1564,54 @@ GB:Gash-Barka
 MA:Maakel [Maekel]
 SK:Semenawi Keyih Bahri [Semien-Keih-Bahri]
 
+Country=ESTONIA
+
+37:Harjumsa
+39:Hitumea
+44:Ida-Virumsa
+49:Jögevamsa
+51:Järvamsa
+57:Läsnemsa
+59:Lääne-Virumaa
+65:Polvamea
+67:Pärnumsa
+70:Raplamsa
+74:Saaremsa
+7B:Tartumsa
+82:Valgamaa
+84:Viljandimsa
+86:Vôrumaa
+
+Country=ETHIOPIA
+
+AA:Addis Ababa 
+AF:Afar
+AM:Amara {Amhara]
+BE:Benshangul-Gumaz 
+GA:Gambela Peoples 
+HA:Harari People 
+OR:Oromia 
+SO:Somali
+SN:Southern Nations, Nationalitioa and Peoples
+TI:Tigrai 
+
+Country=FIGI
+
+C:Central
+E:Eastern
+N:Northern
+W:Western
+R:Rotuma
+
+Country=FEDERATED STATES OF MICRONESIA
+
+TRK:Chuuk
+KSA:Kosrae
+PNI:Pohnpei
+YAP:Yap
+
 Country=FRANCE
+SubCountryType=Department
 
 01:Ain
 02:Aisne
@@ -635,7 +1708,108 @@ Country=FRANCE
 89:Yonne
 78:Yvelines
 
+Country=GAMBIA
+
+B:Banjul
+L:Lower River
+M:MacCarthy Island
+N:North Bank
+U:Upper River
+W:Western
+
+Country=GABON
+
+1:Estuaire
+2:Haut-Ogooué
+3:Moyen-Ogooué
+4:Ngounié
+5:Nyanga
+6:Ogooué-Ivindo
+7:Ogooué-Lolo
+8:Ogooué-Maritime
+9:Woleu-Ntem
+
+Country=GEORGIA
+
+AB:Ap'khazet'is Avtonomiuri Respublika 
+AJ:Acharis Avtonomiuri Respublika 
+BUS:Bat 'umi
+CHI:Chiat'ura
+GAG:Gagra
+GOP:Gori
+KUT:K'ut'aisi
+PTI:P'ot'i
+PUS:Rust'avi
+SUI:Sokhumi
+TBS:T'bilisi
+TQI:Tqibuli
+TQV:Tqvarch'eli
+TSQ:Tsqalmbo
+ZUG:Zuqdidi
+01:Abashin Raioni
+02:Adigenis Raioni
+03:Akhalgoria Raioni
+04:Akhalk'alak'is Raioni
+05:Akhalts'ikhis Raioni
+06:Akhmetis Raioni
+07:Ambrolauris Raioni
+08:Aspindzis Raioni
+09:Baghdat' is Raioni
+10:Bolniais Raioni
+11:Borjamie Raioni
+12:Ch'khorotsqus Raioni
+13:Ch'okhatauris Raioni
+14:Dedop'listsqaros Raioni
+15:Dmaniais Raioni
+16:Dushet' is Raioni
+17:Galis Raioni
+18:Gardabnis Raioni
+19:Goris Raioni
+20:Gudaut' is Raioni
+21:Gulrip'shis Raioni
+22:Gurjeanis Raioni
+23:Javis Raioni
+24:K'arelis Raioni
+25:Kaspis Raioni
+26:K'edis Raioni
+27:Kharagaulis Raioni
+28:Khashuris Raioni
+29:Khelvach'auri6 Raioni
+30:Khobis Raioni
+31:Xhonis Raioni
+32:Khulos Raioni
+33:K'obuletis Raioni
+34:Lagodekhis Raioni
+35:Lanch'khut'is Raioni
+36:Lentekhis Raioni
+37:Marneulis Raioni
+38:Martvilis Raioni
+39:Mestiis Raioni
+40:Mts'khet'is Raioni
+41:Ninotsmindis Raioni
+42:Och'amch'iris Raioni
+43:Onis Raioni
+44:Ozurget' is Raioni
+45:Qazbegis Raioni
+46:Qvarlis Raioni
+47:Sach'kheris Raioni
+48:Sagarejos Raioni
+49:Samtrediis Raioni
+50:Senakis Raioni
+51:Shuakhevis Raioni
+52:Sighnaghis Raioni
+53:Sokhumis Raioni
+54:T'elavis Raioni
+55:T'erjolis Raioni
+56:T'et'ritsqaros Raioni
+57:T'ianet'is Raioni
+58:Ts'ageris Raioni
+59:Tsalenjikhis Raioni
+62:Zestap'onis Raioni
+63:Zugdidis Raioni
+
 Country=GERMANY
+SubCountryType=Lander
 
 BW:Baden-Wuerttemberg
 BY:Bayern
@@ -653,6 +1827,295 @@ MV:Mecklenburg-Vorpommern
 SN:Sachsen
 ST:Sachsen-Anhalt
 TH:Thueringen
+
+Country=GHANA
+
+AH:Ashanti
+BA:Brong-Ahafo
+CP:Central
+EP:Eastern
+AA:Greater Accra
+NP:Northern
+UE:Upper East
+UW:Upper West
+TV:Volta
+WP:Western
+
+Country=GUINEA
+
+BE:Beyla
+BF:Boffa
+BK:Boké
+CO:Coyah
+DB:Dabola
+DL:Dalaba
+DI:Dinguiraye
+DU:Dubréka
+FA:Faranah
+FO:Forécariah
+FR:Fria
+GA:Gaoual
+GU:Guékédou
+KA:Kankan
+KE:Kérouané
+KD:Kindia
+KS:Kissidougou
+KB:Koubia
+KD:Koundara
+KO:Kouroussa
+LA:Labé
+LE:Lélouma
+LO:Lola
+MC:Macenta
+ML:Mali
+MM:Mamou
+MD:Mandiana
+NZ:Nzérékoré
+PI:Pita
+SI:Siguiri
+TE:Télimélé
+TO:Tougué
+YO:Yomou
+
+Country=EQUATORIAL GUINEA
+
+C:Regiôn Continental
+I:Region Insular
+AN:Annobón
+BN:Bioko Norte
+BS:Bioko Sur
+CS:Centro Sur
+KN:Kie-Ntem
+LI:Litoral
+WN:Wele-Nzas
+
+Country=GREECE
+
+13:Achaïa
+01:Aitolia-Akarnania
+11:Argolis
+12:Arkadia
+31:Arta
+A1:Attiki
+64:Chalkidiki
+94:Chania
+85:Chios
+81:Dodekanisos
+52:Drama
+71:Evros
+05:Evrytania
+04:Evvoia
+63:Florina
+07:Fokis
+06:Fthiotis
+51:Grevena
+14:Ileia
+53:Imathia
+33:Ioannina
+91:Irakleion
+41:Karditsa
+56:Kastoria
+55:Kavalla
+23:Kefallinia
+22:Kerkyra
+57:Kilkis
+15:Korinthia
+58:Kozani
+82:Kyklades
+16:Lakonia
+42:Larisa
+92:Lasithion
+24:Lefkas
+83:Lesvos
+43:Magnisia
+17:Messinia
+59:Pella
+34:Preveza
+93:Rethymnon
+73:Rodopi
+84:Samos
+62:Serrai
+32:Thesprotia
+54:Thessaloniki
+44:Trikala
+03:Voiotia
+72:Xanthi
+21:Zakynthos
+69:Agio Oros
+
+Country=GUATEMALA
+
+AV:Alta Verapez
+BV:Baja Verapez
+CM:Chimaltenango
+CQ:Chiquimula
+PR:El Progreso
+ES:Escuintla
+GU:Guatemala
+HU:Huehuetenango
+IZ:Izabal
+JA:Jalapa
+JU:Jutíapa
+PE:Petén
+QZ:Quezaltenango
+QC:Quiché
+RE:Reta.thuleu
+SA:Sacatepéquez
+SM:San Marcos
+SR:Santa Rosa
+SO:Solol6
+SU:Suchitepéquez
+TO:Totonicapán
+ZA:Zacapa
+
+Country=GUINEA BISSAU
+
+BS:Bissau
+BA:Bafatá
+BM:Biombo
+BL:Bolama
+CA:Cacheu
+GA:Gabú
+OI:Oio
+QU:Quloara
+TO:Tombali S
+
+Country=GUYANA
+
+BA:Barima-Waini
+CU:Cuyuni-Mazaruni
+DE:Demerara-Mahaica
+EB:East Berbice-Corentyne
+ES:Essequibo Islands-West Demerara
+MA:Mahaica-Berbice
+PM:Pomeroon-Supenaam
+PT:Potaro-Siparuni
+UD:Upper Demerara-Berbice
+UT:Upper Takutu-Upper Essequibo
+
+Country=HAITI
+
+CE:Centre
+GA:Grande-Anse
+ND:Nord
+NE:Nord-Eat
+NO:Nord-Ouest
+OU:Ouest
+SD:Sud
+SE:Sud-Est
+
+Country=HONDURAS
+
+AT:Atlántida
+CL:Colón
+CM:Comayagua
+CP:Copán
+CR:Cortés
+CH:Choluteca
+EP:El Paraíso
+FM:Francisco Morazán
+GD:Gracias a Dios
+IN:Intibucá
+IB:Islas de la Bahía
+LP:La Paz
+LE:Lempira
+OC:Ocotepeque
+OL:Olancho
+SB:Santa Bárbara
+VA:Valle
+YO:Yoro
+
+Country=HUNGARY
+
+BU:Budapest
+BK:Bács-Kiskun
+BA:Baranya
+BE:Békés
+BZ:Borsod-Abaúj-Zemplén
+CS:Csongrád
+FE:Fejér
+GS:Gyõr-Moson-Sopron
+HB:Hajdû-Bihar
+HE:Heves
+JN:Jász-Nagykun-Szolnok
+KE:Komárom-Esztergom
+NO:Nógrád
+PE:Pest
+SO:Somogy
+SZ:Szabolcs-Szatmár-Bereg
+TO:Tolna
+VA:Vas
+VE:Veszprém
+ZA:Zala
+BC:Békéscsaba
+DE:Debrecen
+DU:Dunaújváros
+EG:Eger
+GY:Gyór
+HV:Hôdmezóvásárhely
+KV:Kaposvár
+KM:Kecékemét
+MI:Miskolc
+NK:Nagykanizaa
+NY:Nyíregyháza
+PS:Pécs
+ST:Salgótarján
+SN:Sopron
+SD:Szaged
+SF:Szakeafahérvár
+SS:Szakszárd
+SK:Szolnok
+SH:Szombathely
+TB:Tatabinya
+VM:Veezprém
+ZE:Zalaegerszeg
+
+Country=ICELAND
+
+7:Austurland
+1:Höfuoborgarsvæöi utan Reykjavíkur
+6:Noröurland eystra
+5:Noröurland vestra
+0:Reykjavík
+8:Suöurland
+2:Suöurnes
+4:Vestfirölr
+3:Vesturland
+
+Country=INDIA
+
+AP:Andhra Pradesh
+AR:Arunachal Pradesh
+AS:Assam
+BR:Bihar
+GA:Goa
+GJ:Gujarat
+HR:Haryana
+HP:Himachal Pradesh
+JK:Jammu and Kashmir
+KA:Karnataka
+KL:Kerala
+MP:Madhya Pradesh
+MM:Maharashtra
+MN:Manipur
+ML:Meghalaya
+MZ:Mizoram
+NL:Nagaland
+OR:Orissa
+PB:Punjab
+RJ:Rajasthan
+SK:Sikkim
+TN:Tamil Nadu
+TR:Tripura
+UP:Uttar Pradesh
+W8:West Bengal
+AN:Andaman and Nicobar Islands
+CH:Chandigarh
+DN:Dadra and Nagar Haveli
+DD:Daman and Diu
+DL:Delhi
+LD:Lakshadweep
+PY:Pondicherry
 
 Country=INDONESIA
 
@@ -690,6 +2153,7 @@ TT:Timor-Timur
 YO:Yogyakarta
 
 Country=IRELAND
+SubCountryType=County
 
 C:Cork
 CE:Clare
@@ -845,6 +2309,75 @@ VT:Viterbo
 23:Valle d'Aosta
 34:Veneto
 
+Country=IRAQ
+
+AN:Al Anbar
+BA:Al Ba,rah
+MU:Al Muthanná
+QA:Al Qadisiyah
+NA:An Najef
+AR:Arbil
+SW:As Sulaymaniyah
+TS:At Ta'mîm
+BB:Babil
+BG:Baghdäd
+DA:Dahùk
+DQ:Dhi Qär
+DI:Diyälá
+KA:Karbalä'
+MA:Maysan
+NI:Ninawá
+SD:Salah ad Din
+WA:Wasit
+
+Country=IRAN
+
+03:ArdabLl
+02:Azarbayjän-e-Gharbî
+01:Azarb&yjan-e-Sharq
+06:Büahahr
+08:Chahar Mahall va Bakhtlari
+04:Esfahan
+14:Fars
+19:Gilan
+24:Hamadan
+23:Hormozgän
+05:Ilam
+15:Kerman
+17:Kermanshähan
+09:Khoràsàn
+10:KhÜzestan
+18:Kohkilüyeh va Büyer Ahmadî
+16:Kordeatan
+20:Lorestan
+22:Markazî
+21:Mazandaran
+26:Qom
+12:Semnan
+13:SIstan va Balûchestan
+07:Tehran
+25:Yazd
+11:Zanjan
+
+Country=IVORY COAST
+
+06:18 Montagnes
+16:Agnébi
+09:Bas-Sassandra
+10:Denguélé
+02:Haut-Sassandra
+07:Lacs
+01:Lagunes
+12:Marahoué
+05:Moyen-Comoé
+11:Nzi-Comoé
+03:Savanes
+15:Sud-Bandama
+13:Sud-Comoé
+04:Vallée du Bandama
+14:Worodouqou
+08:Zanzan
+
 Country=JAPAN
 
 23:Aichi
@@ -895,25 +2428,632 @@ Country=JAPAN
 35:Yamaguchi
 19:Yamanashi
 
+Country=JAMAICA
 
-Country=SOUTH KOREA
+13:Clarendon
+09:Hanover
+01:Kingston
+12:Manchester
+04:Portland
+02:Saint Andrew
+06:Saint Ann
+14:Saint Catherine
+11:Saint Elizabeth
+08:Saint James
+05:Saint Mary
+03:Saint Thomea
+07:Trelawny
+10:Westmoreland
 
-11:Seoul Teugbyeolsi
-26:Busan Gwang'yeogsi
-27:Daegu Gwang'yeogsi
-30:Daejeon Gwang'yeogsi
-29:Gwangju Gwang'yeogsi
-28:Incheon Gwang'yeogsi
-31:Ulsan Gwang'yeogsi
-43:Chungcheongbugdo
-44:Chungcheongnamdo
-42:Gang'weondo
-41:Gyeonggido
-47:Gyeongsangbugdo
-48:Gyeongsangnamdo
-49:Jejudo
-45:Jeonrabugdo
-46:Jeonranamdo
+Country=JORDAN
+
+AJ:Ajlün
+AQ:Al 'Aqaba
+BA:Al Balqa'
+KA:Al Karak
+MA:Al Mafraq
+AM:'Ammãn
+AT:At Tafîlah
+AZ:Az Zargã'
+JR:Irbid
+JA:Jarash
+MN:Ma'ãn
+MD:Madaba
+
+Country=KENYA
+
+110:Nairobi Municipality
+200:Central
+300:Coast
+400:Eastern
+500:North-Eastern Kaskazini Mashariki
+700:Rift Valley
+900:Western Magharibi
+
+Country=KYRGYSTAN
+
+C:Chu
+J:Jalal-Abad
+N:Naryn
+O:Osh
+T:Talas
+Y:Ysyk-Kol
+
+Country=CAMBODIA
+
+23:Krong Kaeb 
+18:Xrong Preah Sihanouk 
+12:Phnom Penh 
+2:Baat Dambang 
+1:Banteay Mean Chey 
+3:Rampong Chaam 
+4:Kampong Chhnang 
+5:Kampong Spueu 
+6:Kampong Thum 
+7:Kampot 
+8:Kandaal 
+9:Kach Kong 
+10:Krachoh 
+11:Mondol Kiri 
+22:Otdar Mean Chey 
+15:Pousaat 
+13:Preah Vihear 
+14:Prey Veaeng 
+16:Rotanak Kiri 
+17:Siem Reab 
+19:Stueng Traeng 
+20:Svaay Rieng 
+21:Taakaev
+
+Country=KIRIBATI
+
+G:Gilbert Islands
+L:Line Islands
+P:Phoenix Islands
+
+Country=KUWAIT
+
+AH:Al Ahmadî
+FA:Al Farwanlyah
+JA:Al Jahrah
+KU:Al Kuwayt
+HA:Hawallî
+
+Country=KAZAKHSTAN
+
+ALA:Almaty
+BAY:Bayqonyr
+ALM:Almaty oblysy
+AKM:Aqmola oblysy
+AKT:Aqtöbe oblysy
+ATY:Atyraû oblyfiy
+ZAP:Batys Kazakstan
+MAN:Mangghystaû oblysy
+YUZ:Ongtustik Kazakstan Yuzhno-Kazakhstanskaya Juzno-Kazahetanskaja
+PAV:Pavlodar oblysy
+KAR:Qaraghandy oblysy
+KUS:Qostanay oblysy
+KZY:Qyzylorda oblysy
+VOS:Shyghys Kazakstan
+SEV:SoltÜatik Kazakstan Severo-Kazakhstanskaya Severo-Kazahstanskaja
+ZHA:Zhambyl oblysy Zhambylskaya oblast'
+
+Country=LAOS
+
+VT:Vientiane
+AT:Attapu 
+BK:Bokèo
+BL:Bolikhamxai 
+CH:Champasak 
+HO:Houaphan
+KH:Khammouan
+LM:Louang Namtha
+LP:Louangphabang 
+OU:Oudômxai 
+PH:Phôngsali 
+SL:Salavan 
+SV:Savannakhét
+VI:Vientiane
+XA:Xaignabouli 
+XE:Xékong 
+XI:Xiangkhoang 
+
+Country=LEBANON
+
+BA:Beirout
+BI:El Bégsa
+JL:Jabal Loubnâne
+AS:Loubnane ech Chemàli
+JA:Loubnâne ej Jnoûbi
+NA:Nabatîyé
+
+Country=SRI LANKA
+
+52:Ampara
+71:Anuradhapura
+81:Badulla
+51:Batticaloa
+11:Colombo
+31:Galle
+12:Gampaha
+33:Hambantota
+41:Jaffna
+13:Kalutara
+21:Kandy
+92:Kegalla
+42:Kilinochchi
+61:Kurunegala
+43:Mannar
+22:Matale
+32:Matara
+82:Monaragala
+45:Mullaittivu
+23:Nuwara Eliya
+72:Polonnaruwa
+62:Puttalum
+91:Ratnapura
+53:Trincomalee
+44:VavunLya
+
+Country=LIBERIA
+
+BM:Bomi
+BG:Bong
+GB:Grand Basaa
+CM:Grand Cape Mount
+GG:Grand Gedeh
+GK:Grand Kru
+LO:Lofa
+MG:Margibi
+MY:Maryland
+MO:Montserrado
+NI:Nimba
+RI:Rivercess
+SI:Sinoe
+
+Country=LESOTHO
+
+D:Berea
+B:Butha-Buthe
+C:Leribe
+E:Mafeteng
+A:Maseru
+F:Mohale's Hoek
+J:Mokhotlong
+H:Qacha's Nek
+G:Quthing
+K:Thaba-Tseka
+
+Country=LITHUANIA
+
+AL:Alytaus Apskritis
+KU:Kauno Apskritis
+KL:Klaipedos Apskritis
+MR:Marijampoles Apskritis
+PN:Panevezio Apskritis
+SA:Sisuliu Apskritis
+TA:Taurages Apskritis
+TE:Telsiu Apskritis
+UT:Utenos Apskritis
+VL:Vilniaus Apskritis
+
+Country=LATVIA
+
+AI:Aizkraukles Apripkis
+AL:AlÜkanes Apripkis
+BL:Balvu Apripkis
+BU:Bauskas Apripkis
+CE:Cêsu Aprikis
+DA:Daugavpile Apripkis
+DO:Dobeles Apripkis
+GU:Gulbenes Aprlpkis
+JL:Jelgavas Apripkis
+JK:Jékabpils Apripkis
+KR:Kräslavas Apripkis
+KU:Kuldlgas Apripkis
+LM:Limbazu Apripkis
+LE:Liepàjas Apripkis
+LU:Ludzas Apripkis
+MA:Madonas Apripkis
+OG:Ogres Apripkis
+PR:Preilu Apripkis
+RE:Rèzaknes Apripkis
+RI:Rîgas Apripkis
+SA:Saldus Apripkis
+TA:Talsu Apripkis
+TU:Tukuma Apriplcis
+VK:Valkas Apripkis
+VM:Valmieras Apripkis
+VE:Ventspils Apripkis
+DGV:Daugavpils
+JEL:Jelgava
+JUR:Jurmala
+LPX:Liepäja
+REZ:Rêzekne
+RIX:Rlga
+VEN:Ventspils
+
+Country=LIBYA
+
+BU:Al Butnan
+JA:Al Jabal al Akhdar
+JG:Al Jabal al Gharbî
+JU:Al Jufrah
+WA:Al Wâhah
+WU:Al Wustá
+ZA:Az Zãwiyah
+BA:Banghazi
+FA:Fazzan
+MI:Misratah
+NA:Naggaza
+SF:Sawfajjin
+TB:Tarãbulus
+
+Country=MOROCCO
+
+AGD:Agadir
+BAH:Aït Baha
+MEL:Aït Melloul
+HAO:Al Haouz
+HOC:Al Hoceïma
+ASZ:Assa-Zag
+AZI:Azilal
+BEM:Beni Mellal
+BES:Ben Sllmane
+BER:Berkane
+BOD:Boujdour 
+BOM:Boulemane
+CAS:Casablanca 
+CHE:Chefchaouene
+CHI:Chichaoua
+HAJ:El Hajeb
+JDI:El Jadida
+ERR:Errachidia
+ESI:Essaouira
+ESM:Es Semara 
+FES:Fès
+FIG:Figuig
+GUE:Guelmim
+IFR:Ifrane
+IRA:Jrada
+KES:Kelaat Sraghna
+KEN:Kénitra
+KHE:Khemisaet
+KHN:Khenifra
+KHO:Khouribga
+LAA:Laayoune. (EH)
+LAP:Larache
+MAR:Marrakech
+MEK:Meknès
+NAD:Nador
+OUA:Ouarzazate
+OUD:Oued ed Dahab (EH)
+OUJ:Oujda
+RBA:Rabat-Salé
+SAF:Safi
+SEF:Sefrou
+SET:Settat
+SIK:Sidl Kacem
+TNG:Tanger
+TNT:Tan-Tan
+TAO:Taounate
+TAR:Taroudannt
+TAT:Tata
+TAZ:Taza
+TET:Tétouan
+TIZ:Tiznit
+
+Country=MOLDOVA
+
+BAL:Balti
+CAH:Cahul
+CHI:Chisinau
+DUB:Dubasari
+ORH:Orhei
+RIB:Ribnita
+SOC:Soroca
+TIG:Tighina
+TIP:Tiraspol
+UNG:Ungheni
+ANE:Anenii Noi
+BAS:Basarabeasca
+BRI:Brinceni
+CHL:Cahul
+CAM:Camenca
+CAN:Cantemir
+CAI:Cainari
+CAL:Calarayi
+CAS:Causeni
+CIA:Ciadîr-Lunga
+CIM:Cimi'lia
+COM:Comrat
+CRI:Criuleni
+DON:Donduseni
+DRO:Drochia
+DBI:Dubasari
+EDI:Edine;
+FAL:Fãlesti
+FLO:Floresti
+GLO:Glodeni
+GRI:Grigoriopol
+HIN:Hîncesti
+IAL:Ialoveni
+LEO:Leova
+NIS:Nisporeni
+OCN:Ocni\a
+OHI:Orhei
+REZ:Rezina
+RIT:Rîbnita
+RIS:Rîscani
+SIN:Sîngerei
+SLO:Slobozia
+SOA:Soroca
+STR:Straseni
+SOL:Soldanesti
+STE:Stefan Voda
+TAR:Taraclia
+TEL:Telenesti
+UGI:Ungheni
+VUL:Vulcanesti
+
+Country=MADAGASCAR
+
+T:Antananarivo
+D:Antsiranana
+F:Fianarantsoa
+M:Mahajanga
+A:Toamasina
+U:Toliara
+
+Country=MALI
+
+BK0:Bamako
+7:Gao
+1:Kayes
+8:Kidal
+2:Xoulikoro
+5:Mopti
+4:S69ou
+3:Sikasso
+6:Tombouctou
+
+Country=MYANMAR
+
+07:Ayeyarwady
+02:Bago
+03:Magway
+04:Mandalay
+01:Sagaing
+05:Tanintharyi
+06:Yangon
+14:Chin
+11:Kachin
+12:Kayah
+13:Kayin
+15:Mon
+16:Rakhine
+17:Shan
+
+Country=MONGOLIA
+
+1:Ulanbaatar
+073:Arhangay
+069:Bayanhongor
+071:Bayan-Ölgiy
+067:Bulgan
+037:Darhan uul
+061:Dornod
+063:Dornogov,
+059:DundgovL
+057:Dzavhan
+065:Govi-Altay
+064:Govi-Sümber
+039:Hentiy
+043:Hovd
+041:Hövsgöl
+053:Ömnögovi
+035:Orhon
+055:Övörhangay
+049:Selenge
+051:Sühbaatar
+047:Töv
+046:Uvs
+
+Country=MARSHALL ISLANDS
+
+ALL:Ailinglapalap
+ALK:Ailuk
+ARN:Arno
+AUR:Aur
+EBO:Ebon
+ENI:Eniwetok
+JAL:Jaluit
+KIL:Kili
+KWA:Kwajalein
+LAE:Lae
+LIB:Lib
+LIK:Likiep
+MAJ:Majuro
+MAL:Maloelap
+MEJ:Mejit
+MIL:Mili
+NMK:Namorik
+NMU:Namu
+RON:Rongelap
+UJA:Ujae
+UJL:Ujelang
+UTI:Utirik
+WTN:Wotho
+WTJ:Wotje
+
+Country=MAURITANIA
+
+NKC:Nouakchott
+07:Adrar
+03:Assaba
+05:Brakna
+08:Dakhlet Nouadhibou
+04:Gorgol
+10:Guidimaka
+01:Hodh ech Chargui
+02:Hodh el Charbi
+12:Inchiri
+09:Tagant
+11:Tiris Zemmour
+06:Trarza
+
+Country=MAURITIUS
+
+BR:Beau Bassin-Rose Hill
+CU:Curepipe
+PL:Port Louis
+QB:Quatre Bornes
+VP:Vacosa-Phoenix
+BL:Black River
+FL:Flacq
+GP:Grand Port
+MO:Moka
+PA:Pamplemousses
+PW:Plaines Wilhems
+PL:Port Louis
+RP:Riviére du Rempart
+SA:Savanne
+AG:Agalega Islands
+CC:Cargados Carajos Shoals 
+RO:Rodrigues Island
+
+Country=MALDIVES
+
+MLE:Male
+02:Alif
+20:Baa
+17:Dhaalu
+14:Faafu
+27:Gaaf Alif
+28:Gaefu Dhaalu
+29:Gnaviyani
+07:Haa Alif
+23:Haa Dhaalu
+26:Kaafu
+05:Laamu
+03:Lhaviyani
+12:Meemu
+25:Noonu
+13:Raa
+01:Seenu
+24:Shaviyani
+08:Thaa
+04:Vaavu
+
+Country=MALAWI
+
+BL:Blantyre
+CK:Chikwawa
+CR:Chiradzulu
+CT:Chitipa
+DE:Dedza
+DO:Dowa
+KR:Karonga
+KS:Kasungu
+LI:Lilongwe
+MH:Machinga
+MG:Mangochi
+MC:Mchinji
+MU:Mulanje
+MW:Mwanza
+MZ:Mzimba
+NB:Nkhata Bay
+NK:Nkhotakota
+NS:Nsanje
+NU:Ntcheu
+NI:Ntchisi
+RU:Rumphi
+SA:Salima
+TH:Thyolo
+ZO:Zomba
+
+Country=MEXICO
+
+DIF:Distrito Federal
+AGU:Aguascalientes
+BCN:Baja California
+BCS:Baja California Sur
+CAM:Campeche
+COA:Coahu ila
+COL:Col ima
+CHP:Chiapas
+CHH:Chihushua
+DUR:Durango
+GUA:Guanajuato
+GRO:Guerrero
+HID:Hidalgo
+JAL:Jalisco
+MEX:Mexico
+MIC:Michoacin
+MOR:Moreloa
+NAY:Nayarit
+NLE:Nuevo León
+OAX:Oaxaca
+PUE:Puebla
+QUE:Querétaro
+ROO:Quintana Roo
+SLP:San Luis Potosí
+SIN:Sinaloa
+SON:Sonora
+TAB:Tabasco
+TAM:Tamaulipas
+TLA:Tlaxcala
+VER:Veracruz
+YUC:Yucatán
+ZAC:Zacatecas
+
+Country=MALAYSIA
+
+W:Wilayah Persekutuan Kuala Lumpur
+L:Wilayah Persekutuan Labuan
+J:Johor
+K:Kedah
+D:Kelantan
+M:Melaka
+N:Negeri Sembilan
+C:Pahang
+A:Perak
+R:Perlis
+P:Pulau Pinang
+SA:Sabah
+SK:Sarawak
+B:Selangor
+T:Terengganu
+
+Country=MOZAMBIQUE
+
+MPM:Maputo
+P:Cabo Delgado
+G:Gaza
+I:Inhambane
+B:Manica
+L:Maputo
+N:Numpula
+A:Niaaea
+S:Sofala
+T:Tete
+Q:Zambézia
+
+Country=NAMIBIA
+
+CA:Caprivi
+ER:Erongo
+HA:Hardap
+KA:Karas
+KH:Khomae
+KU:Kunene
+OW:Ohangwena
+OK:Okavango
+OH:Omaheke
+OS:Omusati
+ON:Oshana
+OT:Oshikoto
+OD:Otjozondjupa
 
 Country=NETHERLANDS
 
@@ -970,6 +3110,354 @@ TA:Taraba
 YO:Yobe
 ZA:Zamfara
 
+Country=NIGER
+
+8:Niamey
+1:Agadez
+2:Diffa
+3:Dosso
+4:Maradi
+S:Tahoua
+6:Tillabéri
+7:Zinder
+
+Country=NICARAGUA
+
+BO:Boaco
+CA:Carazo
+CI:Chinandega
+CO:Chontales
+ES:Estelí
+GR:Granada
+JI:Jinotega
+LE:Leon
+MD:Madriz
+MN:Managua
+MS:Masaya
+MT:Matagalpa
+NS:Nueva Segovia
+SJ:Río San Juan
+RI:Rivas
+ZE:Zelaya
+
+Country=NORTH KOREA
+
+KAE:Kaesong-si
+NAM:Nampo-si
+PYO:Pyongyang-ai
+CHA:Chagang-do
+HAB:Hamgyongbuk-do
+HAN:Hamgyongnam-do
+HWB:Hwanghaebuk-do
+HWN:Hwanghaenam-do
+KAN:Kangwon-do
+PYB:Pyonganbuk-do
+PYN:Pyongannam-do
+YAN:Yanggang-do
+
+Country=NORWAY
+
+02:Akershus
+09:Aust-Agder
+06:Buskerud
+20:Finumark
+04:Hedmark
+12:Hordaland
+15:Míre og Romsdal
+18:Nordland
+17:Nord-Tríndelag
+05:Oppland
+03:Oslo
+11:Rogaland
+14:Sogn og Fjordane
+16:Sír-Tríndelag
+06:Telemark
+19:Troms
+10:Vest-Agder
+07:Vestfold
+01:Østfold
+22:Jan Mayen
+21:Svalbard
+
+Country=NEW ZEALAND
+
+AUK:Auckland
+BOP:Bay of Plenty
+CAN:Canterbury
+GIS:Gisborne
+HKB:Hawkes's Bay
+MWT:Manawatu-Wanganui
+MBH:Marlborough
+NSN:Nelson
+NTL:Northland
+OTA:Otago
+STL:Southland
+TKI:Taranaki
+TAS:Tasman
+WKO:waikato
+WGN:Wellington
+WTC:West Coast
+
+Country=OMAN
+
+DA:Ad Dakhillyah
+BA:Al Batinah
+JA:Al JanÜblyah 
+WU:Al Wustá
+SH:Ash Sharqlyah
+ZA:Az Zahirah
+MA:Masqat
+MU:Musandam
+
+Country=PANAMA
+
+1:Bocas del Toro
+2:Coclé
+3:Colón
+4:Chiriqui
+5:Darién
+6:Herrera
+7:Loa Santoa
+8:Panamá
+9:Veraguas
+Q:Comarca de San Blas
+
+Country=PAKISTAN
+
+IS:Islamabad
+BA:Baluchistan (en)
+NW:North-West Frontier
+PB:Punjab
+SD:Sind (en)
+TA:Federally Administered Tribal Aresa
+JK:Azad Rashmir
+NA:Northern Areas
+
+Country=PAPUA NEW GUINEA
+
+NCD:National Capital District (Port Moresby)
+CPM:Central
+CPK:Chimbu
+EHG:Eastern Highlands
+EBR:East New Britain
+ESW:East Sepik
+EPW:Enga
+GPK:Gulf
+MPM:Madang
+MRL:Manus
+MBA:Milne Bay
+MPL:Morobe
+NIK:New Ireland
+NPP:Northern
+NSA:North Solomons
+SAN:Santaun 
+SHM:Southern Highlands
+WPD:Western
+WHM:Western Highlands
+WBK:West New Britain
+
+Country=PERU
+
+CAL:El Callao
+AMA:Amazonas
+ANC:Ancash
+APU:Apurímac
+ARE:Arequipa
+AYA:Ayacucho
+CAJ:Cajamarca
+CUS:Cuzco 
+HUV:Huancavelica
+HUC:Huánuco
+ICA:Ica
+JUN:Junín
+LAL:La Libertad
+LAM:Lambayeque
+LIM:Lima
+LOR:Loreto
+MDD:Madre de Dios
+MOQ:Moquegua
+PAS:Pasco
+PIU:Piura
+PUN:Puno
+SAM:San Martín
+TAC:Tacna
+TUM:Tumbes
+UCA:Ucayali
+
+Country=PHILIPPINES
+
+ABR:Abra
+AGN:Agusan del Norte
+AGS:Agusan del Sur
+AKL:Aklan
+ALB:Albay
+ANT:Antique
+AUR:Aurora
+BAS:Basilan
+BAN:Batasn
+BTN:Batanes
+BTG:Batangas
+BEN:Benguet
+BOH:Bohol
+BUK:Bukidnon
+BUL:Bulacan
+CAG:Cagayan
+CAN:Camarines Norte
+CAS:Camarines Sur
+CAM:Camiguin
+CAP:Capiz
+CAT:Catanduanes
+CAV:Cavite
+CEB:Cebu
+DAV:Davao
+DAS:Davao del Sur
+DAO:Davao Oriental
+EAS:Eastern Samar
+IFU:Ifugao
+ILN:Ilocos Norte
+ILS:Ilocos Sur
+ILI:Iloilo
+ISA:Isabela
+KAL:Kalinga-Apayso
+LAG:Laguna
+LAN:Lanao del Norte
+LAS:Lanao del Sur
+LUN:La Union
+LEY:Leyte
+MAG:Maguindanao
+MAD:Marinduque
+MAS:Masbate
+MDC:Mindoro Occidental
+MDR:Mindoro Oriental
+MSC:Misamis Occidental
+MSR:Misamis Oriental
+MOU:Mountain Province
+NEC:Negroe Occidental
+NER:Negros Oriental
+NCO:North Cotabato
+NSA:Northern Samar
+NUE:Nueva Ecija
+NUV:Nueva Vizcaya
+PLW:Palawan
+PAM:Pampanga
+PAN:Pangasinan
+QUE:Quezon
+QUI:Quirino
+RIZ:Rizal
+ROM:Romblon
+SIG:Siquijor
+SOR:Sorsogon
+SCO:South Cotabato
+SLE:Southern Leyte
+SUK:Sultan Kudarat
+SLU:Sulu
+SUN:Surigao del Norte
+SUR:Surigao del Sur
+TAR:Tarlac
+TAW:Tawi-Tawi
+WSA:Western Samar
+ZMB:Zambales
+ZAN:Zamboanga del Norte
+ZAS:Zamboanga del Sur
+
+Country=POLAND
+
+BP:Biala Podlaska
+BK:Bialystok
+BB:Bielsko
+BY:Bydgoszcz
+CH:Chelm
+CI:Ciechanów
+CZ:Czestochowa
+EL:Elblag
+GD:Gdansk
+GO:Gorzaw
+JG:Jelenia Góra
+KL:Kalisz
+KA:Katowice
+KI:Kielce
+KN:Konin
+KO:Koszalin
+KR:Kraków
+KS:Krosno
+LG:Legnica
+LE:Leszno
+LU:Lublin
+LO:Lomza
+LD:Lódz
+NS:Nowy Sacz
+OL:Olsztyn
+OP:Opole
+OS:Ostroleka
+PI:Pila
+PL:Plock
+PL-TO:Torun
+PL-WB:Walbrzych
+PO:Poznañ
+PR:Przemysl
+PT:Piotrków
+RA:Radom
+RZ:Rzeszów
+SE:Siedlce
+SI:Sieradz
+SR:Skierniewice
+SL:Slupsk
+SU:Suwalki
+SZ:Szczecin
+TG:Tarnobrzeg
+TA:Tarnów
+T0:Toruñ
+WB:Wañblzych
+WA:Warazawa
+WL:Wloclawek
+WR:Wroclaw
+ZA:Zamosc
+ZG:Zielona Góra
+
+Country=PORTUGAL
+
+01:Aveiro
+02:Beja
+03:Braga
+04:Bragança
+05:Castelo Branco
+06:Colmbra
+07:Évora
+08:Faro
+09:Guarda
+10:Leiria
+11:Lisboa
+12:Portalegre
+13:Porto
+14:Santarém
+15:Setúbal
+16:Viana do Castelo
+17:Vila Real
+18:Viseu
+20:Regiao Autonoma dos Açores
+30:Regiao AutOnoma da Madeira
+
+Country=PARAGUAY
+
+ASU:Asunción
+16:Alto Paraguay
+10:Alto Paraná
+13:Amambay
+19:Boquerón
+5:Caeguazú
+6:Caazapl
+14:Canindeyú
+11:Central
+1:Concepción
+3:Cordillera
+4:Guairá
+7:Itapua
+8:Miaiones
+12:Ñeembucu
+9:Paraguarí
+15:Presidente Hayes
+2:San Pedro
+
 Country=POLAND
 
 DS:Dolnos ´ l a skie
@@ -988,6 +3476,34 @@ SK:S ´ wi e tokrzyskie
 WN:Warmi´ n sko-mazurskie
 WP:Wielkopolskie
 ZP:Zachodniopomorskie
+
+Country=QATAR
+
+DA:Ad Dawhah
+GH:Al Ghuwayrîyah
+JU:Al Jumayliyah
+KH:Al Khawr
+WA:Al Wakrah
+RA:Ar Rayyãn
+JB:Jariyan al Bãtnah
+MS:Madinat ash Shamal
+US:Umm Salãl
+
+
+Country=RWANDA
+
+C:Butare
+I:Byumba
+E:Cyangugu
+D:Gikongoro
+G:Gisenyi
+B:Gitarama
+J:Kibungo
+F:Kibuye
+K:Kigali-Rural Kigali y' Icyaro
+L:Kigali-Ville Kigali Ngari
+M:Mutara
+H:Ruhengeri
 
 Country=ROMANIA
 
@@ -1125,6 +3641,22 @@ TAY:Taymyrskiy (Dolgano-Nenetskiy
 UOB:Ust'-Ordynskiy Buryatskiy
 YAN:Yamalo-Nenetskiy avtonomnyy okrug
 
+Country=SAUDI ARABIA
+
+11:Al Batah
+08:Al H,udÜd ash Shamallyah
+12:Al Jawf
+03:Al Madlnah
+05:Al Qasim
+01:Ar Riyad
+04:Ash Sharqlyah
+14:Asîr
+06:Hã'il
+09:Jlzãn
+02:Makkah
+10:Najran
+07:Tabûk
+
 Country=SPAIN
 
 A:Alicante
@@ -1189,6 +3721,426 @@ VC:Valenciana, Comunidad
 VI:Álava
 Z:Zaragoza
 ZA:Zamora
+
+
+
+Country=SOLOMON ISLANDS
+
+CT:Capital Territory (Honiara)
+CE:Central
+GU:Guadalcanal
+IS:Isabel
+MK:Makira
+ML:Malaita
+TE:Temotu
+WE:Western
+
+Country=SUDAN
+
+23:A'alî an Nîl
+26:Al Bah al Ahmar
+18:Al Buhayrat
+07:Al Jazirah
+03:Al Khartum
+06:Al Qadarif
+22:Al Wahdah
+04:An Nil
+08:An Nil al Abyaq
+24:An Nil al Azraq
+01:Ash Shamallyah
+17:Bahr al Jabal
+16:Gharb al Istiwa'îyah
+14:Gharb Bañr al Ghazal
+12:Gharb Darfur
+10:Gharb Kurdufan
+11:Janub Darfur
+13:Janûb Rurdufan
+20:Jünqall
+05:Kassala
+15:Shamal Batr al Ghazal
+02:Shamal Darfùr
+09:Shamal Kurdufan
+19:Sharq al Istiwa'iyah
+25:Sinnar
+21:Warab
+
+Country=SWEDEN
+
+K:Blekinge län
+W:Dalarnas län
+I:Gotlands län
+X:Gävleborge län
+N:Hallands län
+Z:Jamtlande län
+F:Jonkopings län
+H:Kalmar län
+G:Kronoberge län
+BD:Norrbottena län
+M:Skåne län
+AB:Stockholms län
+D:Södermanlands län
+C:Uppsala län
+S:Värmlanda län
+AC:Västerbottens län
+Y:Västernorrlands län
+U:Västmanlanda län
+Q:Västra Gotalands län
+T:Örebro län
+E:Östergotlands län
+
+Country=SAINT HELENA
+
+SH:Saint Helena
+AC:Ascension
+TA:Tristan da Cunha
+
+Country=SLOVENIA
+
+07:Dolenjska
+09:Gorenjska
+11:Goriska
+03:Koroéka
+10:Notranjsko-kraéka
+12:Obalno-krañka
+08:Osrednjeslovenska
+02:Podravska
+01:Pomurska
+04:Savinjska
+06:Spodnjeposavska
+05:Zasavska
+
+Country=SLOVAKIA
+
+BC:Banskobyatricky kraj
+BL:Bratislavsky kraj
+KI:Kolicky kraj
+NJ:Nitrianaky kraj
+PV:Prebovaky kraj
+TC:Trenciansky kraj
+TA:Trnavaky kraj
+ZI:Zilinaky kraj
+
+Country=SIERRA LEONE
+
+W:western Area (Freetown)
+E:Eastern
+N:Northern
+S:Southern
+
+Country=SENEGAL
+
+DK:Dakar
+DB:Diourbel
+FK:Fatick
+KL:Kaolack
+KD:Kolda
+LG:Louga
+SL:Saint-Louis
+TC:Tambacounda
+TH:Thiès
+ZG:Ziguinchor
+
+Country=SOMALIA
+
+AW:Awdal
+BK:Bakool
+BN:Banaadir
+BR:Bari
+BY:Bay
+GA:Galguduud
+GE:Gedo
+HI:Hiirsan
+JD:Jubbada Dhexe
+JH:Jubbada Hoose
+MU:Mudug
+NU:Nugaal
+SA:Saneag
+SD:Shabeellaha Dhexe
+SH:Shabeellaha Hoose
+SO:Sool
+TO:Togdheer
+WO:Woqooyi Galbeed
+
+Country=SOUTH KOREA
+
+11:Seoul Teugbyeolsi
+26:Busan Gwang'yeogsi
+27:Daegu Gwang'yeogsi
+30:Daejeon Gwang'yeogsi
+29:Gwangju Gwang'yeogsi
+28:Incheon Gwang'yeogsi
+31:Ulsan Gwang'yeogsi
+43:Chungcheongbugdo
+44:Chungcheongnamdo
+42:Gang'weondo
+41:Gyeonggido
+47:Gyeongsangbugdo
+48:Gyeongsangnamdo
+49:Jejudo
+45:Jeonrabugdo
+46:Jeonranamdo
+
+Country=SURINAME
+
+BR:Brokopondo
+CM:Commewijne
+CR:Coronie
+MA:Marowijne
+NI:Nickerie
+PR:Para
+PM:Paramaribo
+SA:Saramacca
+SI:Sipaliwini
+WA:Wanica
+
+Country=SAO TOME
+
+P:Príncipe
+S:Sao Tomé
+
+Country=EL SALVADOR
+
+AH:Ahuachapán
+CA:Cabañas
+CU:Cuscatlán
+CH:Chalatenango
+LI:La Libertad
+PA:La Paz
+UN:La Uniôn
+MO:Morazán
+SM:San Miguel
+SS:San Salvador
+SA:Santa Ana
+SV:San Vicente
+SO:Sonsonate
+US:Usulután
+
+Country=SYRIA
+
+HA:Al Hasakah
+LA:Al Ladhiqiyah
+QU:Al Qunaytirah
+RA:Ar Raqqah
+SU:As Suwaydä'
+DR:Dar'ã
+DY:Dayr az Zawr
+DI:Dimashq
+HL:Halab
+HM:Hamah
+HI:Jim'
+ID:Idlib
+RD:Rif Dimashq
+TA:Tartüs
+
+Country=SWAZILAND
+
+HH:Hhohho
+LU:Lubombo
+MA:Manzini
+SH:Shiselweni
+
+Country=TURKMENISTAN
+
+A:Ahal
+B:Balkan
+D:Da'howuz
+L:Lebap
+M:Mary
+
+Country=TUNISIA
+
+31:Béja
+13:Ben Arous
+23:Bizerte
+81:Gabès
+71:Gafsa
+32:Jendouba
+41:Kairouan
+42:Rasserine
+73:Kebili
+12:L'Ariana
+33:Le Ref
+53:Mahdia
+82:Medenine
+52:Moneatir
+21:Naboul
+61:Sfax
+43:Sidi Bouxid
+34:Siliana
+51:Sousse
+83:Tataouine
+72:Tozeur
+11:Tunis
+22:Zaghouan
+
+Country=TRINIDAD AND TOBAGO
+
+CTT:Couva-Tabaquite-Talparo
+DMN:Diego Martin
+ETO:Eastern Tobago
+PED:Penal-Debe
+PRT:Princes Town
+RCM:Rio Claro-Mayaro
+SGE:Sangre Grande
+SJL:San Juan-Laventille
+SIP:Siparia
+TUP:Tunapuna-Piarco
+WTO:Western Tobago
+ARI:Arima
+CHA:Chaguanas
+PTF:Point Fortin
+POS:Port of Spain
+SFO:San Fernando
+
+Country=TAIWAN
+
+KHH:Kaohsiung
+TPE:Taipei
+CYI:Chisyi
+HSZ:Hsinchu
+KEE:Keelung
+TXG:Taichung
+TNN:Tainan
+CHA:Changhua
+CYI:Chiayi
+HSZ:Hsinchu
+HUA:Hualien
+ILA:Ilan
+KHH:Kaohsiung
+MIA:Miaoli
+NAN:Nantou
+PEN:Penghu
+PIF:Pingtung
+TXG:Taichung
+TNN:Tainan
+TPE:Taipei
+TTT:Taitung
+TAO:Taoyuan
+YUN:Yunlin
+
+Country=TANZANIA
+
+01:Arusha
+02:Dar-es-Salaam
+03:Dodoma
+04:Iringa
+05:Kagera
+06:Kaskazini Pemba
+07:Kaskazini Unguja
+08:Xigoma
+09:Kilimanjaro
+10:Rusini Pemba
+11:Kusini Unguja
+12:Lindi
+13:Mara
+14:Mbeya
+15:Mjini Magharibi
+16:Morogoro
+17:Mtwara
+18:Mwanza
+19:Pwani
+20:Rukwa
+21:Ruvuma
+22:Shinyanga
+23:Singida
+24:Tabora
+25:Tanga
+
+Country=TOGO
+
+C:Centre
+K:Kara
+M:Maritime (Région)
+P:Plateaux
+S:Savannes
+
+Country=THAILAND
+
+10:Krung Thep Maha Nakhon Bangkok
+S:Phatthaya
+37:Amnat Charoen
+15:Ang Thong
+31:Buri Ram
+24:Chachoengsao
+18:Chai Nat
+36:Chaiyaphum
+22:Chanthaburi
+50:Chiang Mai
+57:Chiang Rai
+20:Chon Buri
+86:Chumphon
+46:Kalasin
+62:Kamphasng Phet
+71:Kanchanaburi
+40:Khon Kaen
+81:Krabi
+52:Lampang
+51:Lamphun
+42:Loei
+16:Lop Buri
+58:Mae Hong Son
+44:Maha Sarakham
+49:Mukdahan
+26:Nakhon Nayok
+73:Nakhon Pathom
+48:Nakhon Phanom
+30:Nakhon Ratchasima
+60:Nakhon Sawan
+80:Nakhon Si Thammarat
+55:Nan
+96:Narathiwat
+39:Nong Bua Lam Phu
+43:Nong Khai
+12:Nonthaburi
+13:Pathum Thani
+94:Pattani
+82:Phangnga
+93:Phatthalung
+56:Phayao
+67:Phetchabun
+76:Phetchaburi
+66:Phichit
+65:Phitsanulok
+54:Phrae
+14:Phra Nakhon Si Ayutthaya
+83:Phaket
+25:Prachin Buri
+77:Prachuap Khiri Khan
+85:Ranong
+70:Ratchaburi
+21:Rayong
+45:Roi Et
+27:Sa Kaeo
+47:Sakon Nakhon
+11:Samut Prakan
+74:Samut Sakhon
+75:Samut Songkhram
+19:Saraburi
+91:Satun
+17:Sing Buri
+33:Si Sa Ket
+90:Songkhla
+64:Sukhothai
+72:Suphan Buri
+84:Surat Thani
+32:Surin
+63:Tak
+92:Trang
+23:Trat
+34:Ubon Ratchathani
+41:Udon Thani
+61:Uthai Thani
+53:Uttaradit
+95:Yala
+35:Yasothon
+
+Country=TAJIKISTAN
+
+KR:Karategin
+KT:Khatlon
+LN:Leninabad
+GB:Gorno-Badakhshan
+
 
 Country=TURKEY
 
@@ -1273,7 +4225,242 @@ Country=TURKEY
 66:Yozgat
 67:Zonguldak
 
+
+Country=UKRAINE
+
+71:Cherkas'ka Oblast'
+74:Chernihivs'ka Oblast'
+77:Chernivets'ka Oblast'
+12:Dnipropetrovs'ka Oblast'
+14:Donets'ka Oblast'
+26:Ivano-Frankivs'ka Oblast'
+63:Kharkivs'ka Oblast'
+65:Khersons'ka Oblast'
+68:Khmel'nyts'ka Oblast'
+35:Kirovohrads'ka Oblast'
+32:Kyivs'ka Oblast'
+09:Luhans'ka Oblast'
+46:L'vivs'ka Oblast'
+48:Mykolaivs'ka Oblast'
+51:Odes 'ka Oblast'
+53:Poltavs'ka Oblast'
+56:Rivnens'ka Oblast'
+59:Sums 'ka Oblast'
+61:Ternopil's'ka Oblast'
+05:Vinnyts'ka Oblast'
+07:Volyos'ka Oblast'
+21:Zakarpats'ka Oblast'
+23:Zaporiz'ka Oblast'
+18:Zhytomyrs'ka Oblast'
+43:Respublika Krym
+30:Kyïv
+40:Sevastopol'
+
+Country=UGANDA
+
+APA:Apac
+ARU:Arua
+BUN:Bundibugyo
+BUS:Bushenyi
+GUL:Gulu
+HOI:Hoima
+IGA:Iganga
+JIN:Jinja
+KBL:Kabale
+KBR:Kabarole
+KLG:Kalangala
+KLA:Kampala
+KLI:Kamuli
+KAP:Kapchorwa
+KAS:Kasese
+KLE:Kibeale
+KIB:Kiboga
+KIS:Kisoro
+KIT:Kitgum
+KOT:Kotido
+KUM:Kumi
+LIR:Lira
+LUW:Luwero
+MSK:Masaka
+MSI:Masindi
+MBL:Mbale
+MBR:Mbarara
+MOR:Moroto
+MOY:Moyo
+MPI:Mpigi
+MUB:Mubende
+MUK:Mukono
+NEB:Nebbi
+NTU:Ntungamo
+PAL:Pallisa
+RAK:Rakai
+RUK:Rukungiri
+SOR:Soroti
+TOR:Tororo
+
+Country=UNITED STATES MINOR OUTLYING ISLANDS
+
+81:Baker Island
+84:Howland Island
+86:Jarvis Island
+67:Johnston Atoll
+89:Kingman Reef
+71:Midway Islands
+76:Navassa Island
+95:Palmyra Atoll
+79:Wake Ialand
+
+Country=URUGUAY
+
+AR:Artigsa
+CA:Canelones
+CL:Cerro Largo
+CO:Colonia
+DU:Durazno
+FS:Flores
+FD:Florida
+LA:Lavalleja
+MA:Maldonado
+MO:Montevideo
+PA:Paysandu
+RN:Rio Negro
+RV:Rivera
+RO:Rocha
+SA:Salto
+SJ:San José
+SO:Soriano
+TA:Tacuarembo
+TT:Treinta y Tres
+
+Country=UZBEKISTAN
+
+QR:Qoraqalpoghiston Respublikasi Karakalpakstan, Respublika
+AN:Andijon
+BU:Bukhoro
+FA:Farghona
+JI:Jizzakh
+KH:Khorazm
+NG:Namangan
+NW:Nawoiy
+QA:Qashqadaryo
+SA:Samarqand
+SI:Sirdaryo
+SU:Surkhondaryo
+TO:Toshkent
+
+Country=VENEZUELA
+
+A:Diatrito Federal
+B:Anzoátegui
+C:Apure
+D:Aragua
+E:Barinas
+F:Bolívar
+G:Carabobo
+H:Cojedes
+I:FalcÓn
+J:Guârico
+K:Lara
+L:Mérida
+M:Miranda
+N:Monagas
+O:Nueva Esparta
+P:Portuguesa
+R:Sucre
+S:Tâchira
+T:Trujillo
+U:Yaracuy
+V:Zulia
+Z:Amazonas
+Y:Delta Amacuro
+W:Dependencias Federales
+
+Country=VANUATU
+
+MAP:Malampa
+PAM:Pénama
+SAM:Sanma
+SEE:Shéfa
+TAE:Taféa
+TOB:Torba
+
+Country=WALLIS AND FORTUNA
+
+AA:A'ana
+AL:Aiga-i-le-Tai
+AT:Atua
+FA:Fa'aaaleleaga
+GE:Gaga'emauga
+GI:Gagaifomauga
+PA:Palauli
+SA:Satupa'itea
+TU:Tuamasaga
+VF:Va'a-o-Fonoti
+VS:Vaisigano
+
+Country=YEMEN
+
+AB:Abyan
+AD:Adan
+BA:Al Bayda'
+MU:Al Hudaydah
+JA:Al Jawf
+MR:Al Mahrah
+MW:Al Mahwit
+DH:Dhamar
+HD:Hadramawt
+HJ:Hajjah
+IB:Ibb
+LA:Lahij
+MA:Ma'rib
+SD:Sa'dah
+SN:San'a'
+SH:Shabwah
+TA:Ta'izz
+
+Country=SOUTH AFRICA
+
+EC:Eastern Cape
+FS:Free State
+GT:Gauteng
+NL:Kwazulu-Natal
+MP:Mpumalanga
+NC:Northern Cape
+NP:Northern Province
+NW:North-West
+WC:Western Cape
+
+Country=SWITZERLAND
+
+AG:Aargau
+AI:Appenzell Inner-Rhoden
+AR:Appenzell Ausser-Rhoden
+BE:Bern
+BL:Basel-Landschaft
+BS:Basel-Stadt
+FR:Fribourg
+GE:Genève
+GL:Glarus
+GR:Graubünden
+JU:Jura
+LU:Luzern
+NE:Neuchatel
+NW:Nidwalden
+OW:Obwalden
+SG:Sankt Gallen
+SH:Schaffhausen
+SO:Solothurn
+SZ:Schwyz
+TG:Thurgau
+TI:Ticino
+UR:Uri
+VD:Vaud
+VS:Valais
+ZG:Zug
+ZH:Zürich
+
 Country=UK
+SubCountryType=County
 
 BEDS:Bedfordshire
 BERKS:Berkshire
@@ -1339,6 +4526,8 @@ CO DERRY:County Londonderry
 CO TYRONE:County Tyrone
 
 Country=USA
+SubCountryType=State
+
 
 AA:Armed Forces Americas
 AE:Armed Forces Europe, Middle East, & Canada
@@ -1472,3 +4661,29 @@ CG:Crna Gora
 SR:Srbija
 KM:Kosovo-Metohija
 VO:Vojvodina
+
+Country=ZAMBIA
+
+02:Central
+08:Copperbelt
+03:Eastern
+04:Luapula
+09:Lusaka
+05:Northern
+06:North-Western
+07:Southern
+01:Western
+
+Country=ZIMBABWE
+
+BU:Bulawayo
+HA:Harare
+MA:Manicaland
+MC:Mashonaland Central
+ME:Mashonaland East
+MW:Mashonaland West
+MV:Masvingo
+MN:Matabeleland North
+MS:Matabeleland South
+MI:Midlands
+

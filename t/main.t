@@ -34,17 +34,13 @@ foreach $country ( @all_countries )
    {
    	my $full_name = $current_country->full_name($current_code);
       my $new_code = $current_country->code($full_name);
-      # Indonesain province of Kalimantan Timur has two different codes, 
-      # so it cannot be coverted	from full name back to it's original code
-	   unless ( $full_name eq 'Kalimantan Timur' )
-	   {
-      	if ( $new_code ne $current_code )
-      	{
-		   	$mis_match++;
-      	}
-	   }
+   	if ( $new_code ne $current_code )
+   	{
+	   	$mis_match++;
+   	}
    }
 }
-print $mis_match == 0 ? "ok 4\n" : "not ok 4\n";
+# There are 11 sub countries with duplicate codes 
+print $mis_match == 11 ? "ok 4\n" : "not ok 4\n";
 
 

@@ -25,6 +25,9 @@ Locale::SubCountry - convert state, county, province etc names to/from code
    
    $upper_case = 1;
    print($australia->full_name('Qld',$upper_case)); # QUEENSLAND
+   print $australia->country;   # AUSTRALIA
+   print $australia->sub_country_type; # State
+
    
    %all_australian_states = $australia->full_name_code_hash;
    foreach $abbrev ( sort keys %australian_states )
@@ -76,14 +79,14 @@ and/or modify it under the terms of the Perl Artistic License
 
 Locale::SubCountry was written by Kim Ryan <kimaryan@ozemail.com.au> in 2000.
 
-Terrence Brannon produced  Locale::US, which was the starting point for
-this module. 
+=head1 CREDITS
 
-Abbreviations for Canadian, Netherlands and Brazilian regions were taken from 
-Geography::States.
+Alastair McKinstry provided nearly all the sub country codes and names.
+
+Terrence Brannon produced Locale::US, which was the starting point for
+this module. Some of the ideas in Geography::States were also used.
 
 Mark Summerfield and Guy Fraser provided the list of UK counties.
-
 
 =cut
 
