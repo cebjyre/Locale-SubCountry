@@ -381,7 +381,9 @@ and/or modify it under the terms of the Perl Artistic License
 
 =head1 AUTHOR
 
-Locale::SubCountry was written by Kim Ryan <kimaryan@ozemail.com.au> in 2000.
+Locale::SubCountry was written by Kim Ryan <kimaryan@ozemail.com.au>.
+<http://members.ozemail.com.au/~kimaryan/data_distillers/>
+
 
 =head1 CREDITS
 
@@ -407,9 +409,59 @@ use locale;
 use Exporter;
 use vars qw (@ISA $VERSION @EXPORT);
 
-$VERSION = '1.09';
+$VERSION = '1.10';
 @ISA     = qw(Exporter);
 @EXPORT  = qw(&all_country_names &all_country_codes);
+
+#-------------------------------------------------------------------------------
+# Initialization code must be run first to crete glboal data structure.
+# Read in the list of abbreivations and full names defined in the DATA 
+# block at the bottom of this file.
+
+{
+   my $country;
+
+   while ( <DATA> )
+   {
+      unless ( /^#/ or /^s*$/ )  # ignore commented and empty lines
+      {
+         chomp;
+         if ( /^Country\s*=(.*)/i )
+         {
+            $country = _clean($1);
+         }
+         elsif ( /^Code\s*=(.*)/i )
+         {
+            # Create doubly indexed hash, keyed by  country code and full name.
+            # The user can supply either form to create a new sub_country
+            # object, and the objects properties will hold both the countries
+            # name and it's code.
+
+            my $code = _clean($1);
+            $::country_lookup{code_keyed}{$code} = $country;
+            $::country_lookup{full_name_keyed}{$country} = $code;
+         }
+         elsif ( /^SubCountryType\s*=(.*)/i )
+         {
+            $::subcountry_lookup{$country}{sub_country_type} = _clean($1);
+         }
+         else
+         {
+            my ($code,$name) = split(/:/,$_);
+
+            $code = _clean($code);
+            $name = _clean($name);
+
+            # Create doubly indexed hash, grouped by country, one keyed by
+            # abbrevaiton and one by full name. Although data is duplicated,
+            # this provides the fastest lookup and simplest code.
+
+            $::subcountry_lookup{$country}{code_keyed}{$code} = $name;
+            $::subcountry_lookup{$country}{full_name_keyed}{$name} = $code;
+         }
+      }
+   }
+}
 
 #-------------------------------------------------------------------------------
 # Create new instance of a sub country object
@@ -612,57 +664,6 @@ sub all_country_codes
     return ( sort keys %{ $::country_lookup{code_keyed} });
 }
 
-#-------------------------------------------------------------------------------
-# INTERNAL FUNCTIONS
-#-------------------------------------------------------------------------------
-# Read in the list of abbreivations and full names defined in the DATA block
-# at the bottom of this file.
-
-INIT
-{
-   my ($country);
-
-   while ( <DATA> )
-   {
-      unless ( /^#/ or /^s*$/ )  # ignore commented and empty lines
-      {
-         chomp;
-         if ( /^Country\s*=(.*)/i )
-         {
-            $country = _clean($1);
-         }
-         elsif ( /^Code\s*=(.*)/i )
-         {
-            # Create doubly indexed hash, keyed by  country code and full name.
-            # The user can supply either form to create a new sub_country
-            # object, and the objects properties will hold both the countries
-            # name and it's code.
-
-            my $code = _clean($1);
-            $::country_lookup{code_keyed}{$code} = $country;
-            $::country_lookup{full_name_keyed}{$country} = $code;
-         }
-         elsif ( /^SubCountryType\s*=(.*)/i )
-         {
-            $::subcountry_lookup{$country}{sub_country_type} = _clean($1);
-         }
-         else
-         {
-            my ($code,$name) = split(/:/,$_);
-
-            $code = _clean($code);
-            $name = _clean($name);
-
-            # Create doubly indexed hash, grouped by country, one keyed by
-            # abbrevaiton and one by full name. Although data is duplicated,
-            # this provides the fastest lookup and simplest code.
-
-            $::subcountry_lookup{$country}{code_keyed}{$code} = $name;
-            $::subcountry_lookup{$country}{full_name_keyed}{$name} = $code;
-         }
-      }
-   }
-}
 #-------------------------------------------------------------------------------
 sub _clean
 {
