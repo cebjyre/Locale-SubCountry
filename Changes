@@ -1,5 +1,13 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.22 18 Jan 2003
+    Removed use of $_ in initialization code, as suggested by Ilya Martynov
+    Corrected country code for Iran, thanks to Todd A. Green
+    Removed Exporter references, as suggested by TJ Mather
+    Added Timor-Leste as a new country (East Timor)
+    Changed Canadian province of Newfoundland to Newfoundland and Labrador
+
+
 1.21 9 Sep 2002
     Fixed bug in test script main.t
 
@@ -27,7 +35,7 @@ Revision history for Perl CPAN module Locale::SubCountry
     Added FIPS10_4_code method
     Added ISO3166_2_code method
     Added many corrections to sub country names
-    Thanks to TJ MAther for adding FIPS codes and fixing other data errors 
+    Thanks to TJ Mather for adding FIPS codes and fixing other data errors 
 
     Added extra tests to main.t
     Prefixed internal data structure elements with a dash, to follow OO convention 
@@ -93,7 +101,7 @@ Revision history for Perl CPAN module Locale::SubCountry
     - renamed module from RegionAbbrev to SubCountry
     - replaced all references to 'abbreviation' with 'code'
                      
-    Improved up regexes in _clean, thanks to Mark Summerfield
+    Improved regexes in _clean, thanks to Mark Summerfield
     Replaced regexp with hash lookup for valid countries
     Accepted all forms of upper/lower case in country name
 

@@ -193,7 +193,7 @@ two letter code or the full name. These are currently:
     IN - INDIA
     ID - INDONESIA
     IL - ISRAEL
-    IN - IRAN (ISLAMIC REPUBLIC OF)
+    IR - IRAN (ISLAMIC REPUBLIC OF)
     IQ - IRAQ
     IE - IRELAND
     IT - ITALY
@@ -272,6 +272,7 @@ two letter code or the full name. These are currently:
     TZ - TANZANIA, UNITED REPUBLIC OF
     TH - THAILAND
     TG - TOGO
+    TL - TIMOR-LESTE
     TT - TRINIDAD AND TOBAGO
     TN - TUNISIA
     TR - TURKEY
@@ -446,7 +447,7 @@ and/or modify it under the terms of the Perl Artistic License
 
 =head1 AUTHOR
 
-Locale::SubCountry was written by Kim Ryan <kimryan@cpan.org>.
+Locale::SubCountry was written by Kim Ryan <kimryan_nospam@cpan.org>.
 <http://www.data-distillers.com>
 
 
@@ -470,10 +471,8 @@ use strict;
 use locale;
 
 use Exporter;
-use vars qw (@ISA $VERSION @EXPORT);
-
-$VERSION = '1.21';
-@ISA     = qw(Exporter);
+use vars qw ($VERSION);
+$VERSION = '1.22';
 
 #-------------------------------------------------------------------------------
 
@@ -541,17 +540,21 @@ package Locale::SubCountry;
 
 {
    my $country;
-
-   while ( <DATA> )
-   {
-      unless ( /^#/ or /^s*$/ )  # ignore commented and empty lines
+   
+   my $line;
+   while ( $line = <DATA> )
+   {  
+      # ignore commented and empty lines
+      unless ( $line =~ /^#/ or $line =~ /^\s*$/ )  
       {
-         chomp;
-         if ( /^Country\s*=(.*)/i )
+         chomp($line);
+         
+         if ( $line =~ /^Country\s*=(.*)/i )
          {
             $country = _clean($1);
+            
          }
-         elsif ( /^Code\s*=(.*)/i )
+         elsif ( $line =~ /^Code\s*=(.*)/i )
          {
             # Create doubly indexed hash, keyed by  country code and full name.
             # The user can supply either form to create a new sub_country
@@ -562,15 +565,15 @@ package Locale::SubCountry;
             $::country_lookup{_code_keyed}{$code} = $country;
             $::country_lookup{_full_name_keyed}{$country} = $code;
          }
-         elsif ( /^SubCountryType\s*=(.*)/i )
+         elsif ( $line =~ /^SubCountryType\s*=(.*)/i )
          {
             $::subcountry_lookup{$country}{_sub_country_type} = _clean($1);
          }
-         elsif ( /^\w+(\s\w+)?:/i )
+         elsif ( $line =~ /^\w+(\s\w+)?:/i )
          {
             # Row of sub country data
             my ($code,$FIPS_code,$name);
-            my @data = split(/:/,$_);
+            my @data = split(/:/,$line);
             if ( @data == 2 )
             {
                 ($code,$name) = @data;
@@ -608,7 +611,7 @@ package Locale::SubCountry;
          }
          else
          {
-            die "Invalid  format in sub country data $_";
+            die "Invalid format in sub country data $.: >>$line<<\n";
          }
       }
    }
@@ -885,6 +888,7 @@ Format is:
 Country=<COUNTRY NAME>
 SubCountryType=<Sub Country Type>  # optional field, specify state, county etc
 Code=<COUNTRY CODE> # from ISO 3166-1 format
+
 ISO3166-2 Code:FIPS10-4 Code:Full Name
 ISO3166-2 Code:FIPS10-4 Code:Full Name
 ISO3166-2 Code:FIPS10-4 Code:Full Name
@@ -1504,7 +1508,7 @@ AB:01:Alberta
 BC:02:British Columbia
 MB:03:Manitoba
 NB:04:New Brunswick
-NF:05:Newfoundland
+NF:05:Newfoundland and Labrador
 NS:07:Nova Scotia
 NU:14:Nunavut
 ON:08:Ontario
@@ -2624,7 +2628,6 @@ SN:20:Sulawesi Selatan
 SS:32:Sumatra Selatan
 ST:21:Sulawesi Tengah
 SU:26:Sumatera Utara
-TT::Timor-Timur
 YO:10:Yogyakarta
 
 Country=IRELAND
@@ -2823,7 +2826,7 @@ WA:16:Wasit
 
 Country=IRAN (ISLAMIC REPUBLIC OF)
 SubCountryType=Province
-Code=IN
+Code=IR
 
 03::ArdabLl
 02::Azarbayjän-e-Gharbî
@@ -4563,6 +4566,25 @@ B::Balkan
 D::Da'howuz
 L::Lebap
 M::Mary
+
+Country=TIMOR-LESTE
+SubCountryType=District
+Code=TL
+
+AL::Aileu
+AN::Ainaro
+OE::Ambeno
+BA::Baucau
+BO::Bobonaro
+CO::Cova
+DI::Dili
+ER::Ermera
+LA::Lautem
+LI::Liquiça
+MT::Manatuto
+MF::Manufahi
+VI::Viqueque
+
 
 Country=TUNISIA
 SubCountryType=Governorate
