@@ -73,8 +73,8 @@ print $countries{'NEW ZEALAND'} eq 'NZ' ? "ok 13\n" : "not ok 13\n";
 %countries =  $world->code_full_name_hash;
 print $countries{'GB'} eq 'UNITED KINGDOM' ? "ok 14\n" : "not ok 14\n";
 
-my @all_country_names = $world->all_codes;
-$all_country_names[0] eq 'AE' ? "ok 15\n" : "not ok 15\n";
+my @all_country_codes = $world->all_codes;
+print $all_country_codes[0] eq 'AE' ? "ok 15\n" : "not ok 15\n";
 
 my @all_country_names = $world->all_full_names;
 print $all_country_names[1] eq 'ALBANIA' ? "ok 16\n" : "not ok 16\n";

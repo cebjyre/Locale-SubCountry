@@ -295,7 +295,7 @@ two letter code or the full name. These are currently:
 
 
 All forms of upper/lower case are acceptable in the country's spelling. If a
-country name is supplied that the module doesn't recognise, it will die.
+country name is supplied that the module doesn't recognised, it will die.
 
 =head2 country
 
@@ -379,10 +379,12 @@ Federal Information Processing Standards Publication 10-4
 1995 April Specifications for  COUNTRIES, DEPENDENCIES, AREAS OF SPECIAL SOVEREIGNTY, 
 AND THEIR PRINCIPAL ADMINISTRATIVE DIVISIONS 
 
+<http://www.mindspring.com/~gwil/statoids.html>
 
-	Locale::Country
+
+    Locale::Country
     Lingua::EN::AddressParse
-	Geo::IP
+    Geo::IP
 
 =head1 LIMITATIONS
 
@@ -457,7 +459,7 @@ this module.
 
 Mark Summerfield and Guy Fraser provided the list of UK counties.
 
-TJ Mather suuplied the FIPS codes and many ammendments to the sub country data
+TJ Mather supplied the FIPS codes and many ammendments to the sub country data
 
 
 =cut
@@ -470,7 +472,7 @@ use locale;
 use Exporter;
 use vars qw (@ISA $VERSION @EXPORT);
 
-$VERSION = '1.20';
+$VERSION = '1.21';
 @ISA     = qw(Exporter);
 
 #-------------------------------------------------------------------------------
@@ -800,7 +802,7 @@ sub full_name
     $code = uc($code);
 
     my $full_name = 
-    	$::subcountry_lookup{$sub_country->{_country}}{_code_keyed}{$code};
+        $::subcountry_lookup{$sub_country->{_country}}{_code_keyed}{$code};
     if ( $uc_name )
     {
         $full_name = uc($full_name);

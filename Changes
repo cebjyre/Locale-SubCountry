@@ -1,5 +1,8 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.21 9 Sep 2002
+    Fixed bug in test script main.t
+
 1.20 7 Sep 2002
 
     Added methods to new Locale::SubCountry::World package
