@@ -5,14 +5,26 @@ Locale::SubCountry - convert state, county, province etc names to/from code
 =head1 SYNOPSIS
 
    use Locale::SubCountry;
-
-   $australia = new Locale::SubCountry('Australia');
-
+   
+   $UK_counties = new Locale::SubCountry('UK');
+   print($UK_counties->full_name('DUMGAL'));  # Dumfries & Galloway
+   
+   $country = 'AUSTRALIA';
+   @all_countries = &all_countries;
+   if ( grep(/$country/, @all_countries) )
+   {
+      $australia = new Locale::SubCountry($country);
+   }
+   else
+   {
+      die "No data for $country";
+   }
+   
    print($australia->code('New South Wales ')); # NSW
    print($australia->full_name('S.A.'));        # South Australia
    
    $upper_case = 1;
-   print($australia->full_name('Qld',$upper_case));     # QUEENSLAND
+   print($australia->full_name('Qld',$upper_case)); # QUEENSLAND
    
    %all_australian_states = $australia->full_name_code_hash;
    foreach $abbrev ( sort keys %australian_states )
@@ -20,15 +32,11 @@ Locale::SubCountry - convert state, county, province etc names to/from code
       printf("%-3s : %s\n",$abbrev,%all_australian_states{$abbrev});
    }
    
-   %all_australian_states = $australia->code_full_name_hash;
+   %all_australian_codes = $australia->code_full_name_hash;
    
-   @australian_names = $australia->all_full_names;
-   @australian_codes = $australia->all_codes;
-   
-   $UK_counties = new Locale::SubCountry('UK');
-   print($UK_counties->full_name('DUMGAL'));  # Dumfries & Galloway
-   
-   
+   @all_australian_states = $australia->all_full_names;
+   @all_australian_codes = $australia->all_codes;
+
 
 =head1 REQUIRES
 
