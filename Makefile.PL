@@ -6,7 +6,7 @@ warn "\n"
    . "Locale::SubCountry will not be installed as it requires perl 5.005\n"
    . "or later and you only have $]\n"
    if $] < 5.005;
-         
+
 WriteMakefile
 (
 
@@ -21,14 +21,14 @@ WriteMakefile
       'SUFFIX'       => 'gz'
    },
    'DISTNAME'        => 'Locale-SubCountry',
-   
+
    ( $] >= 5.005 ?
       (
-          ABSTRACT => '',
-          AUTHOR   => 'Kim Ryan <kimaryan@ozemail.com.au>',
-      ) : () 
+          ABSTRACT => 'convert state, province, county ... names to/from ISO 3166-2 code',
+          AUTHOR   => 'Kim Ryan <kimryan@cpan.org>',
+      ) : ()
    ),
-   
+
    'NAME'            => 'Locale::SubCountry',
    'PM'              =>
    {

@@ -1,11 +1,40 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.20 7 Sep 2002
+
+    Added methods to new Locale::SubCountry::World package
+    - new
+    - all_full_names
+    - all_codes
+    - full_name_code_hash
+    - code_full_name_hash
+
+    NOTE! 
+    all_full_names method replaces the stand alone all_country_names function
+    all_codes method replaces the stand alone all_country_codes function
+    The above method names duplicate existing method names (polymorphism),
+        so make sure you are working with the right type of object first.
+
+    These changes were necessary because of user requests for country  name 
+    and code look ups prior to sub-country lookups. Previous versions would not 
+    work with Locale::Country because of a clash in exported names. Thanks to
+    Todd Green for this suggestion.
+
+    Added the FIPS 10-4 (US standard) for many sub countries
+    Added FIPS10_4_code method
+    Added ISO3166_2_code method
+    Added many corrections to sub country names
+    Thanks to TJ MAther for adding FIPS codes and fixing other data errors 
+
+    Added extra tests to main.t
+    Prefixed internal data structure elements with a dash, to follow OO convention 
+
 1.11 23 Mar 2002
     Corrected codes for Corsica, France, thanks to Mathias Herberts
 
 1.10 04 Jan 2002
-    Repalced INIT block with annonymous subroutine. This removed problems
-    that occured when mod_perl or eval statements were used.
+    Replaced INIT block with annonymous subroutine. This removed problems
+    that occurred when mod_perl or eval statements were used.
 
 1.09 25 Jul 2001
     Added code for US, West Virginia (WV), thanks to Michelle Agnew
@@ -20,8 +49,9 @@ Revision history for Perl CPAN module Locale::SubCountry
 
 1.07 12 Mar 2001 
     Corrected errors in German sub countries thanks to Lars Steubesand
-    Corrected errors in data for Austria, Poland, Romania, Turkey 
-    - Germany and Columbia. Thanks to Philip Newton.
+
+    Corrected errors in data for Austria, Poland, Romania, Turkey, Germany and 
+    Columbia. Thanks to Philip Newton.
 
 1.06 20 Feb 2001 
     Allowed countries to be specified by either full name or two letter code 
