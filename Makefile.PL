@@ -25,7 +25,7 @@ WriteMakefile
    ( $] >= 5.005 ?
       (
           ABSTRACT => 'convert state, province, county ... names to/from ISO 3166-2 code',
-          AUTHOR   => 'Kim Ryan <kimryan@cpan.org>',
+          AUTHOR   => 'Kim Ryan <kimryan at cpan org>',
       ) : ()
    ),
 

@@ -1,5 +1,17 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.30 8 Feb 2004
+
+    Completley updated data, many new coutries and sub countries added
+    Added countries without sub countries, such as Singapore
+    Stored data in seperate file in XML format
+
+    Addeded method 'category' to return the type of subcountry such as state, city etc
+    NOTE: this replaces the 'sub_country_type' method
+
+    Addeded method 'regional_division' to return the regional_division of subcountry 
+    such as SCT (Scotland) for Edingburgh
+
 1.23 16 Jul 2003
     
     Added data for Finland and Singapore, thanks to Chris McKay 
