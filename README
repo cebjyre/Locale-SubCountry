@@ -1,0 +1,90 @@
+=head1 NAME
+
+Locale::SubCountry - convert state, county, province etc names to/from code  
+
+=head1 SYNOPSIS
+
+   use Locale::SubCountry;
+
+   $australia = new Locale::SubCountry('Australia');
+
+   print($australia->code('New South Wales ')); # NSW
+   print($australia->full_name('S.A.'));        # South Australia
+   
+   $upper_case = 1;
+   print($australia->full_name('Qld',$upper_case));     # QUEENSLAND
+   
+   %all_australian_states = $australia->full_name_code_hash;
+   foreach $abbrev ( sort keys %australian_states )
+   {
+      printf("%-3s : %s\n",$abbrev,%all_australian_states{$abbrev});
+   }
+   
+   %all_australian_states = $australia->code_full_name_hash;
+   
+   @australian_names = $australia->all_full_names;
+   @australian_codes = $australia->all_codes;
+   
+   $UK_counties = new Locale::SubCountry('UK');
+   print($UK_counties->full_name('DUMGAL'));  # Dumfries & Galloway
+   
+   
+
+=head1 REQUIRES
+
+Perl 5.005 or above
+
+=head1 HOW TO INSTALL
+
+    perl Makefile.PL
+    make
+    make test
+    make install
+
+
+=head1 DESCRIPTION
+
+This module allows you to convert the full name for a countries administrative
+region to the code commonly used for postal addressing. The reverse conversion
+can also be done.
+
+Sub country regions are defined as states in the US and Australia, provinces 
+in Canada and counties in the UK.
+
+Additionally, names and codes for all sub-country regions in a country can be 
+returned as either a hash or an array. 
+
+  
+
+=head1 COPYRIGHT
+
+
+Copyright (c) 2000 Kim Ryan. All rights reserved.
+This program is free software; you can redistribute it 
+and/or modify it under the terms of the Perl Artistic License
+(see http://www.perl.com/perl/misc/Artistic.html).
+
+
+=head1 AUTHOR
+
+Locale::SubCountry was written by Kim Ryan <kimaryan@ozemail.com.au> in 2000.
+
+Terrence Brannon produced  Locale::US, which was the starting point for
+this module. 
+
+Abbreviations for Canadian, Netherlands and Brazilian regions were taken from 
+Geography::States.
+
+Mark Summerfield and Guy Fraser provided the list of UK counties.
+
+
+=cut
+
+
+
+
+
+
+
+
+                  
