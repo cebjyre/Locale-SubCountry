@@ -19,10 +19,11 @@ print $australia->full_name('S.A.') eq 'South Australia' ? "ok 2\n" : "not ok 2\
 my $upper_case = 1;
 print $australia->full_name('Qld',$upper_case) eq 'QUEENSLAND'	? "ok 3\n" : "not ok 3\n";
 
-# Now loop through every country, get every code, convert it to full name,
-# and then back to the origial code. Check that results are identical.
+# Now loop through every country, get every sub country code, convert it to 
+# full name, and then back to the origial code. Check that results are 
+# identical.
 
-my @all_countries = 	&all_countries;
+my @all_countries = 	&all_country_names;
 my $country;
 my $mis_match = 0;
 foreach $country ( @all_countries )
@@ -40,6 +41,7 @@ foreach $country ( @all_countries )
    	}
    }
 }
+
 # There are 12 sub countries with duplicate codes 
 print $mis_match == 12 ? "ok 4\n" : "not ok 4\n";
 

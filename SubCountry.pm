@@ -6,11 +6,11 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
 
    use Locale::SubCountry;
    
-   $UK_counties = new Locale::SubCountry('UK');
+   $UK_counties = new Locale::SubCountry('GB');
    print($UK_counties->full_name('DUMGAL'));  # Dumfries & Galloway
    
    $country = 'AUSTRALIA';
-   @all_countries = &all_countries;
+   @all_countries = &all_country_names;
    if ( grep(/$country/, @all_countries) )
    {
       $australia = new Locale::SubCountry($country);
@@ -25,9 +25,11 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
    
    $upper_case = 1;
    print($australia->full_name('Qld',$upper_case)); # QUEENSLAND
-   print $australia->country; # AUSTRALIA
+   print $australia->country;          # AUSTRALIA
+   print $australia->country_code;     # AU
    print $australia->sub_country_type; # State
    
+   @all_country_codes = &all_country_codes;
    
    %all_australian_states = $australia->full_name_code_hash;
    foreach $abbrev ( sort keys %australian_states )
@@ -49,11 +51,11 @@ Perl 5.005 or above
 =head1 DESCRIPTION
 
 This module allows you to convert the full name for a countries administrative
-region to the code commonly used for postal addressing. The reverse conversion
+region to the code commonly used for postal addressing. The reverse lookup
 can also be done.
 
 Sub countries are termed as states in the US and Australia, provinces 
-in Canada and counties in the UK.
+in Canada and counties in the UK and Ireland.
 
 Additionally, names and codes for all sub countries in a country can be 
 returned as either a hash or an array. 
@@ -65,176 +67,178 @@ returned as either a hash or an array.
 The C<new> method creates an instance of a sub country object. This must be 
 called before any of the following methods are invoked. The method takes a 
 single argument, the name of the country that contains the sub country 
-that you want to work with. These are currently:
+that you want to work with. It may be specified either by the ISO 3166
+two letter code or the full name. These are currently:
 
-   AFGHANISTAN
-   ALGERIA
-   ANGOLA
-   ARGENTINA
-   ARMENIA
-   AUSTRALIA
-   AUSTRIA
-   AZERBAIJAN
-   BAHAMAS
-   BAHRAIN
-   BANGLADESH
-   BELARUS
-   BELGIUM
-   BELIZE
-   BENIN
-   BHUTAN
-   BOLIVIA
-   BOSNIA-HERZEGOVINA
-   BOTSWANA
-   BRAZIL
-   BRUNEI DARUSSALAM
-   BULGARIA
-   BURKINA FASO
-   CAMBODIA
-   CAMEROON
-   CANADA
-   CAPE VERDE
-   CENTRAL AFRICAN REPUBLIC
-   CHAD
-   CHILE
-   CHINA
-   COLOMBIA
-   COMORROS
-   CONGO
-   COSTA RICA
-   CROATIA
-   CUBA
-   CYPRUS
-   CZECH REPUBLIC
-   DEMOCRATIC REPUBLIC OF CONGO
-   DENMARK
-   DJIBOUTI
-   DOMINICAN REPUBLIC
-   ECUADOR
-   EGYPT
-   EL SALVADOR
-   EQUATORIAL GUINEA
-   ERITREA
-   ESTONIA
-   ETHIOPIA
-   FEDERATED STATES OF MICRONESIA
-   FIGI
-   FRANCE
-   GABON
-   GAMBIA
-   GEORGIA
-   GERMANY
-   GHANA
-   GREECE
-   GUATEMALA
-   GUINEA
-   GUINEA BISSAU
-   GUYANA
-   HAITI
-   HONDURAS
-   HUNGARY
-   ICELAND
-   INDIA
-   INDONESIA
-   IRAN
-   IRAQ
-   IRELAND
-   ITALY
-   IVORY COAST
-   JAMAICA
-   JAPAN
-   JORDAN
-   KAZAKHSTAN
-   KENYA
-   KIRIBATI
-   KUWAIT
-   KYRGYSTAN
-   LAOS
-   LATVIA
-   LEBANON
-   LESOTHO
-   LIBERIA
-   LIBYA
-   LITHUANIA
-   MADAGASCAR
-   MALAWI
-   MALAYSIA
-   MALDIVES
-   MALI
-   MARSHALL ISLANDS
-   MAURITANIA
-   MAURITIUS
-   MEXICO
-   MOLDOVA
-   MONGOLIA
-   MOROCCO
-   MOZAMBIQUE
-   MYANMAR
-   NAMIBIA
-   NETHERLANDS
-   NEW ZEALAND
-   NICARAGUA
-   NIGER
-   NIGERIA
-   NORTH KOREA
-   NORWAY
-   OMAN
-   PAKISTAN
-   PANAMA
-   PAPUA NEW GUINEA
-   PARAGUAY
-   PERU
-   PHILIPPINES
-   POLAND
-   PORTUGAL
-   QATAR
-   ROMANIA
-   RUSSIA
-   RWANDA
-   SAINT HELENA
-   SAO TOME
-   SAUDI ARABIA
-   SENEGAL
-   SIERRA LEONE
-   SLOVAKIA
-   SLOVENIA
-   SOLOMON ISLANDS
-   SOMALIA
-   SOUTH AFRICA
-   SOUTH KOREA
-   SPAIN
-   SRI LANKA
-   SUDAN
-   SURINAME
-   SWAZILAND
-   SWEDEN
-   SWITZERLAND
-   SYRIA
-   TAIWAN
-   TAJIKISTAN
-   TANZANIA
-   THAILAND
-   TOGO
-   TRINIDAD AND TOBAGO
-   TUNISIA
-   TURKEY
-   TURKMENISTAN
-   UGANDA
-   UK
-   UKRAINE
-   UNITED ARAB EMIRAYES
-   UNITED STATES MINOR OUTLYING ISLANDS
-   URUGUAY
-   USA
-   UZBEKISTAN
-   VANUATU
-   VENEZUELA
-   VIETNAM
-   WALLIS AND FORTUNA
-   YEMEN
-   YUGOSLAVIA
-   ZAMBIA
-   ZIMBABWE
+	AF - AFGHANISTAN
+	DZ - ALGERIA
+	AO - ANGOLA
+	AR - ARGENTINA
+	AM - ARMENIA
+	AU - AUSTRALIA
+	AT - AUSTRIA
+	AZ - AZERBAIJAN
+	BS - BAHAMAS
+	BH - BAHRAIN
+	BD - BANGLADESH
+	BY - BELARUS
+	BE - BELGIUM
+	BZ - BELIZE
+	BJ - BENIN
+	BT - BHUTAN
+	BO - BOLIVIA
+	BA - BOSNIA AND HERZEGOVINA
+	BW - BOTSWANA
+	BR - BRAZIL
+	BN - BRUNEI DARUSSALAM
+	BG - BULGARIA
+	BF - BURKINA FASO
+	KH - CAMBODIA
+	CM - CAMEROON
+	CA - CANADA
+	CV - CAPE VERDE
+	CF - CENTRAL AFRICAN REPUBLIC
+	TD - CHAD
+	CL - CHILE
+	CN - CHINA
+	CO - COLOMBIA
+	KM - COMOROS
+	CO - CONGO
+	CR - COSTA RICA
+	CI - COTE D'IVOIRE
+	HR - CROATIA
+	CU - CUBA
+	CY - CYPRUS
+	CX - CZECH REPUBLIC
+	CO - DEMOCRATIC REPUBLIC OF CONGO
+	DK - DENMARK
+	DJ - DJIBOUTI
+	DO - DOMINICAN REPUBLIC
+	EC - ECUADOR
+	EG - EGYPT
+	SV - EL SALVADOR
+	QQ - EQUATORIAL GUINEA
+	ER - ERITREA
+	EE - ESTONIA
+	ET - ETHIOPIA
+	FJ - FIJI
+	FR - FRANCE
+	GA - GABON
+	GM - GAMBIA
+	GE - GEORGIA
+	DE - GERMANY
+	GH - GHANA
+	GR - GREECE
+	GT - GUATEMALA
+	GN - GUINEA
+	GW - GUINEA BISSAU
+	GY - GUYANA
+	HT - HAITI
+	HN - HONDURAS
+	HU - HUNGARY
+	IE - ICELAND
+	IN - INDIA
+	ID - INDONESIA
+	IN - IRAN (ISLAMIC REPUBLIC OF)
+	IQ - IRAQ
+	IE - IRELAND
+	IT - ITALY
+	JM - JAMAICA
+	JP - JAPAN
+	JO - JORDAN
+	KZ - KAZAKHSTAN
+	KE - KENYA
+	KI - KIRIBATI
+	KP - KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF
+	KR - KOREA, REPUBLIC OF
+	KW - KUWAIT
+	KG - KYRGYZSTAN
+	LA - LAO PEOPLE'S DEMOCRATIC REPUBLIC
+	LV - LATVIA
+	LB - LEBANON
+	LS - LESOTHO
+	LR - LIBERIA
+	LY - LIBYAN ARAB JAMAHIRIYA
+	LT - LITHUANIA
+	MG - MADAGASCAR
+	MW - MALAWI
+	MY - MALAYSIA
+	MV - MALDIVES
+	ML - MALI
+	MH - MARSHALL ISLANDS
+	MR - MAURITANIA
+	MU - MAURITIUS
+	MX - MEXICO
+	FM - MICRONESIA (FEDERATED STATES OF)
+	MD - MOLDOVA, REPUPLIC OF
+	MN - MONGOLIA
+	MA - MOROCCO
+	MZ - MOZAMBIQUE
+	MM - MYANMAR
+	NA - NAMIBIA
+	NL - NETHERLANDS
+	NZ - NEW ZEALAND
+	NI - NICARAGUA
+	NE - NIGER
+	NG - NIGERIA
+	NO - NORWAY
+	OM - OMAN
+	PK - PAKISTAN
+	PA - PANAMA
+	PG - PAPUA NEW GUINEA
+	PY - PARAGUAY
+	PE - PERU
+	PH - PHILIPPINES
+	PL - POLAND
+	PT - PORTUGAL
+	QA - QATAR
+	RO - ROMANIA
+	RU - RUSSIA
+	RW - RWANDA
+	ST - SAO TOME AND PRINCIPE
+	SA - SAUDI ARABIA
+	SN - SENEGAL
+	SL - SIERRA LEONE
+	SK - SLOVAKIA
+	SI - SLOVENIA
+	SB - SOLOMON ISLANDS
+	SO - SOMALIA
+	ZA - SOUTH AFRICA
+	ES - SPAIN
+	LK - SRI LANKA
+	SH - ST HELENA
+	SD - SUDAN
+	SR - SURINAME
+	SZ - SWAZILAND
+	SE - SWEDEN
+	CH - SWITZERLAND
+	SY - SYRIAN ARAB REPUBLIC
+	TW - TAIWAN, PROVINCE OF CHINA
+	TJ - TAJIKISTAN
+	TZ - TANZANIA, UNITED REPUBLIC OF
+	TH - THAILAND
+	TG - TOGO
+	TT - TRINIDAD AND TOBAGO
+	TN - TUNISIA
+	TR - TURKEY
+	TM - TURKMENISTAN
+	UG - UGANDA
+	UA - UKRAINE
+	AE - UNITED ARAB EMIRATES
+	GB - UNITED KINGDOM
+	US - UNITED STATES
+	UM - UNITED STATES MINOR OUTLYING ISLANDS
+	UY - URUGUAY
+	UZ - UZBEKISTAN
+	VU - VANUATU
+	VE - VENEZUELA
+	VN - VIET NAM
+	WF - WALLIS AND FUTUNA ISLANDS
+	YE - YEMEN
+	YU - YUGOSLAVIA
+	ZM - ZAMBIA
+	ZW - ZIMBABWE
+
    
 All forms of upper/lower case are acceptable in the country's spelling. If a 
 country name is supplied that the module doesn't recognise, it will die.
@@ -242,6 +246,11 @@ country name is supplied that the module doesn't recognise, it will die.
 =head2 country
 
 Returns the current country of the sub country object
+
+=head2 country_code
+
+Returns the two lwttwr current country of the sub country object
+
 
 =head2 sub_country_type
 
@@ -269,7 +278,7 @@ except the single space used to separate sub country names such as
 
 =head2 full_name
 
-The C<name> method takes the code of a sub country in the currently
+The C<full_name> method takes the code of a sub country in the currently
 assigned country and returns the sub country's full name. The code can appear
 in mixed case. All white space and non alphabetic characters are ignored. The
 full name is returned as a title cased string, such as "South Australia".
@@ -299,12 +308,20 @@ sorted alphabetically.
 Returns an array of sub country codes for the currently assigned country, 
 sorted alphabetically.
 
-=head2 all_countries
+=head2 all_country_names
 
-Returns an array of all country names that SubCountry can do lookups for,
+Returns an array of all country names that this module can do lookups for,
 sorted alphabetically. This is implemented as a conventional subroutine rather 
 than a method. This allows us to check if lookups can be done for a given country
 before actually creating the lookup object.
+
+=head2 all_country_codes
+
+Returns an array of all country 2 leteer codes that this module can do lookups for,
+sorted alphabetically. This is implemented as a conventional subroutine rather 
+than a method. This allows us to check if lookups can be done for a given country
+code before actually creating the lookup object.
+
 
 =head1 SEE ALSO
 
@@ -352,7 +369,7 @@ MOZAMBIQUE : Maputo; MPM,L
 =head1 COPYRIGHT
 
 
-Copyright (c) 2000 Kim Ryan. All rights reserved.
+Copyright (c) 2000-1 Kim Ryan. All rights reserved.
 This program is free software; you can redistribute it 
 and/or modify it under the terms of the Perl Artistic License
 (see http://www.perl.com/perl/misc/Artistic.html).
@@ -374,7 +391,7 @@ Mark Summerfield and Guy Fraser provided the list of UK counties.
 
 =cut
 
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 
 package Locale::SubCountry;
 
@@ -386,30 +403,58 @@ use locale;
 use Exporter;
 use vars qw (@ISA $VERSION @EXPORT);
 
-$VERSION = '1.05';
+$VERSION = '1.06';
 @ISA     = qw(Exporter);
-@EXPORT  = qw(&all_countries);
+@EXPORT  = qw(&all_country_names &all_country_codes);
 
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # Create new instance of a sub country object
 
 sub new
 {
    my $class = shift;
-   my ($country) = @_;
+   my ($country_or_code) = @_;
    
-   $country = uc($country);
-   unless ( exists $::lookup{$country} )
+   $country_or_code = uc($country_or_code);
+   
+   my ($country,$country_code);
+   
+   # Country may be supplied either as a two letter code, or the full name
+   if ( length($country_or_code) == 2 )
    {
-      die "Invalid country name: $country chosen";
+   	if ( $::country_lookup{code_keyed}{$country_or_code} )
+   	{
+	      $country_code = $country_or_code;
+      	# set country to it's full name
+      	$country = $::country_lookup{code_keyed}{$country_or_code};
+   	}
+   	else
+   	{
+	      die "Invalid country code: $country_or_code chosen";
+   	}
+   }
+   else
+   {
+	   if ( $::country_lookup{full_name_keyed}{$country_or_code} )
+      {
+	      $country = $country_or_code;
+      	$country_code = $::country_lookup{full_name_keyed}{$country_or_code};
+      }
+      else
+	   {
+	      die "Invalid country name: $country_or_code chosen";
+	   }
    }
    
    my $sub_country = {};
    bless($sub_country,$class);
    $sub_country->{country} = $country;
-   if ( $::lookup{$country}{sub_country_type} )
+   $sub_country->{country_code} = $country_code;
+   
+   
+   if ( $::subcountry_lookup{$country}{sub_country_type} )
    {
-      $sub_country->{sub_country_type} = $::lookup{$country}{sub_country_type};
+      $sub_country->{sub_country_type} = $::subcountry_lookup{$country}{sub_country_type};
    }
    else
    {
@@ -419,7 +464,7 @@ sub new
    return($sub_country);
 }
 
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # Returns the current country of the sub country object
 
 sub country
@@ -427,7 +472,16 @@ sub country
    my $sub_country = shift;
    return( $sub_country->{country} );
 }
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+# Returns the current country code of the sub country object
+
+sub country_code
+{
+   my $sub_country = shift;
+   return( $sub_country->{country_code} );
+}
+
+#-------------------------------------------------------------------------------
 # Returns the current sub country type (state, county etc) of the 
 # sub country object
 
@@ -436,7 +490,7 @@ sub sub_country_type
    my $sub_country = shift;
    return( $sub_country->{sub_country_type} );
 }
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # Given the full name for a sub country, return the code
 
 sub code
@@ -448,7 +502,7 @@ sub code
    
    $full_name = _clean($full_name);
    
-   my $code = $::lookup{$sub_country->{country}}{full_name_keyed}{$full_name};
+   my $code = $::subcountry_lookup{$sub_country->{country}}{full_name_keyed}{$full_name};
    
    # If a code wasn't found, it could be because the user's capitalization
    # does not match the one in the look up data of this module. For example,
@@ -467,7 +521,7 @@ sub code
       {
          if ( uc($full_name) eq uc($current_name) )
          {
-            $code = $::lookup{$sub_country->{country}}{full_name_keyed}{$current_name};
+            $code = $::subcountry_lookup{$sub_country->{country}}{full_name_keyed}{$current_name};
          }
       }
    }
@@ -481,7 +535,7 @@ sub code
       return('unknown');
    }
 }
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # Given the code for a sub country, return the full name.
 # Parameters are the code and a flag, which if set to true
 # will cause the full name to be uppercased
@@ -494,7 +548,7 @@ sub full_name
    $code = _clean($code);
    $code = uc($code);
    
-   my $full_name = $::lookup{$sub_country->{country}}{code_keyed}{$code};
+   my $full_name = $::subcountry_lookup{$sub_country->{country}}{code_keyed}{$code};
    if ( $uc_name )
    {
       $full_name = uc($full_name);
@@ -509,19 +563,19 @@ sub full_name
       return('unknown');
    }
 }
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 sub code_full_name_hash
 {
    my $sub_country = shift;
-   return( %{ $::lookup{$sub_country->{country}}{code_keyed} } );
+   return( %{ $::subcountry_lookup{$sub_country->{country}}{code_keyed} } );
 }
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 sub full_name_code_hash
 {
    my $sub_country = shift;
-   return( %{ $::lookup{$sub_country->{country}}{full_name_keyed} } );
+   return( %{ $::subcountry_lookup{$sub_country->{country}}{full_name_keyed} } );
 }
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # Returns sorted array of all sub country full names for the current country
 
 sub all_full_names
@@ -530,7 +584,7 @@ sub all_full_names
    my %all_full_names = $sub_country->full_name_code_hash;
    return( sort keys %all_full_names );
 }
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # Returns sorted array of all sub country codes for the current country
 
 sub all_codes
@@ -539,17 +593,24 @@ sub all_codes
    my %all_codes = $sub_country->code_full_name_hash;
    return( sort keys %all_codes );
 }
-#------------------------------------------------------------------------------
-# Returns sorted array of all countries that we can do lookups for
+#-------------------------------------------------------------------------------
+# Returns sorted array of all countries full names that we can do lookups for
 
-sub all_countries
+sub all_country_names
 {
-   return( sort keys %::lookup );
+   return ( sort keys %{ $::country_lookup{full_name_keyed} });
+}
+#-------------------------------------------------------------------------------
+# Returns sorted array of all two letter country codes that we can do lookups for
+
+sub all_country_codes
+{
+   return ( sort keys %{ $::country_lookup{code_keyed} });
 }
 
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # INTERNAL FUNCTIONS
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # Read in the list of abbreivations and full names defined in the DATA block
 # at the bottom of this file.
  
@@ -566,9 +627,20 @@ INIT
          {
             $country = _clean($1);
          }
+         elsif ( /^Code\s*=(.*)/i )
+         {
+            # Create doubly indexed hash, keyed by	country code and full name.
+            # The user can supply either form to create a new sub_country 
+            # object, and the objects properties will hold both the countries
+            # name and it's code.
+             
+         	my $code = _clean($1);
+            $::country_lookup{code_keyed}{$code} = $country;
+            $::country_lookup{full_name_keyed}{$country} = $code;
+         }
          elsif ( /^SubCountryType\s*=(.*)/i )
          {
-            $::lookup{$country}{sub_country_type} = _clean($1);
+            $::subcountry_lookup{$country}{sub_country_type} = _clean($1);
          }
          else
          {
@@ -577,17 +649,17 @@ INIT
             $code = _clean($code);
             $name = _clean($name);
             
-            # Create two hashes, both grouped by country, one keyed by
+            # Create doubly indexed hash, grouped by country, one keyed by
             # abbrevaiton and one by full name. Although data is duplicated,
-            # this provided the fastest lookup and simplest code.
+            # this provides the fastest lookup and simplest code.
             
-            $::lookup{$country}{code_keyed}{$code} = $name;
-            $::lookup{$country}{full_name_keyed}{$name} = $code;
+            $::subcountry_lookup{$country}{code_keyed}{$code} = $name;
+            $::subcountry_lookup{$country}{full_name_keyed}{$name} = $code;
          }
       }
    }
 }
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 sub _clean
 {
    my ($input_string) = @_;
@@ -604,18 +676,33 @@ sub _clean
    
    return($input_string);
 }
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 return(1);
 
-# Code/Sub country data. Comments (lines starting with #) and 
-# blank lines are ignored. Read in at start up by INIT subroutine.
-# Format is:
-# Country=<COUNTRY NAME>
-# CODE:Full Name
+=head
+
+Code/Sub country data. Comments (lines starting with #) and 
+blank lines are ignored. Read in at start up by INIT subroutine.
+
+Format is:
+Country=<COUNTRY NAME>
+Code=<COUNTRY CODE> # from ISO 3166 format
+SubCountryType=<Sub Country Type>  # optional field, specify state, county etc
+CODE:Full Name
+CODE:Full Name
+CODE:Full Name
+...
+
+Country=<COUNTRY NAME>
+...
+
+
+=cut
 
 __DATA__
 
-Country=UNITED ARAB EMIRAYES
+Country=UNITED ARAB EMIRATES
+Code=AE
 
 AZ:Abu Zaby
 AJ:'Ajman
@@ -626,6 +713,7 @@ RK:R'as al Khaymah
 UQ:Umm al Qaywayn
 
 Country=AFGHANISTAN
+Code=AF
 
 BDS:Badakhshan
 BDG:Badghis
@@ -659,6 +747,7 @@ WAR:Wardak
 ZAB:Zabol
 
 Country=ALGERIA
+Code=DZ
 
 01:Adrar
 44:Ain Defla
@@ -711,6 +800,7 @@ Country=ALGERIA
 
 
 Country=ARMENIA
+Code=AM
 
 ER:Erevan
 AG:Aragacotn
@@ -725,6 +815,7 @@ TV:Tavus
 VD:Vayoc Jor
 
 Country=ANGOLA
+Code=AO
 
 BGO:Bengo
 BGU:Benguela
@@ -746,6 +837,7 @@ UIG:Uíge
 ZAI:Zaire
 
 Country=ARGENTINA
+Code=AR
 
 C:Capital federal
 B:Buenos Aires
@@ -772,6 +864,7 @@ V:Tierra del Fuego
 T:Tucumán
 
 Country=AUSTRALIA
+Code=AU
 SubCountryType=State
 
 AAT:Australian Antarctic Territory
@@ -786,6 +879,7 @@ WA:Western Australia
 
 
 Country=AUSTRIA
+Code=AT
 
 1:Burgenland
 2:Karnten
@@ -798,6 +892,7 @@ Country=AUSTRIA
 9:Wien
 
 Country=AZERBAIJAN
+Code=AZ
 
 MM:Naxçivan
 AB:Äli Bayramli
@@ -877,12 +972,14 @@ ZAN:Zängilan
 ZAQ:Zaqatala
 ZAR:Zärdab
 
-Country=BOSNIA-HERZEGOVINA
+Country=BOSNIA AND HERZEGOVINA
+Code=BA
 
 BIH:Federacija Bosna i Hercegovina
 SRP:Republika Srpska
 
 Country=BANGLADESH
+Code=BD
 
 05:Bagerhat zila
 01:Bandarban zila
@@ -950,6 +1047,7 @@ Country=BANGLADESH
 64:Thakurgaon zila
 
 Country=BELARUS
+Code=BY
 
 BR:Brèsckaja voblasc
 HO:Homel'skaja voblasc
@@ -960,19 +1058,21 @@ VI:Vicebskaja voblasc'
 
 
 Country=BELGIUM
+Code=BE
 
 VAN:Antwerpen
 WBR:Brabant Wallon
 WHT:Hainaut
-WLG:Liêge
+WLG:Liège
 VLI:Limburg
 WLX:Luxembourg
 WNA:Namur
-VOV:Ooat-Vlaanderen
+VOV:Oost-Vlaanderen
 VBR:Vlaams Brabant
 VWV:West-Vlaanderen
 
 Country=BURKINA FASO
+Code=BF
 
 BAL:Balé
 BAM:Bam
@@ -1021,6 +1121,7 @@ ZON:Zondoma
 ZOU:Zoundwéogo
 
 Country=BULGARIA
+Code=BG
 
 02:Burgas
 09:Haskovo
@@ -1033,6 +1134,7 @@ Country=BULGARIA
 03:Varna
 
 Country=BAHRAIN
+Code=BH
 
 01:Al Hadd
 03:Al Manamah
@@ -1048,6 +1150,7 @@ Country=BAHRAIN
 06:Sitrah
 
 Country=BENIN
+Code=BJ
 
 AK:Atakora
 AQ:Atlantique
@@ -1057,6 +1160,7 @@ OU:Ouémé
 ZO:Zou
 
 Country=BRUNEI DARUSSALAM
+Code=BN
 
 BE:Belait
 BM:Brunei-Muara
@@ -1064,6 +1168,7 @@ TE:Temburong
 TU:Tutong
 
 Country=BOLIVIA
+Code=BO
 
 C:Cochabamba
 H:Chuquisaca
@@ -1076,6 +1181,7 @@ S:Santa Cruz
 T:Tarija
 
 Country=BAHAMAS
+Code=BS
 
 AC:Acklins and Crooked Islands
 BI:Bimini
@@ -1100,6 +1206,7 @@ SP:Sandy Point
 SR:San Salvador and Rum Cay
 
 Country=BHUTAN
+Code=BT
 
 33:Bumthang
 12:Chhukha
@@ -1123,6 +1230,7 @@ TY:Trashi Yangtse
 34:Zhemgang
 
 Country=BOTSWANA
+Code=BW
 
 CE:Central 
 CH:Chobe
@@ -1136,6 +1244,7 @@ SE:South-East
 SO:Southern
 
 Country=BELIZE
+Code=BZ
 
 BZ:Belize
 CY:Cayo
@@ -1143,7 +1252,9 @@ CZL:Corozal
 OW:Orange Walk
 SC:Stann Creek
 TOL:Toledo
+
 Country=BRAZIL
+Code=BR
 
 AC:Acre
 AL:Alagoas
@@ -1175,6 +1286,7 @@ SP:Sao Paulo
 TO:Tocatins
 
 Country=CANADA
+Code=CA
 SubCountryType=Province
 
 AB:Alberta
@@ -1184,7 +1296,7 @@ NB:New Brunswick
 NF:Newfoundland
 NS:Nova Scotia
 NT:Northwest Territories
-NT:Nunavut
+NU:Nunavut
 ON:Ontario
 PE:Prince Edward Island
 QC:Quebec
@@ -1192,6 +1304,7 @@ SK:Saskatchewan
 YT:Yukon Territory
 
 Country=DEMOCRATIC REPUBLIC OF CONGO
+Code=CO
 
 KN:Kinshasa
 BN:Bandundu
@@ -1205,13 +1318,15 @@ MA:Maniema
 NK:Nord-Kivu
 SK:Sud-Kivu
 
-Country=COMORROS
+Country=COMOROS
+Code=KM
 
 A:Anjouan Ndzouani
 G:Grande Comore Ngazidja
 M:Mohéli Moili
 
 Country=CENTRAL AFRICAN REPUBLIC
+Code=CF
 
 BGF:Bangui
 BB:Bamingui-Bangoran
@@ -1232,6 +1347,7 @@ SE:Sangha-Mbaéré
 VR:Vakaga
 
 Country=CONGO
+Code=CO
 
 BZV:Brazzaville
 11:Bouenza
@@ -1246,6 +1362,7 @@ BZV:Brazzaville
 13:Sangha
 
 Country=CHAD
+Code=TD
 
 BA:Batha
 BI:Biltine
@@ -1263,6 +1380,7 @@ SA:Salamat
 TA:Tandjilé
 
 Country=CHILE
+Code=CL
 
 AI:Aisén del General Carlos Ibáñez del Campo
 AN:Antofagasta
@@ -1279,6 +1397,7 @@ TA:Tarapacá
 VS:Valparaíso
 
 Country=CAMEROON
+Code=CM
 
 AD:Adamaoua
 CE:Centre
@@ -1292,6 +1411,7 @@ SW:South-Weat
 OU:West
 
 Country=CHINA
+Code=CN
 
 11:Beijing
 50:Chongqing
@@ -1328,6 +1448,7 @@ Country=CHINA
 91:Hong Kong
 
 Country=COLOMBIA
+Code=CO
 
 DC:Distrito Capltal de Santa Fe de Bogotã
 AMA:Amazonea
@@ -1364,6 +1485,7 @@ VAU:Vaupés
 VID:Vichada
 
 Country=COSTA RICA
+Code=CR
 
 A:Alajuela
 C:Cartago
@@ -1374,6 +1496,7 @@ P:Puntarenas
 SJ:San José
 
 Country=CROATIA
+Code=HR
 
 07:Bjelovarsko-bilogorska zupanija
 12:Brodsko-posavska zupanija
@@ -1397,6 +1520,7 @@ Country=CROATIA
 01:Zagrebacka zupanija
 
 Country=CUBA
+Code=CU
 
 09:Camagüey
 08:Ciego de `vila
@@ -1415,6 +1539,7 @@ Country=CUBA
 99:Isla de la Juventud
 
 Country=CAPE VERDE
+Code=CV
 
 BV:Boa Vista
 BR:Brava
@@ -1432,6 +1557,7 @@ SV:Sao Vicente
 TA:Tarrafal
 
 Country=CYPRUS
+Code=CY
 
 04:Ammochostos Magusa
 06:Keryneia
@@ -1441,6 +1567,7 @@ Country=CYPRUS
 05:Pafos
 
 Country=CZECH REPUBLIC
+Code=CX
 
 PRG:Praha
 CJC:Jihocesky kraj
@@ -1452,6 +1579,7 @@ CVC:Vychodocesky kraj
 CZC:Západocesky kraj
 
 Country=DENMARK
+Code=DK
 
 015:Københavns
 020:Frederiksborg
@@ -1469,6 +1597,7 @@ Country=DENMARK
 080:Nordjyllands
 
 Country=DJIBOUTI
+Code=DJ
 
 AS:Ali Sabiah
 DI:Dikhil
@@ -1477,6 +1606,7 @@ OB:Obock
 TA:Tadjoura
 
 Country=DOMINICAN REPUBLIC
+Code=DO
 
 01:Distrito Nacional (Santo Domingo)
 02:Azua
@@ -1511,6 +1641,7 @@ Country=DOMINICAN REPUBLIC
 
 
 Country=ECUADOR
+Code=EC
 
 A:Azuay
 B:Bolívar
@@ -1535,6 +1666,7 @@ T:Tungurahua
 Z:Zamora-Chinchipe
 
 Country=EGYPT
+Code=EG
 
 DK:Ad Daqahllyah
 BA:Al Bahr al Ahmar
@@ -1564,6 +1696,7 @@ SIN:Shamâl Sinã'
 SHG:Suhâj
 
 Country=ERITREA
+Code=ER
 
 AN:Anseba
 DU:Debub
@@ -1573,6 +1706,7 @@ MA:Maakel [Maekel]
 SK:Semenawi Keyih Bahri [Semien-Keih-Bahri]
 
 Country=ESTONIA
+Code=EE
 
 37:Harjumsa
 39:Hitumea
@@ -1591,6 +1725,7 @@ Country=ESTONIA
 86:Vôrumaa
 
 Country=ETHIOPIA
+Code=ET
 
 AA:Addis Ababa 
 AF:Afar
@@ -1603,7 +1738,8 @@ SO:Somali
 SN:Southern Nations, Nationalitioa and Peoples
 TI:Tigrai 
 
-Country=FIGI
+Country=FIJI
+Code=FJ
 
 C:Central
 E:Eastern
@@ -1611,7 +1747,8 @@ N:Northern
 W:Western
 R:Rotuma
 
-Country=FEDERATED STATES OF MICRONESIA
+Country=MICRONESIA (FEDERATED STATES OF)
+Code=FM
 
 TRK:Chuuk
 KSA:Kosrae
@@ -1619,6 +1756,7 @@ PNI:Pohnpei
 YAP:Yap
 
 Country=FRANCE
+Code=FR
 SubCountryType=Department
 
 01:Ain
@@ -1717,6 +1855,7 @@ SubCountryType=Department
 78:Yvelines
 
 Country=GAMBIA
+Code=GM
 
 B:Banjul
 L:Lower River
@@ -1726,6 +1865,7 @@ U:Upper River
 W:Western
 
 Country=GABON
+Code=GA
 
 1:Estuaire
 2:Haut-Ogooué
@@ -1738,6 +1878,7 @@ Country=GABON
 9:Woleu-Ntem
 
 Country=GEORGIA
+Code=GE
 
 AB:Ap'khazet'is Avtonomiuri Respublika 
 AJ:Acharis Avtonomiuri Respublika 
@@ -1817,6 +1958,7 @@ ZUG:Zuqdidi
 63:Zugdidis Raioni
 
 Country=GERMANY
+Code=DE
 SubCountryType=Lander
 
 BW:Baden-Wuerttemberg
@@ -1837,6 +1979,7 @@ ST:Sachsen-Anhalt
 TH:Thueringen
 
 Country=GHANA
+Code=GH
 
 AH:Ashanti
 BA:Brong-Ahafo
@@ -1850,6 +1993,7 @@ TV:Volta
 WP:Western
 
 Country=GUINEA
+Code=GN
 
 BE:Beyla
 BF:Boffa
@@ -1886,6 +2030,7 @@ TO:Tougué
 YO:Yomou
 
 Country=EQUATORIAL GUINEA
+Code=QQ
 
 C:Regiôn Continental
 I:Region Insular
@@ -1898,6 +2043,7 @@ LI:Litoral
 WN:Wele-Nzas
 
 Country=GREECE
+Code=GR
 
 13:Achaïa
 01:Aitolia-Akarnania
@@ -1952,6 +2098,7 @@ A1:Attiki
 69:Agio Oros
 
 Country=GUATEMALA
+Code=GT
 
 AV:Alta Verapez
 BV:Baja Verapez
@@ -1977,6 +2124,7 @@ TO:Totonicapán
 ZA:Zacapa
 
 Country=GUINEA BISSAU
+Code=GW
 
 BS:Bissau
 BA:Bafatá
@@ -1989,6 +2137,7 @@ QU:Quloara
 TO:Tombali S
 
 Country=GUYANA
+Code=GY
 
 BA:Barima-Waini
 CU:Cuyuni-Mazaruni
@@ -2002,6 +2151,7 @@ UD:Upper Demerara-Berbice
 UT:Upper Takutu-Upper Essequibo
 
 Country=HAITI
+Code=HT
 
 CE:Centre
 GA:Grande-Anse
@@ -2013,6 +2163,7 @@ SD:Sud
 SE:Sud-Est
 
 Country=HONDURAS
+Code=HN
 
 AT:Atlántida
 CL:Colón
@@ -2034,6 +2185,7 @@ VA:Valle
 YO:Yoro
 
 Country=HUNGARY
+Code=HU
 
 BU:Budapest
 BK:Bács-Kiskun
@@ -2079,6 +2231,7 @@ VM:Veezprém
 ZE:Zalaegerszeg
 
 Country=ICELAND
+Code=IE
 
 7:Austurland
 1:Höfuoborgarsvæöi utan Reykjavíkur
@@ -2091,6 +2244,7 @@ Country=ICELAND
 3:Vesturland
 
 Country=INDIA
+Code=IN
 
 AP:Andhra Pradesh
 AR:Arunachal Pradesh
@@ -2126,6 +2280,7 @@ LD:Lakshadweep
 PY:Pondicherry
 
 Country=INDONESIA
+Code=ID
 
 AC:Aceh
 BA:Bali
@@ -2161,6 +2316,7 @@ TT:Timor-Timur
 YO:Yogyakarta
 
 Country=IRELAND
+Code=IE
 SubCountryType=County
 
 C:Cork
@@ -2190,6 +2346,7 @@ WW:Wicklow
 WX:Wexford
 
 Country=ITALY
+Code=IT
 
 AG:Agrigento
 AL:Alessandria
@@ -2318,6 +2475,7 @@ VT:Viterbo
 34:Veneto
 
 Country=IRAQ
+Code=IQ
 
 AN:Al Anbar
 BA:Al Ba,rah
@@ -2338,7 +2496,8 @@ NI:Ninawá
 SD:Salah ad Din
 WA:Wasit
 
-Country=IRAN
+Country=IRAN (ISLAMIC REPUBLIC OF)
+Code=IN
 
 03:ArdabLl
 02:Azarbayjän-e-Gharbî
@@ -2367,7 +2526,8 @@ Country=IRAN
 25:Yazd
 11:Zanjan
 
-Country=IVORY COAST
+Country=COTE D'IVOIRE
+Code=CI
 
 06:18 Montagnes
 16:Agnébi
@@ -2387,6 +2547,7 @@ Country=IVORY COAST
 08:Zanzan
 
 Country=JAPAN
+Code=JP
 
 23:Aichi
 05:Akita
@@ -2437,6 +2598,7 @@ Country=JAPAN
 19:Yamanashi
 
 Country=JAMAICA
+Code=JM
 
 13:Clarendon
 09:Hanover
@@ -2454,6 +2616,7 @@ Country=JAMAICA
 10:Westmoreland
 
 Country=JORDAN
+Code=JO
 
 AJ:Ajlün
 AQ:Al 'Aqaba
@@ -2469,6 +2632,7 @@ MN:Ma'ãn
 MD:Madaba
 
 Country=KENYA
+Code=KE
 
 110:Nairobi Municipality
 200:Central
@@ -2478,7 +2642,8 @@ Country=KENYA
 700:Rift Valley
 900:Western Magharibi
 
-Country=KYRGYSTAN
+Country=KYRGYZSTAN
+Code=KG
 
 C:Chu
 J:Jalal-Abad
@@ -2488,6 +2653,7 @@ T:Talas
 Y:Ysyk-Kol
 
 Country=CAMBODIA
+Code=KH
 
 23:Krong Kaeb 
 18:Xrong Preah Sihanouk 
@@ -2514,12 +2680,14 @@ Country=CAMBODIA
 21:Taakaev
 
 Country=KIRIBATI
+Code=KI
 
 G:Gilbert Islands
 L:Line Islands
 P:Phoenix Islands
 
 Country=KUWAIT
+Code=KW
 
 AH:Al Ahmadî
 FA:Al Farwanlyah
@@ -2528,6 +2696,7 @@ KU:Al Kuwayt
 HA:Hawallî
 
 Country=KAZAKHSTAN
+Code=KZ
 
 ALA:Almaty
 BAY:Bayqonyr
@@ -2546,7 +2715,8 @@ VOS:Shyghys Kazakstan
 SEV:SoltÜatik Kazakstan Severo-Kazakhstanskaya Severo-Kazahstanskaja
 ZHA:Zhambyl oblysy Zhambylskaya oblast'
 
-Country=LAOS
+Country=LAO PEOPLE'S DEMOCRATIC REPUBLIC
+Code=LA
 
 VT:Vientiane
 AT:Attapu 
@@ -2567,6 +2737,7 @@ XE:Xékong
 XI:Xiangkhoang 
 
 Country=LEBANON
+Code=LB
 
 BA:Beirout
 BI:El Bégsa
@@ -2576,6 +2747,7 @@ JA:Loubnâne ej Jnoûbi
 NA:Nabatîyé
 
 Country=SRI LANKA
+Code=LK
 
 52:Ampara
 71:Anuradhapura
@@ -2604,6 +2776,7 @@ Country=SRI LANKA
 44:VavunLya
 
 Country=LIBERIA
+Code=LR
 
 BM:Bomi
 BG:Bong
@@ -2620,6 +2793,7 @@ RI:Rivercess
 SI:Sinoe
 
 Country=LESOTHO
+Code=LS
 
 D:Berea
 B:Butha-Buthe
@@ -2633,6 +2807,7 @@ G:Quthing
 K:Thaba-Tseka
 
 Country=LITHUANIA
+Code=LT
 
 AL:Alytaus Apskritis
 KU:Kauno Apskritis
@@ -2646,6 +2821,7 @@ UT:Utenos Apskritis
 VL:Vilniaus Apskritis
 
 Country=LATVIA
+Code=LV
 
 AI:Aizkraukles Apripkis
 AL:AlÜkanes Apripkis
@@ -2681,7 +2857,8 @@ REZ:Rêzekne
 RIX:Rlga
 VEN:Ventspils
 
-Country=LIBYA
+Country=LIBYAN ARAB JAMAHIRIYA
+Code=LY
 
 BU:Al Butnan
 JA:Al Jabal al Akhdar
@@ -2698,6 +2875,7 @@ SF:Sawfajjin
 TB:Tarãbulus
 
 Country=MOROCCO
+Code=MA
 
 AGD:Agadir
 BAH:Aït Baha
@@ -2751,7 +2929,8 @@ TAZ:Taza
 TET:Tétouan
 TIZ:Tiznit
 
-Country=MOLDOVA
+Country=MOLDOVA, REPUPLIC OF
+Code=MD
 
 BAL:Balti
 CAH:Cahul
@@ -2805,6 +2984,7 @@ UGI:Ungheni
 VUL:Vulcanesti
 
 Country=MADAGASCAR
+Code=MG
 
 T:Antananarivo
 D:Antsiranana
@@ -2814,6 +2994,7 @@ A:Toamasina
 U:Toliara
 
 Country=MALI
+Code=ML
 
 BK0:Bamako
 7:Gao
@@ -2826,6 +3007,7 @@ BK0:Bamako
 6:Tombouctou
 
 Country=MYANMAR
+Code=MM
 
 07:Ayeyarwady
 02:Bago
@@ -2843,6 +3025,7 @@ Country=MYANMAR
 17:Shan
 
 Country=MONGOLIA
+Code=MN
 
 1:Ulanbaatar
 073:Arhangay
@@ -2868,6 +3051,7 @@ Country=MONGOLIA
 046:Uvs
 
 Country=MARSHALL ISLANDS
+Code=MH
 
 ALL:Ailinglapalap
 ALK:Ailuk
@@ -2895,6 +3079,7 @@ WTN:Wotho
 WTJ:Wotje
 
 Country=MAURITANIA
+Code=MR
 
 NKC:Nouakchott
 07:Adrar
@@ -2911,6 +3096,7 @@ NKC:Nouakchott
 06:Trarza
 
 Country=MAURITIUS
+Code=MU
 
 BR:Beau Bassin-Rose Hill
 CU:Curepipe
@@ -2931,6 +3117,7 @@ CC:Cargados Carajos Shoals
 RO:Rodrigues Island
 
 Country=MALDIVES
+Code=MV
 
 MLE:Male
 02:Alif
@@ -2954,6 +3141,7 @@ MLE:Male
 04:Vaavu
 
 Country=MALAWI
+Code=MW
 
 BL:Blantyre
 CK:Chikwawa
@@ -2981,6 +3169,7 @@ TH:Thyolo
 ZO:Zomba
 
 Country=MEXICO
+Code=MX
 
 DIF:Distrito Federal
 AGU:Aguascalientes
@@ -3016,6 +3205,7 @@ YUC:Yucatán
 ZAC:Zacatecas
 
 Country=MALAYSIA
+Code=MY
 
 W:Wilayah Persekutuan Kuala Lumpur
 L:Wilayah Persekutuan Labuan
@@ -3034,6 +3224,7 @@ B:Selangor
 T:Terengganu
 
 Country=MOZAMBIQUE
+Code=MZ
 
 MPM:Maputo
 P:Cabo Delgado
@@ -3048,6 +3239,7 @@ T:Tete
 Q:Zambézia
 
 Country=NAMIBIA
+Code=NA
 
 CA:Caprivi
 ER:Erongo
@@ -3064,6 +3256,7 @@ OT:Oshikoto
 OD:Otjozondjupa
 
 Country=NETHERLANDS
+Code=NL
 
 DR:Drente
 FL:Flevoland
@@ -3079,6 +3272,7 @@ ZH:Zuid Holland
 ZL:Zeeland
 
 Country=NIGERIA
+Code=NG
 
 FC:Abuja Capital Territory
 AB:Abia
@@ -3119,6 +3313,7 @@ YO:Yobe
 ZA:Zamfara
 
 Country=NIGER
+Code=NE
 
 8:Niamey
 1:Agadez
@@ -3130,6 +3325,7 @@ S:Tahoua
 7:Zinder
 
 Country=NICARAGUA
+Code=NI
 
 BO:Boaco
 CA:Carazo
@@ -3148,7 +3344,8 @@ SJ:Río San Juan
 RI:Rivas
 ZE:Zelaya
 
-Country=NORTH KOREA
+Country=KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF
+Code=KP
 
 KAE:Kaesong-si
 NAM:Nampo-si
@@ -3164,6 +3361,7 @@ PYN:Pyongannam-do
 YAN:Yanggang-do
 
 Country=NORWAY
+Code=NO
 
 02:Akershus
 09:Aust-Agder
@@ -3188,6 +3386,7 @@ Country=NORWAY
 21:Svalbard
 
 Country=NEW ZEALAND
+Code=NZ
 
 AUK:Auckland
 BOP:Bay of Plenty
@@ -3207,6 +3406,7 @@ WGN:Wellington
 WTC:West Coast
 
 Country=OMAN
+Code=OM
 
 DA:Ad Dakhillyah
 BA:Al Batinah
@@ -3218,6 +3418,7 @@ MA:Masqat
 MU:Musandam
 
 Country=PANAMA
+Code=PA
 
 1:Bocas del Toro
 2:Coclé
@@ -3231,6 +3432,7 @@ Country=PANAMA
 Q:Comarca de San Blas
 
 Country=PAKISTAN
+Code=PK
 
 IS:Islamabad
 BA:Baluchistan (en)
@@ -3242,6 +3444,7 @@ JK:Azad Rashmir
 NA:Northern Areas
 
 Country=PAPUA NEW GUINEA
+Code=PG
 
 NCD:National Capital District (Port Moresby)
 CPM:Central
@@ -3265,6 +3468,7 @@ WHM:Western Highlands
 WBK:West New Britain
 
 Country=PERU
+Code=PE
 
 CAL:El Callao
 AMA:Amazonas
@@ -3293,6 +3497,7 @@ TUM:Tumbes
 UCA:Ucayali
 
 Country=PHILIPPINES
+Code=PH
 
 ABR:Abra
 AGN:Agusan del Norte
@@ -3369,6 +3574,7 @@ ZAN:Zamboanga del Norte
 ZAS:Zamboanga del Sur
 
 Country=POLAND
+Code=PL
 
 BP:Biala Podlaska
 BK:Bialystok
@@ -3423,13 +3629,14 @@ ZA:Zamosc
 ZG:Zielona Góra
 
 Country=PORTUGAL
+Code=PT
 
 01:Aveiro
 02:Beja
 03:Braga
 04:Bragança
 05:Castelo Branco
-06:Colmbra
+06:Coimbra
 07:Évora
 08:Faro
 09:Guarda
@@ -3446,6 +3653,7 @@ Country=PORTUGAL
 30:Regiao AutOnoma da Madeira
 
 Country=PARAGUAY
+Code=PY
 
 ASU:Asunción
 16:Alto Paraguay
@@ -3467,6 +3675,7 @@ ASU:Asunción
 2:San Pedro
 
 Country=POLAND
+Code=PL
 
 DS:Dolnos ´ l a skie
 KP:Kujawsko-pomorskie
@@ -3486,6 +3695,7 @@ WP:Wielkopolskie
 ZP:Zachodniopomorskie
 
 Country=QATAR
+Code=QA
 
 DA:Ad Dawhah
 GH:Al Ghuwayrîyah
@@ -3499,6 +3709,7 @@ US:Umm Salãl
 
 
 Country=RWANDA
+Code=RW
 
 C:Butare
 I:Byumba
@@ -3514,6 +3725,7 @@ M:Mutara
 H:Ruhengeri
 
 Country=ROMANIA
+Code=RO
 
 B:Bucures ¸ ti
 AB:Alba
@@ -3558,6 +3770,7 @@ VL:Vâlcea
 VN:Vrancea
 
 Country=RUSSIA
+Code=RU
 
 AD:Adygeya, Respublika 
 AL:Altay, Respublika 
@@ -3650,6 +3863,7 @@ UOB:Ust'-Ordynskiy Buryatskiy
 YAN:Yamalo-Nenetskiy avtonomnyy okrug
 
 Country=SAUDI ARABIA
+Code=SA
 
 11:Al Batah
 08:Al H,udÜd ash Shamallyah
@@ -3666,6 +3880,7 @@ Country=SAUDI ARABIA
 07:Tabûk
 
 Country=SPAIN
+Code=ES
 
 A:Alicante
 AB:Albacete
@@ -3733,6 +3948,7 @@ ZA:Zamora
 
 
 Country=SOLOMON ISLANDS
+Code=SB
 
 CT:Capital Territory (Honiara)
 CE:Central
@@ -3744,6 +3960,7 @@ TE:Temotu
 WE:Western
 
 Country=SUDAN
+Code=SD
 
 23:A'alî an Nîl
 26:Al Bah al Ahmar
@@ -3773,6 +3990,7 @@ Country=SUDAN
 21:Warab
 
 Country=SWEDEN
+Code=SE
 
 K:Blekinge län
 W:Dalarnas län
@@ -3796,13 +4014,15 @@ Q:Västra Gotalands län
 T:Örebro län
 E:Östergotlands län
 
-Country=SAINT HELENA
+Country=ST. HELENA
+Code=SH
 
 SH:Saint Helena
 AC:Ascension
 TA:Tristan da Cunha
 
 Country=SLOVENIA
+Code=SI
 
 07:Dolenjska
 09:Gorenjska
@@ -3818,6 +4038,7 @@ Country=SLOVENIA
 05:Zasavska
 
 Country=SLOVAKIA
+Code=SK
 
 BC:Banskobyatricky kraj
 BL:Bratislavsky kraj
@@ -3829,6 +4050,7 @@ TA:Trnavaky kraj
 ZI:Zilinaky kraj
 
 Country=SIERRA LEONE
+Code=SL
 
 W:western Area (Freetown)
 E:Eastern
@@ -3836,6 +4058,7 @@ N:Northern
 S:Southern
 
 Country=SENEGAL
+Code=SN
 
 DK:Dakar
 DB:Diourbel
@@ -3849,6 +4072,7 @@ TH:Thiès
 ZG:Ziguinchor
 
 Country=SOMALIA
+Code=SO
 
 AW:Awdal
 BK:Bakool
@@ -3869,7 +4093,8 @@ SO:Sool
 TO:Togdheer
 WO:Woqooyi Galbeed
 
-Country=SOUTH KOREA
+Country=KOREA, REPUBLIC OF
+Code=KR
 
 11:Seoul Teugbyeolsi
 26:Busan Gwang'yeogsi
@@ -3889,6 +4114,7 @@ Country=SOUTH KOREA
 46:Jeonranamdo
 
 Country=SURINAME
+Code=SR
 
 BR:Brokopondo
 CM:Commewijne
@@ -3901,12 +4127,14 @@ SA:Saramacca
 SI:Sipaliwini
 WA:Wanica
 
-Country=SAO TOME
+Country=SAO TOME AND PRINCIPE
+Code=ST
 
 P:Príncipe
 S:Sao Tomé
 
 Country=EL SALVADOR
+Code=SV
 
 AH:Ahuachapán
 CA:Cabañas
@@ -3923,7 +4151,8 @@ SV:San Vicente
 SO:Sonsonate
 US:Usulután
 
-Country=SYRIA
+Country=SYRIAN ARAB REPUBLIC
+Code=SY
 
 HA:Al Hasakah
 LA:Al Ladhiqiyah
@@ -3941,6 +4170,7 @@ RD:Rif Dimashq
 TA:Tartüs
 
 Country=SWAZILAND
+Code=SZ
 
 HH:Hhohho
 LU:Lubombo
@@ -3948,6 +4178,7 @@ MA:Manzini
 SH:Shiselweni
 
 Country=TURKMENISTAN
+Code=TM
 
 A:Ahal
 B:Balkan
@@ -3956,6 +4187,7 @@ L:Lebap
 M:Mary
 
 Country=TUNISIA
+Code=TN
 
 31:Béja
 13:Ben Arous
@@ -3982,6 +4214,7 @@ Country=TUNISIA
 22:Zaghouan
 
 Country=TRINIDAD AND TOBAGO
+Code=TT
 
 CTT:Couva-Tabaquite-Talparo
 DMN:Diego Martin
@@ -4000,7 +4233,8 @@ PTF:Point Fortin
 POS:Port of Spain
 SFO:San Fernando
 
-Country=TAIWAN
+Country=TAIWAN, PROVINCE OF CHINA
+Code=TW
 
 KHH:Kaohsiung
 TPE:Taipei
@@ -4026,7 +4260,8 @@ TTT:Taitung
 TAO:Taoyuan
 YUN:Yunlin
 
-Country=TANZANIA
+Country=TANZANIA, UNITED REPUBLIC OF
+Code=TZ
 
 01:Arusha
 02:Dar-es-Salaam
@@ -4055,6 +4290,7 @@ Country=TANZANIA
 25:Tanga
 
 Country=TOGO
+Code=TG
 
 C:Centre
 K:Kara
@@ -4063,6 +4299,7 @@ P:Plateaux
 S:Savannes
 
 Country=THAILAND
+Code=TH
 
 10:Krung Thep Maha Nakhon Bangkok
 S:Phatthaya
@@ -4143,6 +4380,7 @@ S:Phatthaya
 35:Yasothon
 
 Country=TAJIKISTAN
+Code=TJ
 
 KR:Karategin
 KT:Khatlon
@@ -4151,6 +4389,7 @@ GB:Gorno-Badakhshan
 
 
 Country=TURKEY
+Code=TR
 
 01:Adana
 02:Ad yaman
@@ -4235,6 +4474,7 @@ Country=TURKEY
 
 
 Country=UKRAINE
+Code=UA
 
 71:Cherkas'ka Oblast'
 74:Chernihivs'ka Oblast'
@@ -4265,6 +4505,7 @@ Country=UKRAINE
 40:Sevastopol'
 
 Country=UGANDA
+Code=UG
 
 APA:Apac
 ARU:Arua
@@ -4307,6 +4548,7 @@ SOR:Soroti
 TOR:Tororo
 
 Country=UNITED STATES MINOR OUTLYING ISLANDS
+Code=UM
 
 81:Baker Island
 84:Howland Island
@@ -4319,6 +4561,7 @@ Country=UNITED STATES MINOR OUTLYING ISLANDS
 79:Wake Ialand
 
 Country=URUGUAY
+Code=UY
 
 AR:Artigsa
 CA:Canelones
@@ -4341,6 +4584,7 @@ TA:Tacuarembo
 TT:Treinta y Tres
 
 Country=UZBEKISTAN
+Code=UZ
 
 QR:Qoraqalpoghiston Respublikasi Karakalpakstan, Respublika
 AN:Andijon
@@ -4357,6 +4601,7 @@ SU:Surkhondaryo
 TO:Toshkent
 
 Country=VENEZUELA
+Code=VE
 
 A:Diatrito Federal
 B:Anzoátegui
@@ -4384,6 +4629,7 @@ Y:Delta Amacuro
 W:Dependencias Federales
 
 Country=VANUATU
+Code=VU
 
 MAP:Malampa
 PAM:Pénama
@@ -4392,7 +4638,8 @@ SEE:Shéfa
 TAE:Taféa
 TOB:Torba
 
-Country=WALLIS AND FORTUNA
+Country=WALLIS AND FUTUNA ISLANDS
+Code=WF
 
 AA:A'ana
 AL:Aiga-i-le-Tai
@@ -4407,6 +4654,7 @@ VF:Va'a-o-Fonoti
 VS:Vaisigano
 
 Country=YEMEN
+Code=YE
 
 AB:Abyan
 AD:Adan
@@ -4427,6 +4675,7 @@ SH:Shabwah
 TA:Ta'izz
 
 Country=SOUTH AFRICA
+Code=ZA
 
 EC:Eastern Cape
 FS:Free State
@@ -4439,6 +4688,7 @@ NW:North-West
 WC:Western Cape
 
 Country=SWITZERLAND
+Code=CH
 
 AG:Aargau
 AI:Appenzell Inner-Rhoden
@@ -4467,7 +4717,8 @@ VS:Valais
 ZG:Zug
 ZH:Zürich
 
-Country=UK
+Country=UNITED KINGDOM
+Code=GB
 SubCountryType=County
 
 BEDS:Bedfordshire
@@ -4533,9 +4784,9 @@ CO FERMANAGH:County Fermanagh
 CO DERRY:County Londonderry
 CO TYRONE:County Tyrone
 
-Country=USA
+Country=UNITED STATES
+Code=US
 SubCountryType=State
-
 
 AA:Armed Forces Americas
 AE:Armed Forces Europe, Middle East, & Canada
@@ -4599,7 +4850,8 @@ WA:Washington
 WI:Wisconsin
 WY:Wyoming
 
-Country=VIETNAM
+Country=VIET NAM
+Code=VN
 
 44:An Giang
 43:Ba Ria - Vung Tau
@@ -4664,6 +4916,7 @@ Country=VIETNAM
 06:Yen Bai
 
 Country=YUGOSLAVIA
+Code=YU
 
 CG:Crna Gora
 SR:Srbija
@@ -4671,6 +4924,7 @@ KM:Kosovo-Metohija
 VO:Vojvodina
 
 Country=ZAMBIA
+Code=ZM
 
 02:Central
 08:Copperbelt
@@ -4683,6 +4937,7 @@ Country=ZAMBIA
 01:Western
 
 Country=ZIMBABWE
+Code=ZW
 
 BU:Bulawayo
 HA:Harare

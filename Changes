@@ -1,6 +1,16 @@
 
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.06 20 Feb 2001: Allowed countries to be specified by either full name or code 
+                  Made country names compatible with ISO 3166 standard
+                  Added country_code method to retreive ISO code for current object
+                  Added all_country_codes method to retreive ISO codes for all countries
+                  Corrected abbreviation for Canadian province of Nunavut 
+                  Thanks to Trevor Schellhorn for these suggestions
+
+                  Corrected two Belgium sub countires. Thanks to Wim Verhaegen 
+
+
 1.05 15 Oct 2000: sub_country_type method returns 'unknown' when no data defined 
                   Fixed bug in mismatch count in main.t test module
 
