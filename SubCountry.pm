@@ -25,8 +25,8 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
    
    $upper_case = 1;
    print($australia->full_name('Qld',$upper_case)); # QUEENSLAND
-	print $australia->country;	# AUSTRALIA
-	print $australia->sub_country_type; # State
+   print $australia->country; # AUSTRALIA
+   print $australia->sub_country_type; # State
    
    
    %all_australian_states = $australia->full_name_code_hash;
@@ -70,7 +70,7 @@ that you want to work with. These are currently:
    AFGHANISTAN
    ALGERIA
    ANGOLA
-   ARGENTENIA
+   ARGENTINA
    ARMENIA
    AUSTRALIA
    AUSTRIA
@@ -245,15 +245,16 @@ Returns the current country of the sub country object
 
 =head2 sub_country_type
 
-Returns the current sub country type (state, county etc) of the 
-sub country object. Currently only defined for
+Returns the current sub country type (state, county etc) for the
+sub country object, or 'unknown' if a value is not defined. Currently
+sub country types are defined for:
 
 Australia : State
 Canada    : Province
 France    : Department
 Germany   : Lander
 Ireland   : County
-UK	       : County
+UK        : County
 USA       : State
 
 
@@ -385,7 +386,7 @@ use locale;
 use Exporter;
 use vars qw (@ISA $VERSION @EXPORT);
 
-$VERSION = '1.04';
+$VERSION = '1.05';
 @ISA     = qw(Exporter);
 @EXPORT  = qw(&all_countries);
 
@@ -406,7 +407,14 @@ sub new
    my $sub_country = {};
    bless($sub_country,$class);
    $sub_country->{country} = $country;
-   $sub_country->{sub_country_type} = $::lookup{$country}{sub_country_type};
+   if ( $::lookup{$country}{sub_country_type} )
+   {
+      $sub_country->{sub_country_type} = $::lookup{$country}{sub_country_type};
+   }
+   else
+   {
+      $sub_country->{sub_country_type} = 'unknown';
+   }
    
    return($sub_country);
 }
