@@ -1,5 +1,9 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.23 16 Jul 2003
+    
+    Added data for Finland and Singapore, thanks to Chris McKay 
+
 1.22 18 Jan 2003
     Removed use of $_ in initialization code, as suggested by Ilya Martynov
     Corrected country code for Iran, thanks to Todd A. Green

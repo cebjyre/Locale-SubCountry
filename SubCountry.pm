@@ -76,7 +76,7 @@ ISO 3166-1 codes, before fetching their sub country data. If you only need
 access to country data, then Locale::Country should be used.
 
 Note also the following method names are also used for sub country objects.
-(interface polymorphism for the technically minded). TO avoid confusion, make
+(interface polymorphism for the technically minded). To avoid confusion, make
 sure that your chosen method is acting on the correct type of object.
 
     all_codes
@@ -175,6 +175,7 @@ two letter code or the full name. These are currently:
     EE - ESTONIA
     ET - ETHIOPIA
     FJ - FIJI
+    FI - FINLAND
     FR - FRANCE
     GA - GABON
     GM - GAMBIA
@@ -253,6 +254,7 @@ two letter code or the full name. These are currently:
     SA - SAUDI ARABIA
     SN - SENEGAL
     SL - SIERRA LEONE
+    SG - SINGAPORE
     SK - SLOVAKIA
     SI - SLOVENIA
     SB - SOLOMON ISLANDS
@@ -332,13 +334,13 @@ If an optional argument is supplied and set to a true value, the full name is
 returned as an upper cased string.
 
 
-FIPS10_4_code
+=head2 FIPS10_4_code
 
 Given a sub country object, the C<FIPS_10_4_code> method takes the ISO 3166-2 code 
 of a sub country and returns the sub country's FIPS 10-4 code. FIPS is a standard 
 developed by the US government.
 
-ISO3166_2_code
+=head2 ISO3166_2_code
 
 Given a sub country object, the C<ISO3166_2_code> method takes the FIPS 10-4 code 
 of a sub country and returns the sub country's ISO 3166-2 code.
@@ -439,16 +441,14 @@ None known
 =head1 COPYRIGHT
 
 
-Copyright (c) 2000-2002 Kim Ryan. All rights reserved.
+Copyright (c) 2000-2003 Kim Ryan. All rights reserved.
 This program is free software; you can redistribute it
 and/or modify it under the terms of the Perl Artistic License
-(see http://www.perl.com/perl/misc/Artistic.html).
 
 
 =head1 AUTHOR
 
-Locale::SubCountry was written by Kim Ryan <kimryan_nospam@cpan.org>.
-<http://www.data-distillers.com>
+Locale::SubCountry was written by Kim Ryan <kimryan at cpan dot org>.
 
 
 =head1 CREDITS
@@ -472,7 +472,7 @@ use locale;
 
 use Exporter;
 use vars qw ($VERSION);
-$VERSION = '1.22';
+$VERSION = '1.23';
 
 #-------------------------------------------------------------------------------
 
@@ -2053,6 +2053,17 @@ TRK:03:Chuuk
 KSA:01:Kosrae
 PNI:02:Pohnpei
 YAP:04:Yap
+
+Country=FINLAND
+SubCountryType=Province
+Code=FI
+
+AL:01:Åland
+IS:14:Eastern Finland
+LP:06:Lapland
+LL:08:Oulu
+ES:13:Southern Finland
+LS:15:Western Finland
 
 Country=FRANCE
 SubCountryType=Department
@@ -4310,6 +4321,11 @@ VI::Álava
 Z::Zaragoza
 ZA::Zamora
 
+Country=SINGAPORE
+SubCountryType=Province
+Code=SG
+
+01::Unknown
 
 
 Country=SOLOMON ISLANDS
