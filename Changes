@@ -1,5 +1,7 @@
-
 Revision history for Perl CPAN module Locale::SubCountry
+
+1.09 25 Jul 2001
+    Added code for US, West Virginia (WV), thanks to Michelle Agnew
 
 1.08 16 Mar 2001 
     Made many corrections to country data to align it with ISO:3166-2 standard
@@ -12,7 +14,7 @@ Revision history for Perl CPAN module Locale::SubCountry
 1.07 12 Mar 2001 
     Corrected errors in German sub countries thanks to Lars Steubesand
     Corrected errors in data for Austria, Poland, Romania, Turkey 
-      Germany and Columbia. Thanks to Philip Newton.
+    - Germany and Columbia. Thanks to Philip Newton.
 
 1.06 20 Feb 2001 
     Allowed countries to be specified by either full name or two letter code 

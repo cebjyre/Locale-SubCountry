@@ -5,10 +5,10 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
 =head1 SYNOPSIS
 
    use Locale::SubCountry;
-   
+
    $UK_counties = new Locale::SubCountry('GB');
    print($UK_counties->full_name('DUMGAL'));  # Dumfries & Galloway
-   
+
    $country = 'AUSTRALIA';
    @all_countries = &all_country_names;
    if ( grep(/$country/, @all_countries) )
@@ -19,29 +19,29 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
    {
       die "No data for $country";
    }
-   
+
    print($australia->code('New South Wales ')); # NSW
    print($australia->full_name('S.A.'));        # South Australia
-   
+
    $upper_case = 1;
    print($australia->full_name('Qld',$upper_case)); # QUEENSLAND
    print $australia->country;          # AUSTRALIA
    print $australia->country_code;     # AU
    print $australia->sub_country_type; # State
-   
+
    @all_country_codes = &all_country_codes;
-   
+
    %all_australian_states = $australia->full_name_code_hash;
    foreach $abbrev ( sort keys %australian_states )
    {
       printf("%-3s : %s\n",$abbrev,%all_australian_states{$abbrev});
    }
-   
+
    %all_australian_codes = $australia->code_full_name_hash;
-   
+
    @all_australian_states = $australia->all_full_names;
    @all_australian_codes = $australia->all_codes;
-   
+
 
 =head1 REQUIRES
 
@@ -52,27 +52,27 @@ Perl 5.005 or above
 
 This module allows you to convert the full name for a countries administrative
 region to the code commonly used for postal addressing. The reverse lookup
-can also be done.  Sub country codes are defined in "ISO 3166-2:1998, 
+can also be done.  Sub country codes are defined in "ISO 3166-2:1998,
 Codes for the representation of names of countries and their subdivisions".
 
-Sub countries are termed as states in the US and Australia, provinces 
+Sub countries are termed as states in the US and Australia, provinces
 in Canada and counties in the UK and Ireland.
 
-Additionally, names and codes for all sub countries in a country can be 
-returned as either a hash or an array. 
+Additionally, names and codes for all sub countries in a country can be
+returned as either a hash or an array.
 
 =head1 METHODS
 
 =head2 new
 
-The C<new> method creates an instance of a sub country object. This must be 
-called before any of the following methods are invoked. The method takes a 
-single argument, the name of the country that contains the sub country 
+The C<new> method creates an instance of a sub country object. This must be
+called before any of the following methods are invoked. The method takes a
+single argument, the name of the country that contains the sub country
 that you want to work with. It may be specified either by the ISO 3166-1
 two letter code or the full name. These are currently:
 
     AF - AFGHANISTAN
-	AL - ALBANIA
+    AL - ALBANIA
     DZ - ALGERIA
     AO - ANGOLA
     AR - ARGENTINA
@@ -141,7 +141,7 @@ two letter code or the full name. These are currently:
     IE - ICELAND
     IN - INDIA
     ID - INDONESIA
-	IL - ISRAEL
+    IL - ISRAEL
     IN - IRAN (ISLAMIC REPUBLIC OF)
     IQ - IRAQ
     IE - IRELAND
@@ -242,8 +242,8 @@ two letter code or the full name. These are currently:
     ZM - ZAMBIA
     ZW - ZIMBABWE
 
-   
-All forms of upper/lower case are acceptable in the country's spelling. If a 
+
+All forms of upper/lower case are acceptable in the country's spelling. If a
 country name is supplied that the module doesn't recognise, it will die.
 
 =head2 country
@@ -257,17 +257,17 @@ Returns the two letter current country of the sub country object
 
 =head2 sub_country_type
 
-Returns the current sub country type (state, county etc) for 
-the sub country object, or 'unknown' if a value is not defined. 
+Returns the current sub country type (state, county etc) for
+the sub country object, or 'unknown' if a value is not defined.
 
 
 =head2 code
 
 The C<code> method takes the full name of a sub country in the currently
 assigned country and returns the sub country's code. The full name can appear
-in mixed case. All white space and non alphabetic characters are ignored, 
-except the single space used to separate sub country names such as 
-"New South Wales". The code is returned as a capitalised string, or 
+in mixed case. All white space and non alphabetic characters are ignored,
+except the single space used to separate sub country names such as
+"New South Wales". The code is returned as a capitalised string, or
 "unknown" if no match is found.
 
 =head2 full_name
@@ -283,7 +283,7 @@ returned as an upper cased string.
 
 =head2 full_name_code_hash
 
-Returns a hash of name/code pairs for the currently assigned country, 
+Returns a hash of name/code pairs for the currently assigned country,
 keyed by sub country name.
 
 =head2 code_full_name_hash
@@ -294,25 +294,25 @@ keyed by sub country code.
 
 =head2 all_full_names
 
-Returns an array of sub country names for the currently assigned country, 
-sorted alphabetically. 
+Returns an array of sub country names for the currently assigned country,
+sorted alphabetically.
 
 =head2 all_codes
 
-Returns an array of sub country codes for the currently assigned country, 
+Returns an array of sub country codes for the currently assigned country,
 sorted alphabetically.
 
 =head2 all_country_names
 
 Returns an array of all country names that this module can do lookups for,
-sorted alphabetically. This is implemented as a conventional subroutine rather 
+sorted alphabetically. This is implemented as a conventional subroutine rather
 than a method. This allows us to check if lookups can be done for a given country
 before actually creating the lookup object.
 
 =head2 all_country_codes
 
 Returns an array of all country 2 letter codes that this module can do lookups for,
-sorted alphabetically. This is implemented as a conventional subroutine rather 
+sorted alphabetically. This is implemented as a conventional subroutine rather
 than a method. This allows us to check if lookups can be done for a given country
 code before actually creating the lookup object.
 
@@ -337,9 +337,9 @@ not widely accepted. For example, the ISO code for 'New South Wales' is 'NS',
 but 'NSW' is the only abbreviation that is actually used. I could add a
 flag to enforce ISO-3166-2 codes if needed.
 
-The ISO 3166-2 standard romanizes the names of provinces and regions in non-latin 
+The ISO 3166-2 standard romanizes the names of provinces and regions in non-latin
 script areas, such as Russia and South Korea. One Romanisation is given for each
-province name. For Russia, the BGN (1947) Romanization is used. 
+province name. For Russia, the BGN (1947) Romanization is used.
 
 The ISO 3166-2 standard will typically list more than one type of sub country
 for each country. For example, Australia has states and territories, Italy
@@ -349,10 +349,10 @@ recorded if needed, but would take a lot of effort. Instead, the most common
 type of sub country is recorded for each country. So for Australia, this would
 be 'State'.
 
-The following sub country names have more than one code, and may not return  
+The following sub country names have more than one code, and may not return
 the correct code for that sub country. These entries are usually duplicated
 because the name represents two different type of sub country, such as a
-province and a geographical unit 
+province and a geographical unit
 
 AZERBAIJAN : Länkäran; LA,LAN
 AZERBAIJAN : Säki; SA,SAK
@@ -368,13 +368,13 @@ MOLDOVA    : Gngheni; UN,UGI
 MOZAMBIQUE : Maputo; MPM,L
 
 =head1 BUGS
-  
+
 
 =head1 COPYRIGHT
 
 
 Copyright (c) 2000-1 Kim Ryan. All rights reserved.
-This program is free software; you can redistribute it 
+This program is free software; you can redistribute it
 and/or modify it under the terms of the Perl Artistic License
 (see http://www.perl.com/perl/misc/Artistic.html).
 
@@ -407,7 +407,7 @@ use locale;
 use Exporter;
 use vars qw (@ISA $VERSION @EXPORT);
 
-$VERSION = '1.08';
+$VERSION = '1.09';
 @ISA     = qw(Exporter);
 @EXPORT  = qw(&all_country_names &all_country_codes);
 
@@ -416,13 +416,13 @@ $VERSION = '1.08';
 
 sub new
 {
-	my $class = shift;
-	my ($country_or_code) = @_;
+    my $class = shift;
+    my ($country_or_code) = @_;
 
-	$country_or_code = uc($country_or_code);
+    $country_or_code = uc($country_or_code);
 
-	my ($country,$country_code);
-   
+    my ($country,$country_code);
+
     # Country may be supplied either as a two letter code, or the full name
     if ( length($country_or_code) == 2 )
     {
@@ -449,22 +449,22 @@ sub new
             die "Invalid country name: $country_or_code chosen";
         }
     }
-   
-	my $sub_country = {};
-	bless($sub_country,$class);
-	$sub_country->{country} = $country;
-	$sub_country->{country_code} = $country_code;
-   
-   
-	if ( $::subcountry_lookup{$country}{sub_country_type} )
-	{
-		$sub_country->{sub_country_type} = $::subcountry_lookup{$country}{sub_country_type};
-	}
-	else
-	{
-		$sub_country->{sub_country_type} = 'unknown';
-	}
-   
+
+    my $sub_country = {};
+    bless($sub_country,$class);
+    $sub_country->{country} = $country;
+    $sub_country->{country_code} = $country_code;
+
+
+    if ( $::subcountry_lookup{$country}{sub_country_type} )
+    {
+        $sub_country->{sub_country_type} = $::subcountry_lookup{$country}{sub_country_type};
+    }
+    else
+    {
+        $sub_country->{sub_country_type} = 'unknown';
+    }
+
     return($sub_country);
 }
 
@@ -473,71 +473,71 @@ sub new
 
 sub country
 {
-	my $sub_country = shift;
-	return( $sub_country->{country} );
+    my $sub_country = shift;
+    return( $sub_country->{country} );
 }
 #-------------------------------------------------------------------------------
 # Returns the current country code of the sub country object
 
 sub country_code
 {
-	my $sub_country = shift;
-	return( $sub_country->{country_code} );
+    my $sub_country = shift;
+    return( $sub_country->{country_code} );
 }
 
 #-------------------------------------------------------------------------------
-# Returns the current sub country type (state, county etc) of the 
+# Returns the current sub country type (state, county etc) of the
 # sub country object
 
 sub sub_country_type
 {
-	my $sub_country = shift;
-	return( $sub_country->{sub_country_type} );
+    my $sub_country = shift;
+    return( $sub_country->{sub_country_type} );
 }
 #-------------------------------------------------------------------------------
 # Given the full name for a sub country, return the code
 
 sub code
 {
-	my $sub_country = shift;
-	my ($full_name) = @_;
+    my $sub_country = shift;
+    my ($full_name) = @_;
 
-	my $orig = $full_name;
+    my $orig = $full_name;
 
-	$full_name = _clean($full_name);
+    $full_name = _clean($full_name);
 
-	my $code = $::subcountry_lookup{$sub_country->{country}}{full_name_keyed}{$full_name};
+    my $code = $::subcountry_lookup{$sub_country->{country}}{full_name_keyed}{$full_name};
 
-	# If a code wasn't found, it could be because the user's capitalization
-	# does not match the one in the look up data of this module. For example,
-	# the user may have supplied the sub country "Ag R" (in Turkey) but the 
-	# ISO standard defines the spelling as "Ag r".
+    # If a code wasn't found, it could be because the user's capitalization
+    # does not match the one in the look up data of this module. For example,
+    # the user may have supplied the sub country "Ag R" (in Turkey) but the
+    # ISO standard defines the spelling as "Ag r".
 
-	unless ( defined $code )
-	{
-		# For every sub country, compare upper cased full name supplied by user
-		# to upper cased full name from lookup hash. If they match, return the
-		# correctly cased full name from the lookup hash. 
+    unless ( defined $code )
+    {
+        # For every sub country, compare upper cased full name supplied by user
+        # to upper cased full name from lookup hash. If they match, return the
+        # correctly cased full name from the lookup hash.
 
-		my @all_names = $sub_country->all_full_names;
-		my $current_name;
-		foreach $current_name ( @all_names )
-		{
-			if ( uc($full_name) eq uc($current_name) )
-			{
-				$code = $::subcountry_lookup{$sub_country->{country}}{full_name_keyed}{$current_name};
-			}
-		}
-	}
+        my @all_names = $sub_country->all_full_names;
+        my $current_name;
+        foreach $current_name ( @all_names )
+        {
+            if ( uc($full_name) eq uc($current_name) )
+            {
+                $code = $::subcountry_lookup{$sub_country->{country}}{full_name_keyed}{$current_name};
+            }
+        }
+    }
 
-	if ( defined $code )
-	{
-		return($code); 
-	}
-	else
-	{
-		return('unknown');
-	}
+    if ( defined $code )
+    {
+        return($code);
+    }
+    else
+    {
+        return('unknown');
+    }
 }
 #-------------------------------------------------------------------------------
 # Given the code for a sub country, return the full name.
@@ -546,70 +546,70 @@ sub code
 
 sub full_name
 {
-	my $sub_country = shift;
-	my ($code,$uc_name) = @_;
+    my $sub_country = shift;
+    my ($code,$uc_name) = @_;
 
-	$code = _clean($code);
-	$code = uc($code);
+    $code = _clean($code);
+    $code = uc($code);
 
-	my $full_name = $::subcountry_lookup{$sub_country->{country}}{code_keyed}{$code};
-	if ( $uc_name )
-	{
-		$full_name = uc($full_name);
-	}
+    my $full_name = $::subcountry_lookup{$sub_country->{country}}{code_keyed}{$code};
+    if ( $uc_name )
+    {
+        $full_name = uc($full_name);
+    }
 
-	if ( $full_name )
-	{
-		return($full_name); 
-	}
-	else
-	{
-		return('unknown');
-	}
+    if ( $full_name )
+    {
+        return($full_name);
+    }
+    else
+    {
+        return('unknown');
+    }
 }
 #-------------------------------------------------------------------------------
 sub code_full_name_hash
 {
-	my $sub_country = shift;
-	return( %{ $::subcountry_lookup{$sub_country->{country}}{code_keyed} } );
+    my $sub_country = shift;
+    return( %{ $::subcountry_lookup{$sub_country->{country}}{code_keyed} } );
 }
 #-------------------------------------------------------------------------------
 sub full_name_code_hash
 {
-	my $sub_country = shift;
-	return( %{ $::subcountry_lookup{$sub_country->{country}}{full_name_keyed} } );
+    my $sub_country = shift;
+    return( %{ $::subcountry_lookup{$sub_country->{country}}{full_name_keyed} } );
 }
 #-------------------------------------------------------------------------------
 # Returns sorted array of all sub country full names for the current country
 
 sub all_full_names
 {
-	my $sub_country = shift;
-	my %all_full_names = $sub_country->full_name_code_hash;
-	return( sort keys %all_full_names );
+    my $sub_country = shift;
+    my %all_full_names = $sub_country->full_name_code_hash;
+    return( sort keys %all_full_names );
 }
 #-------------------------------------------------------------------------------
 # Returns sorted array of all sub country codes for the current country
 
 sub all_codes
 {
-	my $sub_country = shift;
-	my %all_codes = $sub_country->code_full_name_hash;
-	return( sort keys %all_codes );
+    my $sub_country = shift;
+    my %all_codes = $sub_country->code_full_name_hash;
+    return( sort keys %all_codes );
 }
 #-------------------------------------------------------------------------------
 # Returns sorted array of all countries full names that we can do lookups for
 
 sub all_country_names
 {
-	return ( sort keys %{ $::country_lookup{full_name_keyed} });
+    return ( sort keys %{ $::country_lookup{full_name_keyed} });
 }
 #-------------------------------------------------------------------------------
 # Returns sorted array of all two letter country codes that we can do lookups for
 
 sub all_country_codes
 {
-	return ( sort keys %{ $::country_lookup{code_keyed} });
+    return ( sort keys %{ $::country_lookup{code_keyed} });
 }
 
 #-------------------------------------------------------------------------------
@@ -617,11 +617,11 @@ sub all_country_codes
 #-------------------------------------------------------------------------------
 # Read in the list of abbreivations and full names defined in the DATA block
 # at the bottom of this file.
- 
-INIT 
+
+INIT
 {
    my ($country);
-   
+
    while ( <DATA> )
    {
       unless ( /^#/ or /^s*$/ )  # ignore commented and empty lines
@@ -634,10 +634,10 @@ INIT
          elsif ( /^Code\s*=(.*)/i )
          {
             # Create doubly indexed hash, keyed by  country code and full name.
-            # The user can supply either form to create a new sub_country 
+            # The user can supply either form to create a new sub_country
             # object, and the objects properties will hold both the countries
             # name and it's code.
-             
+
             my $code = _clean($1);
             $::country_lookup{code_keyed}{$code} = $country;
             $::country_lookup{full_name_keyed}{$country} = $code;
@@ -649,14 +649,14 @@ INIT
          else
          {
             my ($code,$name) = split(/:/,$_);
-            
+
             $code = _clean($code);
             $name = _clean($name);
-            
+
             # Create doubly indexed hash, grouped by country, one keyed by
             # abbrevaiton and one by full name. Although data is duplicated,
             # this provides the fastest lookup and simplest code.
-            
+
             $::subcountry_lookup{$country}{code_keyed}{$code} = $name;
             $::subcountry_lookup{$country}{full_name_keyed}{$name} = $code;
          }
@@ -666,26 +666,26 @@ INIT
 #-------------------------------------------------------------------------------
 sub _clean
 {
-	my ($input_string) = @_;
+    my ($input_string) = @_;
 
-	# remove dots
-	$input_string =~ s/\.//go;
+    # remove dots
+    $input_string =~ s/\.//go;
 
-	# remove repeating spaces
-	$input_string =~ s/  +/ /go; 
+    # remove repeating spaces
+    $input_string =~ s/  +/ /go;
 
-	# remove any remaining leading or trailing space
-	$input_string =~ s/^ //; 
-	$input_string =~ s/ $//;
+    # remove any remaining leading or trailing space
+    $input_string =~ s/^ //;
+    $input_string =~ s/ $//;
 
-	return($input_string);
+    return($input_string);
 }
 #-------------------------------------------------------------------------------
 return(1);
 
 =pod
 
-Code/Sub country data. Comments (lines starting with #) and 
+Code/Sub country data. Comments (lines starting with #) and
 blank lines are ignored. Read in at start up by INIT subroutine.
 
 Format is:
@@ -733,7 +733,7 @@ GHO:Ghowr
 HEL:Helmand
 HER:Herat
 JOW:Jowzjan
-KAB:Kabul 
+KAB:Kabul
 KAN:Kandahar
 KAP:Kapisa
 KNR:Konar
@@ -903,7 +903,7 @@ MI:Mingäçevir
 NA:Naftalan
 SA:Säki
 SM:Sumqayit
-SS:Susa 
+SS:Susa
 XA:Xankandi
 YE:Yevlax
 
@@ -911,7 +911,7 @@ YE:Yevlax
 ABS:Abseron
 AGC:Agcabädi
 AGM:Agdam
-AGS:Agdas 
+AGS:Agdas
 AGA:Agstafa
 AGU:Agsu
 AST:Astara
@@ -1247,16 +1247,16 @@ Country=BOTSWANA
 SubCountryType=District
 Code=BW
 
-CE:Central (Serowe-Palapye) 
+CE:Central (Serowe-Palapye)
 CH:Chobe
 GH:Ghanzi
 KG:Kgalagadi
 KL:Kgatleng
 KW:Kweneng
-NG:Ngamiland 
+NG:Ngamiland
 NE:North-East (North-West)
 SE:South-East
-SO:Southern	(Ngwaketse)
+SO:Southern (Ngwaketse)
 
 Country=BELIZE
 SubCountryType=District
@@ -1551,7 +1551,7 @@ Code=HR
 05:Varaidinska zupanija
 10:VirovitiEko-podravska zupanija
 16:VuRovarako-srijemska zupanija
-13:Zadaraka 
+13:Zadaraka
 01:Zagrebacka zupanija
 
 Country=CUBA
@@ -1826,16 +1826,16 @@ Country=ETHIOPIA
 SubCountryType=State
 Code=ET
 
-AA:Addis Ababa 
+AA:Addis Ababa
 AF:Afar
 AM:Amara {Amhara]
-BE:Benshangul-Gumaz 
-GA:Gambela Peoples 
-HA:Harari People 
-OR:Oromia 
+BE:Benshangul-Gumaz
+GA:Gambela Peoples
+HA:Harari People
+OR:Oromia
 SO:Somali
 SN:Southern Nations, Nationalitioa and Peoples
-TI:Tigrai 
+TI:Tigrai
 
 Country=FIJI
 SubCountryType=Division
@@ -1984,8 +1984,8 @@ Country=GEORGIA
 SubCountryType=Rayon
 Code=GE
 
-AB:Ap'khazet'is Avtonomiuri Respublika 
-AJ:Acharis Avtonomiuri Respublika 
+AB:Ap'khazet'is Avtonomiuri Respublika
+AJ:Acharis Avtonomiuri Respublika
 BUS:Bat 'umi
 CHI:Chiat'ura
 GAG:Gagra
@@ -2793,28 +2793,28 @@ Country=CAMBODIA
 SubCountryType=Province
 Code=KH
 
-23:Krong Kaeb 
-18:Xrong Preah Sihanouk 
-12:Phnom Penh 
-2:Baat Dambang 
-1:Banteay Mean Chey 
-3:Rampong Chaam 
-4:Kampong Chhnang 
-5:Kampong Spueu 
-6:Kampong Thum 
-7:Kampot 
-8:Kandaal 
-9:Kach Kong 
-10:Krachoh 
-11:Mondol Kiri 
-22:Otdar Mean Chey 
-15:Pousaat 
-13:Preah Vihear 
-14:Prey Veaeng 
-16:Rotanak Kiri 
-17:Siem Reab 
-19:Stueng Traeng 
-20:Svaay Rieng 
+23:Krong Kaeb
+18:Xrong Preah Sihanouk
+12:Phnom Penh
+2:Baat Dambang
+1:Banteay Mean Chey
+3:Rampong Chaam
+4:Kampong Chhnang
+5:Kampong Spueu
+6:Kampong Thum
+7:Kampot
+8:Kandaal
+9:Kach Kong
+10:Krachoh
+11:Mondol Kiri
+22:Otdar Mean Chey
+15:Pousaat
+13:Preah Vihear
+14:Prey Veaeng
+16:Rotanak Kiri
+17:Siem Reab
+19:Stueng Traeng
+20:Svaay Rieng
 21:Taakaev
 
 Country=KIRIBATI
@@ -2861,22 +2861,22 @@ SubCountryType=Province
 Code=LA
 
 VT:Vientiane
-AT:Attapu 
+AT:Attapu
 BK:Bokèo
-BL:Bolikhamxai 
-CH:Champasak 
+BL:Bolikhamxai
+CH:Champasak
 HO:Houaphan
 KH:Khammouan
 LM:Louang Namtha
-LP:Louangphabang 
-OU:Oudômxai 
-PH:Phôngsali 
-SL:Salavan 
+LP:Louangphabang
+OU:Oudômxai
+PH:Phôngsali
+SL:Salavan
 SV:Savannakhét
 VI:Vientiane
-XA:Xaignabouli 
-XE:Xékong 
-XI:Xiangkhoang 
+XA:Xaignabouli
+XE:Xékong
+XI:Xiangkhoang
 
 Country=LEBANON
 SubCountryType=Governorate
@@ -3037,16 +3037,16 @@ AZI:Azilal
 BEM:Beni Mellal
 BES:Ben Sllmane
 BER:Berkane
-BOD:Boujdour 
+BOD:Boujdour
 BOM:Boulemane
-CAS:Casablanca 
+CAS:Casablanca
 CHE:Chefchaouene
 CHI:Chichaoua
 HAJ:El Hajeb
 JDI:El Jadida
 ERR:Errachidia
 ESI:Essaouira
-ESM:Es Semara 
+ESM:Es Semara
 FES:Fès
 FIG:Figuig
 GUE:Guelmim
@@ -3271,7 +3271,7 @@ PL:Port Louis
 RP:Riviére du Rempart
 SA:Savanne
 AG:Agalega Islands
-CC:Cargados Carajos Shoals 
+CC:Cargados Carajos Shoals
 RO:Rodrigues Island
 
 Country=MALDIVES
@@ -3582,7 +3582,7 @@ Code=OM
 
 DA:Ad Dakhillyah
 BA:Al Batinah
-JA:Al JanÜblyah 
+JA:Al JanÜblyah
 WU:Al Wustá
 SH:Ash Sharqlyah
 ZA:Az Zahirah
@@ -3636,7 +3636,7 @@ MPL:Morobe
 NIK:New Ireland
 NPP:Northern
 NSA:North Solomons
-SAN:Santaun 
+SAN:Santaun
 SHM:Southern Highlands
 WPD:Western
 WHM:Western Highlands
@@ -3653,7 +3653,7 @@ APU:Apurímac
 ARE:Arequipa
 AYA:Ayacucho
 CAJ:Cajamarca
-CUS:Cuzco 
+CUS:Cuzco
 HUV:Huancavelica
 HUC:Huánuco
 ICA:Ica
@@ -3937,8 +3937,8 @@ Country=RUSSIA
 SubCountryType=Republic
 Code=RU
 
-AD:Adygeya, Respublika 
-AL:Altay, Respublika 
+AD:Adygeya, Respublika
+AL:Altay, Respublika
 BA:Bashkortostan, Respublika
 BU:Buryatiya, Respublika
 CE:Chechenskaya Respublika
@@ -3948,7 +3948,7 @@ IN:Ingushskaya Respublika
 KB:Kabardino-Balkarskaya
 KL:Kalmykiya, Respublika
 KC:Karachayevo-Cherkesskaya Respublika
-KR:Kareliya, Respublika 
+KR:Kareliya, Respublika
 KK:Khakasiya, Respublika
 KO:Komi, Respublika
 ME:Mariy El, Respublika
@@ -3957,7 +3957,7 @@ SA:Sakha, Respublika [Yakutiya]
 SE:Severnaya Osetiya, Respublika
 TA:Tatarstan, Respublika
 TY:Tyva, Respublika [Tuva]
-UD:Udmurtskaya Respublika 
+UD:Udmurtskaya Respublika
 ALT:Altayskiy kray
 KHA:Khabarovskiy kray
 KDA:Krasnodarskiy kray
@@ -4920,7 +4920,7 @@ GLAM:Glamorganshire
 GLOUS:Gloucestershire
 GRAMP:Grampian
 GWYNED:Gwynedd
-HANTS:Hampshire 
+HANTS:Hampshire
 HERWOR:Herefordshire & Worcestershire
 HERTS:Hertfordshire
 HIGHL:Highland
@@ -4954,7 +4954,7 @@ WILTS:Wiltshire
 WORCS:Worcestershire
 YORK:Yorkshire
 
-# Northern Ireland 
+# Northern Ireland
 
 CO ANTRIM:County Antrim
 CO ARMAGH:County Armagh
@@ -5027,6 +5027,7 @@ VA:Virginia
 VI:Virgin Islands
 VT:Vermont
 WA:Washington
+WV:West Virginia
 WI:Wisconsin
 WY:Wyoming
 
