@@ -1,5 +1,8 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.33 13 Feb 2004
+    Fixed pattern matching in data loader to allow for accented characters
+
 1.32 13 Feb 2004
     Added 'use locale' to main.t to stop 'make test' errors
 

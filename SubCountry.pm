@@ -306,7 +306,7 @@ use locale;
 
 use Exporter;
 use vars qw ($VERSION);
-$VERSION = '1.32';
+$VERSION = '1.33';
 
 #-------------------------------------------------------------------------------
 
@@ -384,11 +384,11 @@ package Locale::SubCountry;
             until ( $country_finished )
             {
                 $current_line = <DATA>;
-                if ( $current_line =~ /\s*<name>(\w.*)<\/name>/ )
+                if ( $current_line =~ /\s*<name>(.*)<\/name>/ )
                 {
                     $country_name = $1;
                 }
-                elsif ( $current_line =~ /\s*<code>(\w.*)<\/code>/ )
+                elsif ( $current_line =~ /\s*<code>(.*)<\/code>/ )
                 {
                     $country_code = $1;
                 }
@@ -400,23 +400,23 @@ package Locale::SubCountry;
                     until ( $sub_country_finished )
                     {
                         $current_line = <DATA>;
-                        if ( $current_line =~ /\s*<name>(\w.*)<\/name>/ )
+                        if ( $current_line =~ /\s*<name>(.*)<\/name>/ )
                         {
                             $sub_country_name = $1;
                         }
-                        elsif ( $current_line =~ /\s*<code>(\w.*)<\/code>/ )
+                        elsif ( $current_line =~ /\s*<code>(.*)<\/code>/ )
                         {
                             $sub_country_code = $1;
                         }
-                        elsif ( $current_line =~ /\s*<FIPS>(\w.*)<\/FIPS>/ )
+                        elsif ( $current_line =~ /\s*<FIPS>(.*)<\/FIPS>/ )
                         {
                             $FIPS_code = $1;
                         }
-                        elsif ( $current_line =~ /\s*<category>(\w.*)<\/category>/ )
+                        elsif ( $current_line =~ /\s*<category>(.*)<\/category>/ )
                         {
                             $category = $1;
                         }
-                        elsif ( $current_line =~ /\s*<regional_division>(\w.*)<\/regional_division>/ )
+                        elsif ( $current_line =~ /\s*<regional_division>(.*)<\/regional_division>/ )
                         {
                             $regional_division = $1;
                         }
