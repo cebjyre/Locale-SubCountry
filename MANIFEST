@@ -3,5 +3,4 @@ README
 Makefile.PL
 SubCountry.pm
 Changes
-iso_3166_2.xml
 t/main.t

@@ -5,8 +5,8 @@ Locale::SubCountry - convert state, county, province etc names to/from code
 SYNOPSIS
 
    my $UK_counties = new Locale::SubCountry('GB');
-   print($UK_counties->full_name('DGY'),"\n");           # Dumfries & Galloway
-   print($UK_counties->regional_division('DGY'),"\n");   # SCT  (Scotland)
+   print($UK_counties->full_name('DGY'),"\n");           # Dumfries and Galloway
+   print($UK_counties->regional_division('DGY'),"\n");   # SCT (Scotland)
 
    my $australia = new Locale::SubCountry('AUSTRALIA');
    print($australia->code('New South Wales '),"\n");     # NSW
