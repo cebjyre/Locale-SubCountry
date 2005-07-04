@@ -174,10 +174,10 @@ or "unknown" if no match is found.
  
 =head2 regionional_division
 
-Given a sub country object, the C<region> method takes the ISO 3166-2 code of
-a sub country and returns the sub country's regionional_division. This is,
-an alphanumeric code. The regionional_division is returned as a capitalised string, 
-or "unknown" if no match is found.
+Given a sub country object, the C<regionional_division> method takes the 
+ISO 3166-2 code of a sub country and returns the sub country's 
+regionional_division. This is, an alphanumeric code. The regionional_division 
+is returned as a capitalised string,  or "unknown" if no match is found.
 
 
 =head2 FIPS10_4_code
@@ -233,12 +233,14 @@ Federal Information Processing Standards Publication 10-4
 1995 April Specifications for  COUNTRIES, DEPENDENCIES, AREAS OF SPECIAL SOVEREIGNTY, 
 AND THEIR PRINCIPAL ADMINISTRATIVE DIVISIONS 
 
-<http://www.statoids.com/statoids.html>
+L<http://www.statoids.com/statoids.html>
 
 
-    Locale::Country
-    Lingua::EN::AddressParse
-    Geo::IP
+Locale::Country
+Lingua::EN::AddressParse
+Geo::StreetAddress::US
+Geo::PostalAddress
+Geo::IP
 
 =head1 LIMITATIONS
 
@@ -278,14 +280,6 @@ FIPS codes are not provided for all sub countries.
 None known
 
 
-=head1 COPYRIGHT
-
-
-Copyright (c) 2004 Kim Ryan. All rights reserved.
-This program is free software; you can redistribute it
-and/or modify it under the terms of the Perl Artistic License
-
-
 =head1 AUTHOR
 
 Locale::SubCountry was written by Kim Ryan <kimryan at cpan dot org>.
@@ -303,6 +297,15 @@ Mark Summerfield and Guy Fraser provided the list of UK counties.
 TJ Mather supplied the FIPS codes and many ammendments to the sub country data
 
 
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (c) 2005 Kim Ryan. All rights reserved.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.8.4 or,
+at your option, any later version of Perl 5 you may have available.
+
+
 =cut
 
 #-------------------------------------------------------------------------------
@@ -311,8 +314,6 @@ use strict;
 use locale;
 
 use Exporter;
-use vars qw ($VERSION);
-$VERSION = '1.34';
 
 #-------------------------------------------------------------------------------
 
@@ -372,6 +373,10 @@ sub all_codes
 #-------------------------------------------------------------------------------
 
 package Locale::SubCountry;
+
+use vars qw ($VERSION);
+$VERSION = '1.35';
+
 
 #-------------------------------------------------------------------------------
 # Initialization code must be run first to create global data structure.
@@ -1004,6 +1009,7 @@ __DATA__
     <FIPS>07</FIPS>
   </subcountry>
 </country>
+
 
 <country>
   <name>HONDURAS</name>
@@ -8059,6 +8065,7 @@ __DATA__
     <FIPS>35</FIPS>
   </subcountry>
 </country>
+
 
 <country>
   <name>BHUTAN</name>
@@ -22652,6 +22659,11 @@ __DATA__
 </country>
 
 <country>
+  <name>ANTIGUA AND BARBUDA</name>
+  <code>AG</code>
+</country>
+
+<country>
   <name>BERMUDA</name>
   <code>BM</code>
 </country>
@@ -22735,6 +22747,19 @@ __DATA__
   <name>TUVALU</name>
   <code>TV</code>
 </country>
+
+<country>
+  <name>NAURU</name>
+  <code>NR</code>
+</country>
+
+<country>
+  <name>SEYCHELLES</name>
+  <code>SC</code>
+</country>
+
+
+
 
 
 </ISO_3166_2>

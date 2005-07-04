@@ -1,5 +1,20 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.35 04 Jul 2005
+    Fixed problem with name space pollution for $VERSION variable
+
+    Added data for the following countries
+        Antigua and Barbuda
+        Andorra
+        Aruba
+        Bhutan
+        Nauru
+        Seychelles
+
+    For Cape Verde, changed Calheta de São Miguel to São Miguel
+    For Venezuela, changed Distrito Federal to Distrito Capital
+    Added districts for Honduras
+
 1.34 17 Apr 2004
     Fixed typo in XML data for American Samoa
 

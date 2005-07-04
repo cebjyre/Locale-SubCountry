@@ -47,10 +47,6 @@ SYNOPSIS
 
 
 
-REQUIRES
-
-Perl 5.005 or above
-
 HOW TO INSTALL
 
     perl Makefile.PL
@@ -78,14 +74,6 @@ returned as either a hash or an array.
 ISO 3166-2 codes can be converted to FIPS 10-4 codes. The reverse lookup can 
 also be done.
 
-COPYRIGHT
-
-
-Copyright (c) 2004 Kim Ryan. All rights reserved.
-This program is free software; you can redistribute it
-and/or modify it under the terms of the Perl Artistic License
-(see http://www.perl.com/perl/misc/Artistic.html).
-
 
 AUTHOR
 
@@ -101,9 +89,16 @@ this module.
 
 Mark Summerfield and Guy Fraser provided the list of UK counties.
 
-TJ Mather suuplied the FIPS codes and many ammendments to the sub country data
+TJ Mather suuplied the FIPS codes and many amendments to the sub country data
 
 
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2005 by Kim Ryan. All rights reserved.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.8.4 or,
+at your option, any later version of Perl 5 you may have available.
 
 
 
