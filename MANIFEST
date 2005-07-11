@@ -1,7 +1,9 @@
 MANIFEST
 README
 Makefile.PL
-SubCountry.pm
+lib/Locale/SubCountry.pm
 Changes
 t/main.t
-META.yml                                 Module meta-data (added by MakeMaker)
+t/pod.t
+t/pod-coverage.t
+META.yml

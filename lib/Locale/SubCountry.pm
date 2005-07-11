@@ -7,8 +7,8 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
    my $UK = new Locale::SubCountry('GB');
    if ( $UK->has_sub_countries )
    {
-       print($UK->full_name('DGY'),"\n");           # Dumfries and Galloway
-       print($UK->regional_division('DGY'),"\n");   # SCT (Scotland)
+       print($UK->full_name('DGY'),"\n");           # Dumfries and Allow
+       print($UK->regional_division('DGY'),"\n");   # CT (Scotland)
    }
 
    my $australia = new Locale::SubCountry('AUSTRALIA');
@@ -44,11 +44,6 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
 
    my %all_countries_keyed_by_name = $world->full_name_code_hash;
    my %all_country_keyed_by_code   = $world->code_full_name_hash;
-
-
-=head1 REQUIRES
-
-Perl 5.005 or above
 
 
 =head1 DESCRIPTION
@@ -172,13 +167,18 @@ a sub country and returns the sub country's category type. Examples are city,
 province,state and district. The category is returned as a capitalised string, 
 or "unknown" if no match is found.
  
-=head2 regionional_division
+=head2 regional_division
 
-Given a sub country object, the C<regionional_division> method takes the 
+Given a sub country object, the C<regional_division> method takes the 
 ISO 3166-2 code of a sub country and returns the sub country's 
-regionional_division. This is, an alphanumeric code. The regionional_division 
+regionional_division. This is, an alphanumeric code. The regional_division 
 is returned as a capitalised string,  or "unknown" if no match is found.
 
+=head2 has_sub_countries
+
+Given a sub country object, the C<has_sub_countries> method returns 1 if the
+current country has sub countries, or 0 if it does not. Some small countires 
+such as Singapore do not have sub countries.
 
 =head2 FIPS10_4_code
 
@@ -196,27 +196,23 @@ if none exists.
 =head2 full_name_code_hash  (for subcountry objects)
 
 Given a sub country object, returns a hash of all full name/code pairs,
-keyed by sub country name. If the country has no sub countries, such as Singapore, 
-returns undef.
+keyed by sub country name. If the country has no sub countries, returns undef.
 
 =head2 code_full_name_hash  (for subcountry objects)
 
 Given a sub country object, returns a hash of all code/full name pairs,
-keyed by sub country code. If the country has no sub countries, such as Singapore, 
-returns undef.
+keyed by sub country code. If the country has no sub countries, returns undef.
 
 
 =head2 all_full_names  (for subcountry objects)
 
 Given a sub country object, returns an array of all sub country full names,
-sorted alphabetically. If the country has no sub countries, such as Singapore, 
-returns undef.
+sorted alphabetically. If the country has no sub countries, returns undef.
 
 =head2 all_codes  (for subcountry objects)
 
 Given a sub country object, returns an array of all sub country ISO 3166-2 codes,
-sorted alphabetically. If the country has no sub countries, such as Singapore, 
-returns undef.
+sorted alphabetically. If the country has no sub countries, returns undef.
 
 
 
@@ -236,11 +232,8 @@ AND THEIR PRINCIPAL ADMINISTRATIVE DIVISIONS
 L<http://www.statoids.com/statoids.html>
 
 
-Locale::Country
-Lingua::EN::AddressParse
-Geo::StreetAddress::US
-Geo::PostalAddress
-Geo::IP
+L<Locale::Country>,L<Lingua::EN::AddressParse>,
+L<Geo::StreetAddress::US>L<Geo::PostalAddress>L<Geo::IP>
 
 =head1 LIMITATIONS
 
@@ -374,13 +367,12 @@ sub all_codes
 
 package Locale::SubCountry;
 
-use vars qw ($VERSION);
-$VERSION = '1.35';
+our $VERSION = '1.36';
 
 
 #-------------------------------------------------------------------------------
 # Initialization code must be run first to create global data structure.
-# Read in the list of abbreivations and full names defined in the __DATA__ 
+# Read in the list of abbreviations and full names defined in the __DATA__ 
 # block at the bottom of this file.
 
 {
@@ -436,7 +428,7 @@ $VERSION = '1.35';
                             $sub_country_finished = 1;
 
                             # Insert into doubly indexed hash, grouped by country for ISO 3166-2 
-                            # codes. One hash is keyed by abbreviaton and one by full name. Although 
+                            # codes. One hash is keyed by abbreviation and one by full name. Although 
                             # data is duplicated, this provides the fastest lookup and simplest code.
             
                             $::subcountry_lookup{$country_name}{_code_keyed}{$sub_country_code} = $sub_country_name;
@@ -716,7 +708,7 @@ sub full_name
     }
 }
 #-------------------------------------------------------------------------------
-# Returns 1 if the current country has sub countires. otherwise 0.
+# Returns 1 if the current country has sub countries. otherwise 0.
 
 sub has_sub_countries
 {
@@ -822,7 +814,7 @@ return(1);
 
 #-------------------------------------------------------------------------------
 
-# Code/Sub country data in XML format. Read in at start up by first un-named block.
+# Code/Sub country data in XML format. Read in at start up by first unnamed block.
 
 
 __DATA__
@@ -22676,7 +22668,43 @@ __DATA__
 <country>
   <name>ANDORRA</name>
   <code>AD</code>
+  <subcountry>
+    <name>Andorra la Vella</name>
+    <code>AN</code>
+    <FIPS>07</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Canillo</name>
+    <code>CA</code>
+    <FIPS>02</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Encamp</name>
+    <code>EN</code>
+    <FIPS>03</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Escaldes-Engordany</name>
+    <code>EE</code>
+    <FIPS>08</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>La Massana</name>
+    <code>MA</code>
+    <FIPS>04</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Ordino</name>
+    <code>OR</code>
+    <FIPS>05</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Sant Julià de Lòria</name>
+    <code>JL</code>
+    <FIPS>06</FIPS>
+  </subcountry>
 </country>
+
 
 <country>
   <name>MONTSERRAT</name>
@@ -22736,6 +22764,41 @@ __DATA__
 <country>
   <name>GRENADA</name>
   <code>GD</code>
+  <subcountry>
+    <name>Carriacou</name>
+    <code>CA</code>
+    <FIPS></FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Saint Andrew</name>
+    <code>AN</code>
+    <FIPS>1</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Saint David</name>
+    <code>DA</code>
+    <FIPS>2</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Saint George</name>
+    <code>GE</code>
+    <FIPS>3</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Saint John</name>
+    <code>JO</code>
+    <FIPS>4</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Saint Mark</name>
+    <code>MA</code>
+    <FIPS>5</FIPS>
+  </subcountry>
+  <subcountry>
+    <name>Saint Patrick</name>
+    <code>PA</code>
+    <FIPS>6</FIPS>
+  </subcountry>
 </country>
 
 <country>

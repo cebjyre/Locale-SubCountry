@@ -1,5 +1,11 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.36 11 Jul 2005
+    Added regions for Andorra
+    Added regions for Grenada
+    Updated distribution to current CPAN requirements 
+
+
 1.35 04 Jul 2005
     Fixed problem with name space pollution for $VERSION variable
 
