@@ -4,10 +4,15 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
 
 =head1 SYNOPSIS
 
-   my $UK = new Locale::SubCountry('GB');
-   if ( $UK->has_sub_countries )
+   my $country_code = 'GB';
+   my $UK = new Locale::SubCountry($country_code);
+   if ( not $UK )
    {
-       print($UK->full_name('DGY'),"\n");           # Dumfries and Allow
+       die "Invalid code $country_code\n"; 
+   }
+   elsif (  $UK->has_sub_countries )
+   {
+       print($UK->full_name('DGY'),"\n");           # Dumfries and Galloway
        print($UK->regional_division('DGY'),"\n");   # CT (Scotland)
    }
 
@@ -292,7 +297,7 @@ TJ Mather supplied the FIPS codes and many ammendments to the sub country data
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2005 Kim Ryan. All rights reserved.
+Copyright (c) 2006 Kim Ryan. All rights reserved.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.4 or,
@@ -367,7 +372,7 @@ sub all_codes
 
 package Locale::SubCountry;
 
-our $VERSION = '1.36';
+our $VERSION = '1.37';
 
 
 #-------------------------------------------------------------------------------
@@ -503,7 +508,8 @@ sub new
         }
         else
         {
-          die "Invalid country code: $country_or_code chosen";
+          warn "Invalid country code: $country_or_code chosen";
+          return(undef);
         }
     }
     else
@@ -515,7 +521,9 @@ sub new
         }
         else
         {
-            die "Invalid country name: $country_or_code chosen";
+            warn "Invalid country name: $country_or_code chosen";
+            return(undef);
+
         }
     }
 
@@ -816,7 +824,6 @@ return(1);
 
 # Code/Sub country data in XML format. Read in at start up by first unnamed block.
 
-
 __DATA__
 <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
 <ISO_3166_2>
@@ -1102,103 +1109,103 @@ __DATA__
     <category>city</category>
   </subcountry>
   <subcountry>
-    <name>Bjelovarsko-bilogorska županija</name>
+    <name>Bjelovarsko-bilogorska</name>
     <code>07</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Brodsko-posavska županija</name>
+    <name>Brodsko-posavska</name>
     <code>12</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Dubrovacko-neretvanska županija</name>
+    <name>Dubrovacko-neretvanska</name>
     <code>19</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Istarska županija</name>
+    <name>Istarska</name>
     <code>18</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Karlovacka županija</name>
+    <name>Karlovacka</name>
     <code>04</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Koprivnicko-križevacka županija</name>
+    <name>Koprivnicko-križevacka</name>
     <code>06</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Krapinsko-zagorska županija</name>
+    <name>Krapinsko-zagorska</name>
     <code>02</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Licko-senjska županija</name>
+    <name>Licko-senjska</name>
     <code>09</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Medimurska županija</name>
+    <name>Medimurska</name>
     <code>20</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Osjecko-baranjska županija</name>
+    <name>Osjecko-baranjska</name>
     <code>14</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Požeško-slavonska županija</name>
+    <name>Požeško-slavonska</name>
     <code>11</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Primorsko-goranska županija</name>
+    <name>Primorsko-goranska</name>
     <code>08</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Sisacko-moslavacka županija</name>
+    <name>Sisacko-moslavacka</name>
     <code>03</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Splitsko-dalmatinska županija</name>
+    <name>Splitsko-dalmatinska</name>
     <code>17</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Šibensko-kninska županija</name>
+    <name>Šibensko-kninska</name>
     <code>15</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Varaždinska županija</name>
+    <name>Varaždinska</name>
     <code>05</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Viroviticko-podravska županija</name>
+    <name>Viroviticko-podravska</name>
     <code>10</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Vukovarsko-srijemska županija</name>
+    <name>Vukovarsko-srijemska</name>
     <code>16</code>
     <category>county</category>
   </subcountry>
   <subcountry>
-    <name>Zadarska županija</name>
+    <name>Zadarska</name>
     <code>13</code>
     <category>county</category>
     <FIPS>19</FIPS>
   </subcountry>
   <subcountry>
-    <name>Zagrebacka županija</name>
+    <name>Zagrebacka</name>
     <code>01</code>
     <category>county</category>
   </subcountry>
@@ -2230,11 +2237,11 @@ __DATA__
     <code>03</code>
   </subcountry>
   <subcountry>
-    <name>Az¯arbayjan-e Gharbi</name>
+    <name>West Azarbayjan</name>
     <code>02</code>
   </subcountry>
   <subcountry>
-    <name>Az¯arbayjan-e Sharqi</name>
+    <name>East Azarbayjan</name>
     <code>01</code>
   </subcountry>
   <subcountry>
@@ -2242,7 +2249,7 @@ __DATA__
     <code>06</code>
   </subcountry>
   <subcountry>
-    <name>Chahar Mah¸all va Bakhtiari</name>
+    <name>Chahar Mahall and Bakhtiari</name>
     <code>08</code>
   </subcountry>
   <subcountry>
@@ -2290,7 +2297,7 @@ __DATA__
     <code>10</code>
   </subcountry>
   <subcountry>
-    <name>Kohkiluyeh va Buyer Ahmad</name>
+    <name>Kohkiluyeh and Buyer Ahmad</name>
     <code>18</code>
   </subcountry>
   <subcountry>
@@ -3461,7 +3468,7 @@ __DATA__
   <name>JAPAN</name>
   <code>JP</code>
   <subcountry>
-    <name>Aiti [Aichi]</name>
+    <name>Aichi</name>
     <code>23</code>
     <FIPS>01</FIPS>
   </subcountry>
@@ -3481,7 +3488,7 @@ __DATA__
     <FIPS>05</FIPS>
   </subcountry>
   <subcountry>
-    <name>Gihu [Gifu]</name>
+    <name>Gihu</name>
     <code>21</code>
     <FIPS>09</FIPS>
   </subcountry>
@@ -4191,7 +4198,7 @@ __DATA__
   <name>UNITED ARAB EMIRATES</name>
   <code>AE</code>
   <subcountry>
-    <name>Abu Z¸aby [Abu Dhabi]</name>
+    <name>Abu Dhabi</name>
     <code>AZ</code>
     <FIPS>01</FIPS>
   </subcountry>
@@ -4206,12 +4213,12 @@ __DATA__
     <FIPS>04</FIPS>
   </subcountry>
   <subcountry>
-    <name>Ash Shariqah [Sharjah]</name>
+    <name>Sharjah</name>
     <code>SH</code>
     <FIPS>06</FIPS>
   </subcountry>
   <subcountry>
-    <name>Dubayy [Dubai]</name>
+    <name>Dubay</name>
     <code>DU</code>
     <FIPS>03</FIPS>
   </subcountry>
@@ -5038,7 +5045,7 @@ __DATA__
     <code>G</code>
   </subcountry>
   <subcountry>
-    <name>Luxembourg (fr)</name>
+    <name>Luxembourg</name>
     <code>L</code>
   </subcountry>
 </country>
@@ -6716,61 +6723,61 @@ __DATA__
   <name>BELGIUM</name>
   <code>BE</code>
   <subcountry>
-    <name>Antwerpen (nl)</name>
+    <name>Antwerp</name>
     <code>VAN</code>
     <regional_division>VLG</regional_division>
     <FIPS>01</FIPS>
   </subcountry>
   <subcountry>
-    <name>Brabant Wallon (fr)</name>
+    <name>Wallon Brabant</name>
     <code>WBR</code>
     <regional_division>WAL</regional_division>
     <FIPS>10</FIPS>
   </subcountry>
   <subcountry>
-    <name>Hainaut (fr)</name>
+    <name>Hainaut</name>
     <code>WHT</code>
     <regional_division>WAL</regional_division>
     <FIPS>03</FIPS>
   </subcountry>
   <subcountry>
-    <name>Liège (fr)</name>
+    <name>Liège</name>
     <code>WLG</code>
     <regional_division>WAL</regional_division>
     <FIPS>04</FIPS>
   </subcountry>
   <subcountry>
-    <name>Limburg (nl)</name>
+    <name>Limburg</name>
     <code>VLI</code>
     <regional_division>VLG</regional_division>
     <FIPS>05</FIPS>
   </subcountry>
   <subcountry>
-    <name>Luxembourg (fr)</name>
+    <name>Luxembourg</name>
     <code>WLX</code>
     <regional_division>WAL</regional_division>
     <FIPS>06</FIPS>
   </subcountry>
   <subcountry>
-    <name>Namur (fr)</name>
+    <name>Namur</name>
     <code>WNA</code>
     <regional_division>WAL</regional_division>
     <FIPS>07</FIPS>
   </subcountry>
   <subcountry>
-    <name>Oost-Vlaanderen (nl)</name>
+    <name>East Flanders</name>
     <code>VOV</code>
     <regional_division>VLG</regional_division>
     <FIPS>08</FIPS>
   </subcountry>
   <subcountry>
-    <name>Vlaams Brabant (nl)</name>
+    <name>Vlaams Brabant</name>
     <code>VBR</code>
     <regional_division>VLG</regional_division>
     <FIPS>12</FIPS>
   </subcountry>
   <subcountry>
-    <name>West-Vlaanderen (nl)</name>
+    <name>West Flanders </name>
     <code>VWV</code>
     <regional_division>VLG</regional_division>
     <FIPS>09</FIPS>
@@ -8206,30 +8213,30 @@ __DATA__
   <name>BELARUS</name>
   <code>BY</code>
   <subcountry>
-    <name>Brestskaya voblasts' (be) Brestskaya oblast' (ru)</name>
+    <name>Brest</name>
     <code>BR</code>
   </subcountry>
   <subcountry>
-    <name>Homyel'skaya voblasts' (be) Gomel'skaya oblast' (ru)</name>
+    <name>Homyel'</name>
     <code>HO</code>
     <FIPS>02</FIPS>
   </subcountry>
   <subcountry>
-    <name>Hrodzenskaya voblasts' (be) Grodnenskaya oblast' (ru)</name>
+    <name>Hrodna</name>
     <code>HR</code>
   </subcountry>
   <subcountry>
-    <name>Mahilyowskaya voblasts' (be) Mogilevskaya oblast' (ru)</name>
+    <name>Mahilyow</name>
     <code>MA</code>
     <FIPS>06</FIPS>
   </subcountry>
   <subcountry>
-    <name>Minskaya voblasts' (be) Minskaya oblast' (ru)</name>
+    <name>Minsk</name>
     <code>MI</code>
     <FIPS>05</FIPS>
   </subcountry>
   <subcountry>
-    <name>Vitsyebskaya voblasts' (be) Vitebskaya oblast' (ru)</name>
+    <name>Vitsyebsk</name>
     <code>VI</code>
   </subcountry>
 </country>
@@ -8587,130 +8594,130 @@ __DATA__
   <name>SWITZERLAND</name>
   <code>CH</code>
   <subcountry>
-    <name>Aargau (de)</name>
+    <name>Aargau</name>
     <code>AG</code>
     <FIPS>01</FIPS>
   </subcountry>
   <subcountry>
-    <name>Appenzell Ausserrhoden (de)</name>
+    <name>Appenzell Ausserrhoden</name>
     <code>AR</code>
   </subcountry>
   <subcountry>
-    <name>Appenzell Innerrhoden (de)</name>
+    <name>Appenzell Innerrhoden</name>
     <code>AI</code>
   </subcountry>
   <subcountry>
-    <name>Basel-Landschaft (de)</name>
+    <name>Basel-Landschaft</name>
     <code>BL</code>
     <FIPS>03</FIPS>
   </subcountry>
   <subcountry>
-    <name>Basel-Stadt (de)</name>
+    <name>Basel-Stadt</name>
     <code>BS</code>
     <FIPS>04</FIPS>
   </subcountry>
   <subcountry>
-    <name>Bern (de)</name>
+    <name>Bern</name>
     <code>BE</code>
     <FIPS>05</FIPS>
   </subcountry>
   <subcountry>
-    <name>Fribourg (fr)</name>
+    <name>Fribourg</name>
     <code>FR</code>
     <FIPS>06</FIPS>
   </subcountry>
   <subcountry>
-    <name>Genève (fr)</name>
+    <name>Genève</name>
     <code>GE</code>
     <FIPS>07</FIPS>
   </subcountry>
   <subcountry>
-    <name>Glarus (de)</name>
+    <name>Glarus</name>
     <code>GL</code>
     <FIPS>08</FIPS>
   </subcountry>
   <subcountry>
-    <name>Graubünden (de)</name>
+    <name>Graubünden</name>
     <code>GR</code>
     <FIPS>09</FIPS>
   </subcountry>
   <subcountry>
-    <name>Jura (fr)</name>
+    <name>Jura</name>
     <code>JU</code>
     <FIPS>26</FIPS>
   </subcountry>
   <subcountry>
-    <name>Luzern (de)</name>
+    <name>Luzern</name>
     <code>LU</code>
     <FIPS>11</FIPS>
   </subcountry>
   <subcountry>
-    <name>Neuchâtel (fr)</name>
+    <name>Neuchâtel</name>
     <code>NE</code>
     <FIPS>12</FIPS>
   </subcountry>
   <subcountry>
-    <name>Nidwalden (de)</name>
+    <name>Nidwalden</name>
     <code>NW</code>
     <FIPS>13</FIPS>
   </subcountry>
   <subcountry>
-    <name>Obwalden (de)</name>
+    <name>Obwalden</name>
     <code>OW</code>
     <FIPS>14</FIPS>
   </subcountry>
   <subcountry>
-    <name>Sankt Gallen (de)</name>
+    <name>Sankt Gallen</name>
     <code>SG</code>
     <FIPS>15</FIPS>
   </subcountry>
   <subcountry>
-    <name>Schaffhausen (de)</name>
+    <name>Schaffhausen</name>
     <code>SH</code>
     <FIPS>16</FIPS>
   </subcountry>
   <subcountry>
-    <name>Schwyz (de)</name>
+    <name>Schwyz</name>
     <code>SZ</code>
     <FIPS>17</FIPS>
   </subcountry>
   <subcountry>
-    <name>Solothurn (de)</name>
+    <name>Solothurn</name>
     <code>SO</code>
     <FIPS>18</FIPS>
   </subcountry>
   <subcountry>
-    <name>Thurgau (de)</name>
+    <name>Thurgau</name>
     <code>TG</code>
     <FIPS>19</FIPS>
   </subcountry>
   <subcountry>
-    <name>Ticino (it)</name>
+    <name>Ticino</name>
     <code>TI</code>
     <FIPS>20</FIPS>
   </subcountry>
   <subcountry>
-    <name>Uri (de)</name>
+    <name>Uri</name>
     <code>UR</code>
     <FIPS>21</FIPS>
   </subcountry>
   <subcountry>
-    <name>Valais (fr)</name>
+    <name>Valais</name>
     <code>VS</code>
     <FIPS>22</FIPS>
   </subcountry>
   <subcountry>
-    <name>Vaud (fr)</name>
+    <name>Vaud</name>
     <code>VD</code>
     <FIPS>23</FIPS>
   </subcountry>
   <subcountry>
-    <name>Zug (de)</name>
+    <name>Zug</name>
     <code>ZG</code>
     <FIPS>24</FIPS>
   </subcountry>
   <subcountry>
-    <name>Zürich (de)</name>
+    <name>Zürich</name>
     <code>ZH</code>
     <FIPS>25</FIPS>
   </subcountry>
@@ -8720,70 +8727,70 @@ __DATA__
   <name>CÔTE D'IVOIRE</name>
   <code>CI</code>
   <subcountry>
-    <name>18 Montagnes (Région des)</name>
+    <name>Dix-Huit Montagnes</name>
     <code>06</code>
     <FIPS>47</FIPS>
   </subcountry>
   <subcountry>
-    <name>Agnébi (Région de l')</name>
+    <name>Agnébi )</name>
     <code>16</code>
   </subcountry>
   <subcountry>
-    <name>Bas-Sassandra (Région du)</name>
+    <name>Bas-Sassandra</name>
     <code>09</code>
   </subcountry>
   <subcountry>
-    <name>Denguélé (Région du)</name>
+    <name>Denguélé</name>
     <code>10</code>
     <FIPS>33</FIPS>
   </subcountry>
   <subcountry>
-    <name>Haut-Sassandra (Région du)</name>
+    <name>Haut-Sassandra</name>
     <code>02</code>
     <FIPS>54</FIPS>
   </subcountry>
   <subcountry>
-    <name>Lacs (Région des)</name>
+    <name>Lacs</name>
     <code>07</code>
   </subcountry>
   <subcountry>
-    <name>Lagunes (Région des)</name>
+    <name>Lagunes</name>
     <code>01</code>
   </subcountry>
   <subcountry>
-    <name>Marahoué (Région de la)</name>
+    <name>Marahoué</name>
     <code>12</code>
   </subcountry>
   <subcountry>
-    <name>Moyen-Comoé (Région du)</name>
+    <name>Moyen-Comoé</name>
     <code>05</code>
   </subcountry>
   <subcountry>
-    <name>Nzi-Comoé (Région)</name>
+    <name>Nzi-Comoé</name>
     <code>11</code>
   </subcountry>
   <subcountry>
-    <name>Savanes (Région des)</name>
+    <name>Savanes</name>
     <code>03</code>
   </subcountry>
   <subcountry>
-    <name>Sud-Bandama (Région du)</name>
+    <name>Sud-Bandama</name>
     <code>15</code>
   </subcountry>
   <subcountry>
-    <name>Sud-Comoé (Région du)</name>
+    <name>Sud-Comoé</name>
     <code>13</code>
   </subcountry>
   <subcountry>
-    <name>Vallée du Bandama (Région de la)</name>
+    <name>Vallée du Bandama</name>
     <code>04</code>
   </subcountry>
   <subcountry>
-    <name>Worodougou (Région du)</name>
+    <name>Worodougou</name>
     <code>14</code>
   </subcountry>
   <subcountry>
-    <name>Zanzan (Région du)</name>
+    <name>Zanzan</name>
     <code>08</code>
   </subcountry>
 </country>
@@ -9076,7 +9083,7 @@ __DATA__
     <FIPS>16</FIPS>
   </subcountry>
   <subcountry>
-    <name>Neimenggu (zh) </name>
+    <name>Neimenggu</name>
     <code>15</code>
     <category>autonomous region</category>
     <FIPS>20</FIPS>
@@ -9100,12 +9107,12 @@ __DATA__
     <FIPS>14</FIPS>
   </subcountry>
   <subcountry>
-    <name>Xianggang (zh) </name>
+    <name>Xianggang</name>
     <code>91</code>
     <category>special administrative region</category>
   </subcountry>
   <subcountry>
-    <name>Aomen (zh) </name>
+    <name>Aomen</name>
     <code>92</code>
     <category>special administrative region</category>
   </subcountry>
@@ -9857,7 +9864,7 @@ __DATA__
   <name>DOMINICAN REPUBLIC</name>
   <code>DO</code>
   <subcountry>
-    <name>Distrito Nacional (Santo Domingo)</name>
+    <name>Distrito Nacional </name>
     <code>01</code>
     <category>district</category>
   </subcountry>
@@ -10611,7 +10618,7 @@ __DATA__
     <code>DU</code>
   </subcountry>
   <subcountry>
-    <name>Debubawi Keyih Bahri [Debub-Keih-Bahri]</name>
+    <name>Debubawi Keyih Bahri</name>
     <code>DK</code>
   </subcountry>
   <subcountry>
@@ -10623,7 +10630,7 @@ __DATA__
     <code>MA</code>
   </subcountry>
   <subcountry>
-    <name>Semenawi Keyih Bahri [Semien-Keih-Bahri]</name>
+    <name>Semenawi Keyih Bahri</name>
     <code>SK</code>
   </subcountry>
 </country>
@@ -11899,7 +11906,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Bridgend [Pen-y-bont ar Ogwr GB-POG]</name>
+    <name>Bridgend</name>
     <code>BGE</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -11929,7 +11936,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Caerphilly [Caerffili GB-CAF]</name>
+    <name>Caerphilly</name>
     <code>CAY</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -11949,12 +11956,12 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Cardiff [Caerdydd GB-CRD]</name>
+    <name>Cardiff</name>
     <code>CRF</code>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
-    <name>Carmarthenshire [Sir Gaerfyrddin GB-GFY]</name>
+    <name>Carmarthenshire</name>
     <code>CMN</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -11969,7 +11976,7 @@ __DATA__
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
-    <name>Ceredigion [Sir Ceredigion]</name>
+    <name>Ceredigion</name>
     <code>CGN</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12029,7 +12036,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Denbighshire [Sir Ddinbych GB-DDB]</name>
+    <name>Denbighshire</name>
     <code>DEN</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12164,7 +12171,7 @@ __DATA__
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
-    <name>Flintshire [Sir y Fflint GB-FFL]</name>
+    <name>Flintshire</name>
     <code>FLN</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12189,7 +12196,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Guernsey [Guernesey]</name>
+    <name>Guernsey</name>
     <code>GSY</code>
     <regional_division>CHA</regional_division>
   </subcountry>
@@ -12269,7 +12276,7 @@ __DATA__
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
-    <name>Isle of Anglesey [Sir Ynys Môn GB-YNM]</name>
+    <name>Isle of Anglesey</name>
     <code>AGY</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12404,7 +12411,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Merthyr Tydfil [Merthyr Tudful GB-MTU]</name>
+    <name>Merthyr Tydfil</name>
     <code>MTY</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12444,7 +12451,7 @@ __DATA__
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
-    <name>Neath Port Talbot [Castell-nedd Port Talbot GB-CTL]</name>
+    <name>Neath Port Talbot</name>
     <code>NTL</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12459,7 +12466,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Newport [Casnewydd GB-CNW]</name>
+    <name>Newport</name>
     <code>NWP</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12559,7 +12566,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Pembrokeshire [Sir Benfro GB-BNF]</name>
+    <name>Pembrokeshire</name>
     <code>PEM</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12614,7 +12621,7 @@ __DATA__
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
-    <name>Rhondda, Cynon, Taff [Rhondda, Cynon,Taf]</name>
+    <name>Rhondda, Cynon, Taff</name>
     <code>RCT</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12780,7 +12787,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Swansea [Abertawe GB-ATA]</name>
+    <name>Swansea</name>
     <code>SWA</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12810,7 +12817,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Torfaen [Tor-faen]</name>
+    <name>Torfaen</name>
     <code>TOF</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12825,7 +12832,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Vale of Glamorgan, The [Bro Morgannwg GB-BMG]</name>
+    <name>Vale of Glamorgan</name>
     <code>VGL</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -12920,7 +12927,7 @@ __DATA__
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
-    <name>Wrexham [Wrecsam GB-WRC]</name>
+    <name>Wrexham</name>
     <code>WRX</code>
     <regional_division>WLS</regional_division>
   </subcountry>
@@ -13670,7 +13677,7 @@ __DATA__
     <FIPS>21</FIPS>
   </subcountry>
   <subcountry>
-    <name>Cargados Carajos Shoals [Saint Brandon Islands]</name>
+    <name>Cargados Carajos</name>
     <code>CC</code>
     <category>dependency</category>
   </subcountry>
@@ -15112,7 +15119,7 @@ __DATA__
     <FIPS>02</FIPS>
   </subcountry>
   <subcountry>
-    <name>Al Janubiyah [Z¸ufar]</name>
+    <name>Al Janubiyah [Zufar]</name>
     <code>JA</code>
   </subcountry>
   <subcountry>
@@ -15126,7 +15133,7 @@ __DATA__
     <FIPS>04</FIPS>
   </subcountry>
   <subcountry>
-    <name>Az¸ Z¸ahirah</name>
+    <name>Az Zahirah</name>
     <code>ZA</code>
     <FIPS>05</FIPS>
   </subcountry>
@@ -15964,7 +15971,7 @@ __DATA__
     <FIPS>08</FIPS>
   </subcountry>
   <subcountry>
-    <name>Baluchistan (en)</name>
+    <name>Baluchistan</name>
     <code>BA</code>
     <category>province</category>
   </subcountry>
@@ -15981,7 +15988,7 @@ __DATA__
     <FIPS>04</FIPS>
   </subcountry>
   <subcountry>
-    <name>Sind (en)</name>
+    <name>Sind</name>
     <code>SD</code>
     <category>province</category>
   </subcountry>

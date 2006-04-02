@@ -1,5 +1,12 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.37 02 Apr 2006
+    Removed invalid characters in data for Iran, United Arab Emirates and Oman
+    Removed alternate names (appended to end of main names in brackects) from many sub countries
+
+    NOTE: new method now issues warning and returns undef if invalid country code or 
+    name parameter is passed. Previous versions died inside the new method.
+
 1.36 11 Jul 2005
     Added regions for Andorra
     Added regions for Grenada
