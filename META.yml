@@ -1,10 +1,13 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Locale-SubCountry
-version:      1.37
-version_from: lib/Locale/SubCountry.pm
-installdirs:  site
-requires:
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.17
+--- #YAML:1.0
+name:                Locale-SubCountry
+version:             1.38
+abstract:            convert state, province, county ... names to/from ISO 3166-2 code
+license:             perl
+generated_by:        ExtUtils::MakeMaker version 6.31
+distribution_type:   module
+requires:     
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
+    version: 1.2
+author:
+    - Kim Ryan <kimryan at cpan org>

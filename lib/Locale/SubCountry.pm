@@ -372,7 +372,7 @@ sub all_codes
 
 package Locale::SubCountry;
 
-our $VERSION = '1.37';
+our $VERSION = '1.38';
 
 
 #-------------------------------------------------------------------------------
@@ -15871,6 +15871,9 @@ __DATA__
     <regional_division>11</regional_division>
   </subcountry>
   <subcountry>
+    <name>Shariff Kabunsuan</name>
+  </subcountry>
+  <subcountry>
     <name>Siquijor</name>
     <code>SIG</code>
     <regional_division>07</regional_division>
@@ -17375,8 +17378,8 @@ __DATA__
     <code>01</code>
     <FIPS>43</FIPS>
   </subcountry>
-  <subcountry>
-    <name>Bahr al Jabal</name>
+   <subcountry>
+    <name>Central Equatoria</name>
     <code>17</code>
     <FIPS>44</FIPS>
   </subcountry>
