@@ -297,7 +297,7 @@ TJ Mather supplied the FIPS codes and many ammendments to the sub country data
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2006 Kim Ryan. All rights reserved.
+Copyright (c) 2008 Kim Ryan. All rights reserved.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.4 or,
@@ -309,6 +309,7 @@ at your option, any later version of Perl 5 you may have available.
 #-------------------------------------------------------------------------------
 
 use strict;
+use warnings;
 use locale;
 
 use Exporter;
@@ -372,7 +373,7 @@ sub all_codes
 
 package Locale::SubCountry;
 
-our $VERSION = '1.38';
+our $VERSION = '1.39';
 
 
 #-------------------------------------------------------------------------------
@@ -430,14 +431,20 @@ our $VERSION = '1.38';
                         }
                         elsif ( $current_line =~ /<\/subcountry>/ )
                         {
+                            
                             $sub_country_finished = 1;
-
-                            # Insert into doubly indexed hash, grouped by country for ISO 3166-2 
-                            # codes. One hash is keyed by abbreviation and one by full name. Although 
-                            # data is duplicated, this provides the fastest lookup and simplest code.
-            
-                            $::subcountry_lookup{$country_name}{_code_keyed}{$sub_country_code} = $sub_country_name;
-                            $::subcountry_lookup{$country_name}{_full_name_keyed}{$sub_country_name} = $sub_country_code;
+                            
+                            # Some sub countries have no ISO code, such as Shariff Kabunsuan in the
+                            # Phillipines. Only index sub country if it has a code
+                            if (  defined $sub_country_code )
+                            {
+                                # Insert into doubly indexed hash, grouped by country for ISO 3166-2 
+                                # codes. One hash is keyed by abbreviation and one by full name. Although 
+                                # data is duplicated, this provides the fastest lookup and simplest code.
+                
+                                $::subcountry_lookup{$country_name}{_code_keyed}{$sub_country_code} = $sub_country_name;
+                                $::subcountry_lookup{$country_name}{_full_name_keyed}{$sub_country_name} = $sub_country_code;
+                            }
 
                             if ( $category )
                             {

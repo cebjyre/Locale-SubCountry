@@ -9,5 +9,4 @@ WriteMakefile
    'ABSTRACT'     => 'convert state, province, county ... names to/from ISO 3166-2 code',
    'AUTHOR'       => 'Kim Ryan <kimryan at cpan org>',
    'PREREQ_PM'    => {}, # e.g., Module::Name => 1.1
-   'LICENSE'     => 'perl'
 );

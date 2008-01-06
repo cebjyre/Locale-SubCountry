@@ -1,5 +1,10 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.39 6 Jan 2008
+    Alowed for sub countires with no ISO code, such as Shariff Kabunsuan in the Phillipines
+    Thanks to Matt Loschert for pointing this out.
+    
+
 1.38 26 Nov 2006
     Changed sub country names in Sudan and Phillipines
     Added examples/demo.pl
