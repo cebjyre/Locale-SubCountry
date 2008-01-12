@@ -373,7 +373,7 @@ sub all_codes
 
 package Locale::SubCountry;
 
-our $VERSION = '1.39';
+our $VERSION = '1.40';
 
 
 #-------------------------------------------------------------------------------
@@ -387,7 +387,7 @@ our $VERSION = '1.39';
         chomp($current_line);
 
         my ($country_name,$country_code);
-        if ( $current_line eq '<country>' )
+        if ( $current_line =~ /<country>/ )
         {
             my $country_finished = 0;
             until ( $country_finished )

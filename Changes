@@ -1,5 +1,9 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.40 12 Jan 2008
+    Changed  regexp match on XML country filed to account for both Unix and MSDOS line endings
+    Converted files to Unix line endings
+
 1.39 6 Jan 2008
     Alowed for sub countires with no ISO code, such as Shariff Kabunsuan in the Phillipines
     Thanks to Matt Loschert for pointing this out.

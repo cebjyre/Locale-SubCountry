@@ -3,6 +3,7 @@ README
 Makefile.PL
 lib/Locale/SubCountry.pm
 Changes
+examples/demo.pl
 t/main.t
 t/pod.t
 t/pod-coverage.t
