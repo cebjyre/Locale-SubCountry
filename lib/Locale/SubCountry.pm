@@ -373,7 +373,7 @@ sub all_codes
 
 package Locale::SubCountry;
 
-our $VERSION = '1.40';
+our $VERSION = '1.41';
 
 
 #-------------------------------------------------------------------------------
@@ -11785,51 +11785,61 @@ __DATA__
   <subcountry>
     <name>Aberdeen City</name>
     <code>ABE</code>
+    <FIPS>T5</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Aberdeenshire</name>
     <code>ABD</code>
+    <FIPS>T6</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Angus</name>
     <code>ANS</code>
+    <FIPS>T7</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Antrim</name>
     <code>ANT</code>
+    <FIPS>Q6</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Ards</name>
     <code>ARD</code>
+    <FIPS>Q7</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Argyll and Bute</name>
     <code>AGB</code>
+    <FIPS>T8</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Armagh</name>
     <code>ARM</code>
+    <FIPS>Q8</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Ballymena</name>
     <code>BLA</code>
+    <FIPS>Q9</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Ballymoney</name>
     <code>BLY</code>
+    <FIPS>R1</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Banbridge</name>
     <code>BNB</code>
+    <FIPS>R2</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
@@ -11845,21 +11855,25 @@ __DATA__
   <subcountry>
     <name>Barnsley</name>
     <code>BNS</code>
+    <FIPS>A3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Bath and North East Somerset</name>
     <code>BAS</code>
+    <FIPS>A4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Bedfordshire</name>
     <code>BDF</code>
+    <FIPS>A5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Belfast</name>
     <code>BFS</code>
+    <FIPS>R3</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
@@ -11870,41 +11884,49 @@ __DATA__
   <subcountry>
     <name>Birmingham</name>
     <code>BIR</code>
+    <FIPS>A7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Blackburn with Darwen</name>
     <code>BBD</code>
+    <FIPS>A8</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Blackpool</name>
     <code>BPL</code>
+    <FIPS>A9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Blaenau Gwent</name>
     <code>BGW</code>
+    <FIPS>X2</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Bolton</name>
     <code>BOL</code>
+    <FIPS>B1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Bournemouth</name>
     <code>BMH</code>
+    <FIPS>B2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Bracknell Forest</name>
     <code>BRC</code>
+    <FIPS>B3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Bradford</name>
     <code>BRD</code>
+    <FIPS>B4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -11915,16 +11937,19 @@ __DATA__
   <subcountry>
     <name>Bridgend</name>
     <code>BGE</code>
+    <FIPS>X3</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Brighton and Hove</name>
     <code>BNH</code>
+    <FIPS>B6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Bristol, City of</name>
     <code>BST</code>
+    <FIPS>B7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -11935,26 +11960,31 @@ __DATA__
   <subcountry>
     <name>Buckinghamshire</name>
     <code>BKM</code>
+    <FIPS>B9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Bury</name>
     <code>BUR</code>
+    <FIPS>C1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Caerphilly</name>
     <code>CAY</code>
+    <FIPS>X4</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Calderdale</name>
     <code>CLD</code>
+    <FIPS>C2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Cambridgeshire</name>
     <code>CAM</code>
+    <FIPS>C3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -11965,66 +11995,79 @@ __DATA__
   <subcountry>
     <name>Cardiff</name>
     <code>CRF</code>
+    <FIPS>X5</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Carmarthenshire</name>
     <code>CMN</code>
+    <FIPS>X7</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Carrickfergus</name>
     <code>CKF</code>
+    <FIPS>R4</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Castlereagh</name>
     <code>CSR</code>
+    <FIPS>R5</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Ceredigion</name>
     <code>CGN</code>
+    <FIPS>X6</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Cheshire</name>
     <code>CHS</code>
+    <FIPS>C5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Clackmannanshire</name>
     <code>CLK</code>
+    <FIPS>U1</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Coleraine</name>
     <code>CLR</code>
+    <FIPS>R6</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Conwy</name>
     <code>CWY</code>
+    <FIPS>X8</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Cookstown</name>
     <code>CKT</code>
+    <FIPS>R7</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Cornwall</name>
     <code>CON</code>
+    <FIPS>C6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Coventry</name>
     <code>COV</code>
+    <FIPS>C7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Craigavon</name>
     <code>CGV</code>
+    <FIPS>R8</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
@@ -12035,76 +12078,91 @@ __DATA__
   <subcountry>
     <name>Cumbria</name>
     <code>CMA</code>
+    <FIPS>C9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Darlington</name>
     <code>DAL</code>
+    <FIPS>D1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Denbighshire</name>
     <code>DEN</code>
+    <FIPS>X9</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Derby</name>
     <code>DER</code>
+    <FIPS>D2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Derbyshire</name>
     <code>DBY</code>
+    <FIPS>D3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Derry</name>
     <code>DRY</code>
+    <FIPS>S6</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Devon</name>
     <code>DEV</code>
+    <FIPS>D4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Doncaster</name>
     <code>DNC</code>
+    <FIPS>D5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Dorset</name>
     <code>DOR</code>
+    <FIPS>D6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Down</name>
     <code>DOW</code>
+    <FIPS>R9</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Dudley</name>
     <code>DUD</code>
+    <FIPS>D7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Dumfries and Galloway</name>
     <code>DGY</code>
+    <FIPS>U2</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Dundee City</name>
     <code>DND</code>
+    <FIPS>U3</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Dungannon</name>
     <code>DGN</code>
+    <FIPS>S1</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Durham</name>
     <code>DUR</code>
+    <FIPS>D8</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12115,41 +12173,49 @@ __DATA__
   <subcountry>
     <name>East Ayrshire</name>
     <code>EAY</code>
+    <FIPS>U4</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>East Dunbartonshire</name>
     <code>EDU</code>
+    <FIPS>U5</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>East Lothian</name>
     <code>ELN</code>
+    <FIPS>U6</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>East Renfrewshire</name>
     <code>ERW</code>
+    <FIPS>U7</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>East Riding of Yorkshire</name>
     <code>ERY</code>
+    <FIPS>E1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>East Sussex</name>
     <code>ESX</code>
+    <FIPS>E2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Edinburgh, City of</name>
     <code>EDH</code>
+    <FIPS>U8</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Eilean Siar</name>
     <code>ELS</code>
+    <FIPS>W8</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
@@ -12160,41 +12226,49 @@ __DATA__
   <subcountry>
     <name>Essex</name>
     <code>ESS</code>
+    <FIPS>E4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Falkirk</name>
     <code>FAL</code>
+    <FIPS>V9</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Fermanagh</name>
     <code>FER</code>
+    <FIPS>S2</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Fife</name>
     <code>FIF</code>
+    <FIPS>V1</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Flintshire</name>
     <code>FLN</code>
+    <FIPS>Y1</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Gateshead</name>
     <code>GAT</code>
+    <FIPS>E5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Glasgow City</name>
     <code>GLG</code>
+    <FIPS>V2</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Gloucestershire</name>
     <code>GLS</code>
+    <FIPS>E6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12210,6 +12284,7 @@ __DATA__
   <subcountry>
     <name>Gwynedd</name>
     <code>GWN</code>
+    <FIPS>Y2</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
@@ -12220,6 +12295,7 @@ __DATA__
   <subcountry>
     <name>Halton</name>
     <code>HAL</code>
+    <FIPS>E9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12230,6 +12306,7 @@ __DATA__
   <subcountry>
     <name>Hampshire</name>
     <code>HAM</code>
+    <FIPS>F2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12245,6 +12322,7 @@ __DATA__
   <subcountry>
     <name>Hartlepool</name>
     <code>HPL</code>
+    <FIPS>F5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12255,16 +12333,19 @@ __DATA__
   <subcountry>
     <name>Herefordshire, County of</name>
     <code>HEF</code>
+    <FIPS>F7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Hertfordshire</name>
     <code>HRT</code>
+    <FIPS>F8</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Highland</name>
     <code>HLD</code>
+    <FIPS>V3</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
@@ -12280,21 +12361,25 @@ __DATA__
   <subcountry>
     <name>Inverclyde</name>
     <code>IVC</code>
+    <FIPS>V4</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Isle of Anglesey</name>
     <code>AGY</code>
+    <FIPS>X1</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Isle of Wight</name>
     <code>IOW</code>
+    <FIPS>G2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Isles of Scilly</name>
     <code>IOS</code>
+    <FIPS> </FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12315,11 +12400,13 @@ __DATA__
   <subcountry>
     <name>Kent</name>
     <code>KEN</code>
+    <FIPS>G5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Kingston upon Hull, City of</name>
     <code>KHL</code>
+    <FIPS>G6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12330,11 +12417,13 @@ __DATA__
   <subcountry>
     <name>Kirklees</name>
     <code>KIR</code>
+    <FIPS>G8</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Knowsley</name>
     <code>KWL</code>
+    <FIPS>G9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12345,26 +12434,31 @@ __DATA__
   <subcountry>
     <name>Lancashire</name>
     <code>LAN</code>
+    <FIPS>H2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Larne</name>
     <code>LRN</code>
+    <FIPS>S3</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Leeds</name>
     <code>LDS</code>
+    <FIPS>H3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Leicester</name>
     <code>LCE</code>
+    <FIPS>H4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Leicestershire</name>
     <code>LEC</code>
+    <FIPS>H5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12375,21 +12469,25 @@ __DATA__
   <subcountry>
     <name>Limavady</name>
     <code>LMV</code>
+    <FIPS>S4</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Lincolnshire</name>
     <code>LIN</code>
+    <FIPS>H7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Lisburn</name>
     <code>LSB</code>
+    <FIPS>S5</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Liverpool</name>
     <code>LIV</code>
+    <FIPS>H8</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12400,26 +12498,31 @@ __DATA__
   <subcountry>
     <name>Luton</name>
     <code>LUT</code>
+    <FIPS>I1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Magherafelt</name>
     <code>MFT</code>
+    <FIPS>S7</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Manchester</name>
     <code>MAN</code>
+    <FIPS>I2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Medway</name>
     <code>MDW</code>
+    <FIPS>I3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Merthyr Tydfil</name>
     <code>MTY</code>
+    <FIPS>Y3</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
@@ -12430,41 +12533,49 @@ __DATA__
   <subcountry>
     <name>Middlesbrough</name>
     <code>MDB</code>
+    <FIPS>I5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Midlothian</name>
     <code>MLN</code>
+    <FIPS>V5</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Milton Keynes</name>
     <code>MIK</code>
+    <FIPS>I6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Monmouthshire [Sir Fynwy GB-FYN]</name>
     <code>MON</code>
+    <FIPS>Y4</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Moray</name>
     <code>MRY</code>
+    <FIPS>V6</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Moyle</name>
     <code>MYL</code>
+    <FIPS>S8</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Neath Port Talbot</name>
     <code>NTL</code>
+    <FIPS>Y5</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Newcastle upon Tyne</name>
     <code>NET</code>
+    <FIPS>I7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12475,141 +12586,169 @@ __DATA__
   <subcountry>
     <name>Newport</name>
     <code>NWP</code>
+    <FIPS>Y6</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Newry and Mourne</name>
     <code>NYM</code>
+    <FIPS>S9</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Newtownabbey</name>
     <code>NTA</code>
+    <FIPS>T1</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Norfolk</name>
     <code>NFK</code>
+    <FIPS>I9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>North Ayrshire</name>
     <code>NAY</code>
+    <FIPS>V7</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>North Down</name>
     <code>NDN</code>
+    <FIPS>T2</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>North East Lincolnshire</name>
     <code>NEL</code>
+    <FIPS>J2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>North Lanarkshire</name>
     <code>NLK</code>
+    <FIPS>V8</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>North Lincolnshire</name>
     <code>NLN</code>
+    <FIPS>J3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>North Somerset</name>
     <code>NSM</code>
+    <FIPS>J4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>North Tyneside</name>
     <code>NTY</code>
+    <FIPS>J5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>North Yorkshire</name>
     <code>NYK</code>
+    <FIPS>J7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Northamptonshire</name>
     <code>NTH</code>
+    <FIPS>J1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Northumberland</name>
     <code>NBL</code>
+    <FIPS>J6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Nottingham</name>
     <code>NGM</code>
+    <FIPS>J8</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Nottinghamshire</name>
     <code>NTT</code>
+    <FIPS>J9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Oldham</name>
     <code>OLD</code>
+    <FIPS>K1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Omagh</name>
     <code>OMH</code>
+    <FIPS>T3</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Orkney Islands</name>
     <code>ORK</code>
+    <FIPS>U9</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Oxfordshire</name>
     <code>OXF</code>
+    <FIPS>K2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Pembrokeshire</name>
     <code>PEM</code>
+    <FIPS>Y7</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Perth and Kinross</name>
     <code>PKN</code>
+    <FIPS>W1</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Peterborough</name>
     <code>PTE</code>
+    <FIPS>K3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Plymouth</name>
     <code>PLY</code>
+    <FIPS>K4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Poole</name>
     <code>POL</code>
+    <FIPS>K5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Portsmouth</name>
     <code>POR</code>
+    <FIPS>K6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Powys</name>
     <code>POW</code>
+    <FIPS>Y8</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Reading</name>
     <code>RDG</code>
+    <FIPS>K7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12620,16 +12759,19 @@ __DATA__
   <subcountry>
     <name>Redcar and Cleveland</name>
     <code>RCC</code>
+    <FIPS>K9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Renfrewshire</name>
     <code>RFW</code>
+    <FIPS>W2</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Rhondda, Cynon, Taff</name>
     <code>RCT</code>
+    <FIPS>Y9</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
@@ -12640,102 +12782,122 @@ __DATA__
   <subcountry>
     <name>Rochdale</name>
     <code>RCH</code>
+    <FIPS>L2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Rotherham</name>
     <code>ROT</code>
+    <FIPS>L3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Rutland</name>
     <code>RUT</code>
+    <FIPS>L4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>St. Helens</name>
     <code>SHN</code>
+    <FIPS>M9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Salford</name>
     <code>SLF</code>
+    <FIPS>L5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Sandwell</name>
     <code>SAW</code>
+    <FIPS>L7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Scottish Borders, The</name>
     <code>SCB</code>
+    <FIPS>T9</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Sefton</name>
     <code>SFT</code>
+    <FIPS>L8</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Sheffield</name>
     <code>SHF</code>
+    <FIPS>L9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Shetland Islands</name>
     <code>ZET</code>
+    <FIPS>W3</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Shropshire</name>
     <code>SHR</code>
+    <FIPS>L6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Slough</name>
     <code>SLG</code>
+    <FIPS>M1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Solihull</name>
     <code>SOL</code>
+    <FIPS>M2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Somerset</name>
     <code>SOM</code>
+    <FIPS>M3</FIPS>
     <regional_division>ENG</regional_division>
     <FIPS>M3</FIPS>
   </subcountry>
   <subcountry>
     <name>South Ayrshire</name>
     <code>SAY</code>
+    <FIPS>W4</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>South Gloucestershire</name>
     <code>SGC</code>
+    <FIPS>M6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>South Lanarkshire</name>
     <code>SLK</code>
+    <FIPS>W5</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>South Tyneside</name>
     <code>STY</code>
+    <FIPS>M7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Southampton</name>
     <code>STH</code>
+    <FIPS>M4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Southend-on-Sea</name>
     <code>SOS</code>
+    <FIPS>M5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12746,46 +12908,55 @@ __DATA__
   <subcountry>
     <name>Staffordshire</name>
     <code>STS</code>
+    <FIPS>N1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Stirling</name>
     <code>STG</code>
+    <FIPS>W6</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>Stockport</name>
     <code>SKP</code>
+    <FIPS>N2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Stockton-on-Tees</name>
     <code>STT</code>
+    <FIPS>N3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Stoke-on-Trent</name>
     <code>STE</code>
+    <FIPS>N4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Strabane</name>
     <code>STB</code>
+    <FIPS>T4</FIPS>
     <regional_division>NIR</regional_division>
   </subcountry>
   <subcountry>
     <name>Suffolk</name>
     <code>SFK</code>
+    <FIPS>N5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Sunderland</name>
     <code>SND</code>
+    <FIPS>N6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Surrey</name>
     <code>SRY</code>
+    <FIPS>N7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12796,36 +12967,43 @@ __DATA__
   <subcountry>
     <name>Swansea</name>
     <code>SWA</code>
+    <FIPS>Z1</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Swindon</name>
     <code>SWD</code>
+    <FIPS>N9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Tameside</name>
     <code>TAM</code>
+    <FIPS>O1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Telford and Wrekin</name>
     <code>TFW</code>
+    <FIPS>O2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Thurrock</name>
     <code>THR</code>
+    <FIPS>O3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Torbay</name>
     <code>TOB</code>
+    <FIPS>O4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Torfaen</name>
     <code>TOF</code>
+    <FIPS>Z2</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
@@ -12836,21 +13014,25 @@ __DATA__
   <subcountry>
     <name>Trafford</name>
     <code>TRF</code>
+    <FIPS>O6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Vale of Glamorgan</name>
     <code>VGL</code>
+    <FIPS>Z3</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>Wakefield</name>
     <code>WKF</code>
+    <FIPS>O7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Walsall</name>
     <code>WLL</code>
+    <FIPS>O8</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12866,31 +13048,37 @@ __DATA__
   <subcountry>
     <name>Warrington</name>
     <code>WRT</code>
+    <FIPS>P2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Warwickshire</name>
     <code>WAR</code>
+    <FIPS>P3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>West Berkshire</name>
     <code>WBK</code>
+    <FIPS>P4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>West Dunbartonshire</name>
     <code>WDU</code>
+    <FIPS>W7</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>West Lothian</name>
     <code>WLN</code>
+    <FIPS>W9</FIPS>
     <regional_division>SCT</regional_division>
   </subcountry>
   <subcountry>
     <name>West Sussex</name>
     <code>WSX</code>
+    <FIPS>P6</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
@@ -12901,46 +13089,55 @@ __DATA__
   <subcountry>
     <name>Wigan</name>
     <code>WGN</code>
+    <FIPS>P7</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Wiltshire</name>
     <code>WIL</code>
+    <FIPS>P8</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Windsor and Maidenhead</name>
     <code>WNM</code>
+    <FIPS>P9</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Wirral</name>
     <code>WRL</code>
+    <FIPS>Q1</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Wokingham</name>
     <code>WOK</code>
+    <FIPS>Q2</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Wolverhampton</name>
     <code>WLV</code>
+    <FIPS>Q3</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Worcestershire</name>
     <code>WOR</code>
+    <FIPS>Q4</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
   <subcountry>
     <name>Wrexham</name>
     <code>WRX</code>
+    <FIPS>Z4</FIPS>
     <regional_division>WLS</regional_division>
   </subcountry>
   <subcountry>
     <name>York</name>
     <code>YOR</code>
+    <FIPS>Q5</FIPS>
     <regional_division>ENG</regional_division>
   </subcountry>
 </country>
@@ -22837,9 +23034,6 @@ __DATA__
   <name>SEYCHELLES</name>
   <code>SC</code>
 </country>
-
-
-
 
 
 </ISO_3166_2>

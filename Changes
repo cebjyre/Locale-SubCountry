@@ -1,5 +1,8 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.41 20 Apr 2008
+    Added FIPS codes for UK, thanks to TJMATHER for patch, RT bug #32899
+
 1.40 12 Jan 2008
     Changed  regexp match on XML country filed to account for both Unix and MSDOS line endings
     Converted files to Unix line endings
