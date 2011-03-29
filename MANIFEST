@@ -2,6 +2,7 @@ MANIFEST
 README
 Makefile.PL
 lib/Locale/SubCountry.pm
+lib/Locale/SubCountry/Data.pm
 Changes
 examples/demo.pl
 t/main.t

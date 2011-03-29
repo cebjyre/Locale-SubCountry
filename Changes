@@ -1,14 +1,31 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+
+1.44 20 Jan 2011
+    Moved Locale::SubCountryData to Locale::SubCountry::Data name space
+    Added use struct and use warnings
+    Moved all global variables to the Locale::SubCountry name space
+
+1.43 14 Jan 2011
+    Fixed the number of tests in main.t, should be 17, not 15
+
+1.42 13 Jan 2011
+    Changed name of UK region St. Helens to Saint Helens, fix for RT bug 38599
+    Fixed FIPS codes for UK regions Stafforshire and Saint Helens
+    Removed trailing blanks, fix for RT bug 38597
+    Changed encodng of XML data to UTF-8,  thanks to Benjamin Erhart. Fix for RT bug 38559
+    Moved XML data to separate package, Locale::SubCountry::Data and encoded this file as UTF-8
+    Added additional tests for unknown sub country codes and names
+
 1.41 20 Apr 2008
     Added FIPS codes for UK, thanks to TJMATHER for patch, RT bug #32899
 
 1.40 12 Jan 2008
-    Changed  regexp match on XML country filed to account for both Unix and MSDOS line endings
+    Changed  regexp match on XML country field to account for both Unix and MSDOS line endings
     Converted files to Unix line endings
 
 1.39 6 Jan 2008
-    Alowed for sub countires with no ISO code, such as Shariff Kabunsuan in the Phillipines
+    Alowed for sub countries with no ISO code, such as Shariff Kabunsuan in the Phillipines
     Thanks to Matt Loschert for pointing this out.
     
 

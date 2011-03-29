@@ -10,7 +10,7 @@ use Locale::SubCountry;
 
 # We start with some black magic to print on failure.
 
-BEGIN { print "1..15\n"; }
+BEGIN { print "1..17\n"; }
 
 my $australia = new Locale::SubCountry('Australia');
 print $australia->code('New South Wales ') eq 'NSW' ? "ok 1\n" : "not ok 1\n";
@@ -52,6 +52,10 @@ print @all_country_codes ? "ok 14\n" : "not ok 14\n";
 
 my @all_country_names = $world->all_full_names;
 print @all_country_names ? "ok 15\n" : "not ok 15\n";
+
+print $australia->code('Old South Wales ') eq 'unknown' ? "ok 16\n" : "not ok 16\n";
+
+print $australia->full_name('XYZ') eq 'unknown' ? "ok 17\n" : "not ok 17\n";
 
 
 
