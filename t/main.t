@@ -42,10 +42,10 @@ print $all_names[1] eq 'New South Wales' ? "ok 11\n" : "not ok 11\n";
 my $world = new Locale::SubCountry::World;
 
 my %countries =  $world->full_name_code_hash;
-print $countries{'NEW ZEALAND'} eq 'NZ' ? "ok 12\n" : "not ok 12\n";
+print $countries{'New Zealand'} eq 'NZ' ? "ok 12\n" : "not ok 12\n";
 
 %countries =  $world->code_full_name_hash;
-print $countries{'GB'} eq 'UNITED KINGDOM' ? "ok 13\n" : "not ok 13\n";
+print $countries{'GB'} eq 'United Kingdom' ? "ok 13\n" : "not ok 13\n";
 
 my @all_country_codes = $world->all_codes;
 print @all_country_codes ? "ok 14\n" : "not ok 14\n";

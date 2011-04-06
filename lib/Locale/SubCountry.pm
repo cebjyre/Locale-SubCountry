@@ -16,7 +16,7 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
        print($UK->regional_division('DGY'),"\n");   # CT (Scotland)
    }
 
-   my $australia = new Locale::SubCountry('AUstralia');
+   my $australia = new Locale::SubCountry('Australia');
    print($australia->country,"\n");                 # Australia
    print($australia->country_code,"\n");            # AU
 
