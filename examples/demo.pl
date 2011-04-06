@@ -3,10 +3,11 @@
 # demo script for Locale::SubCountry
 
 use strict;
+use lib './lib';
 use Locale::SubCountry;
 
 # For every country
-#    list the country name
+#    list the country name and its 2 letter code
 #    if any subcountries, list each code and full name on a new line
 
 my $world = new Locale::SubCountry::World;
@@ -15,10 +16,11 @@ my @all_countries  = $world->all_full_names;
 my %all_letters;
 foreach my $country ( sort @all_countries )
 {
-    print "\n\n$country\n";
+    print "\n\n$country : "; 
     my $current_country = new Locale::SubCountry($country);
-  
-    # Are there any sub countires?
+    print $current_country->country_code,"\n";
+    
+    # Are there any sub countries?
     if ( $current_country->has_sub_countries )
     {
         # Get a hash, key is sub country code, value is full anme, such as 

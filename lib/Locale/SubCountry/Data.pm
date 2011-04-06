@@ -32,14 +32,15 @@ use strict;
 use warnings;
 package Locale::SubCountry::Data;
 
-our $VERSION = '1.44';
+our $VERSION = '1.45';
 
 $Locale::SubCountry::Data::xml_data =
 q{
+
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ISO_3166_2>
 <country>
-  <name>GUATEMALA</name>
+  <name>Guatemala</name>
   <code>GT</code>
   <subcountry>
     <name>Alta Verapaz</name>
@@ -153,7 +154,7 @@ q{
 </country>
 
 <country>
-  <name>GUINEA BISSAU</name>
+  <name>Guinea Bissau</name>
   <code>GW</code>
   <subcountry>
     <name>Bissau</name>
@@ -221,7 +222,7 @@ q{
 
 
 <country>
-  <name>HONDURAS</name>
+  <name>Honduras</name>
   <code>HN</code>
   <subcountry>
     <name>Atlántida</name>
@@ -311,7 +312,7 @@ q{
 </country>
 
 <country>
-  <name>CROATIA</name>
+  <name>Croatia</name>
   <code>HR</code>
   <subcountry>
     <name>Grad Zagreb</name>
@@ -422,7 +423,7 @@ q{
 </country>
 
 <country>
-  <name>GUYANA</name>
+  <name>Guyana</name>
   <code>GY</code>
   <subcountry>
     <name>Barima-Waini</name>
@@ -433,7 +434,7 @@ q{
 
 
 <country>
-  <name>HAITI</name>
+  <name>Haiti</name>
   <code>HT</code>
   <subcountry>
     <name>Artibonite</name>
@@ -481,7 +482,7 @@ q{
 </country>
 
 <country>
-  <name>HUNGARY</name>
+  <name>Hungary</name>
   <code>HU</code>
   <subcountry>
     <name>Budapest</name>
@@ -734,7 +735,7 @@ q{
 </country>
 
 <country>
-  <name>INDONESIA</name>
+  <name>Indonesia</name>
   <code>ID</code>
   <subcountry>
     <name>Bali</name>
@@ -944,7 +945,7 @@ q{
 </country>
 
 <country>
-  <name>IRELAND</name>
+  <name>Ireland</name>
   <code>IE</code>
   <subcountry>
     <name>Carlow</name>
@@ -973,6 +974,7 @@ q{
   <subcountry>
     <name>Donegal</name>
     <code>DL</code>
+    <FIPS>06</FIPS>    
     <regional_division>U</regional_division>
   </subcountry>
   <subcountry>
@@ -990,6 +992,7 @@ q{
   <subcountry>
     <name>Kerry</name>
     <code>KY</code>
+    <FIPS>11</FIPS>    
     <regional_division>M</regional_division>
   </subcountry>
   <subcountry>
@@ -1103,7 +1106,7 @@ q{
 </country>
 
 <country>
-  <name>ISRAEL</name>
+  <name>Israel</name>
   <code>IL</code>
   <subcountry>
     <name>HaDarom</name>
@@ -1137,7 +1140,7 @@ q{
 </country>
 
 <country>
-  <name>INDIA</name>
+  <name>India</name>
   <code>IN</code>
   <subcountry>
     <name>Andhra Pradesh</name>
@@ -1166,6 +1169,7 @@ q{
   <subcountry>
     <name>Chhattisgarh</name>
     <code>CT</code>
+    <FIPS>37</FIPS>
     <category>state</category>
   </subcountry>
   <subcountry>
@@ -1201,6 +1205,7 @@ q{
   <subcountry>
     <name>Jharkhand</name>
     <code>JH</code>
+    <FIPS>38</FIPS>
     <category>state</category>
   </subcountry>
   <subcountry>
@@ -1224,6 +1229,7 @@ q{
   <subcountry>
     <name>Maharashtra</name>
     <code>MH</code>
+    <FIPS>16</FIPS>
     <category>state</category>
   </subcountry>
   <subcountry>
@@ -1289,6 +1295,7 @@ q{
   <subcountry>
     <name>Uttaranchal</name>
     <code>UL</code>
+    <FIPS>39</FIPS>
     <category>state</category>
   </subcountry>
   <subcountry>
@@ -1300,6 +1307,7 @@ q{
   <subcountry>
     <name>West Bengal</name>
     <code>WB</code>
+    <FIPS>28</FIPS>
     <category>state</category>
   </subcountry>
   <subcountry>
@@ -1347,7 +1355,7 @@ q{
 </country>
 
 <country>
-  <name>IRAQ</name>
+  <name>Iraq</name>
   <code>IQ</code>
   <subcountry>
     <name>Al Anbar</name>
@@ -1440,7 +1448,7 @@ q{
 </country>
 
 <country>
-  <name>IRAN (ISLAMIC REPUBLIC OF)</name>
+  <name>Iran (Islamic Republic Of)</name>
   <code>IR</code>
   <subcountry>
     <name>Ardabil</name>
@@ -1517,7 +1525,7 @@ q{
 </country>
 
 <country>
-  <name>EQUATORIAL GUINEA</name>
+  <name>Equatorial Guinea</name>
   <code>GQ</code>
   <subcountry>
     <name>Región Continental</name>
@@ -1574,7 +1582,7 @@ q{
 </country>
 
 <country>
-  <name>GREECE</name>
+  <name>Greece</name>
   <code>GR</code>
   <subcountry>
     <name>Achaïa</name>
@@ -1933,7 +1941,7 @@ q{
 </country>
 
 <country>
-  <name>IRAN (ISLAMIC REPUBLIC OF)</name>
+  <name>Iran (Islamic Republic Of)</name>
   <code>IR</code>
   <subcountry>
     <name>Lorestan</name>
@@ -1978,7 +1986,7 @@ q{
 </country>
 
 <country>
-  <name>ICELAND</name>
+  <name>Iceland</name>
   <code>IS</code>
   <subcountry>
     <name>Austurland</name>
@@ -2019,7 +2027,7 @@ q{
 </country>
 
 <country>
-  <name>ITALY</name>
+  <name>Italy</name>
   <code>IT</code>
   <subcountry>
     <name>Agrigento</name>
@@ -2539,7 +2547,7 @@ q{
 </country>
 
 <country>
-  <name>JAMAICA</name>
+  <name>Jamaica</name>
   <code>JM</code>
   <subcountry>
     <name>Clarendon</name>
@@ -2612,7 +2620,7 @@ q{
 </country>
 
 <country>
-  <name>JORDAN</name>
+  <name>Jordan</name>
   <code>JO</code>
   <subcountry>
     <name>Ajlun</name>
@@ -2675,7 +2683,7 @@ q{
 </country>
 
 <country>
-  <name>JAPAN</name>
+  <name>Japan</name>
   <code>JP</code>
   <subcountry>
     <name>Aichi</name>
@@ -2913,7 +2921,7 @@ q{
 </country>
 
 <country>
-  <name>KENYA</name>
+  <name>Kenya</name>
   <code>KE</code>
   <subcountry>
     <name>Nairobi Municipality</name>
@@ -2962,7 +2970,7 @@ q{
 </country>
 
 <country>
-  <name>KYRGYZSTAN</name>
+  <name>Kyrgyzstan</name>
   <code>KG</code>
   <subcountry>
     <name>Chü</name>
@@ -3002,7 +3010,7 @@ q{
 </country>
 
 <country>
-  <name>CAMBODIA</name>
+  <name>Cambodia</name>
   <code>KH</code>
   <subcountry>
     <name>Krong Kaeb [Krong Kêb]</name>
@@ -3143,7 +3151,7 @@ q{
 </country>
 
 <country>
-  <name>KIRIBATI</name>
+  <name>Kiribati</name>
   <code>KI</code>
   <subcountry>
     <name>Gilbert Islands</name>
@@ -3163,7 +3171,7 @@ q{
 </country>
 
 <country>
-  <name>COMOROS</name>
+  <name>Comoros</name>
   <code>KM</code>
   <subcountry>
     <name>Anjouan</name>
@@ -3180,7 +3188,7 @@ q{
 </country>
 
 <country>
-  <name>KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF</name>
+  <name>Korea, Democratic People's Republic Of</name>
   <code>KP</code>
   <subcountry>
     <name>Najin Sonbong-si</name>
@@ -3261,7 +3269,7 @@ q{
 </country>
 
 <country>
-  <name>KOREA, REPUBLIC OF</name>
+  <name>Korea, Republic Of</name>
   <code>KR</code>
   <subcountry>
     <name>Seoul Teugbyeolsi [Seoul-T'ukpyolshi]</name>
@@ -3360,7 +3368,7 @@ q{
 </country>
 
 <country>
-  <name>KUWAIT</name>
+  <name>Kuwait</name>
   <code>KW</code>
   <subcountry>
     <name>Al Ahmadi</name>
@@ -3389,7 +3397,7 @@ q{
 </country>
 
 <country>
-  <name>KAZAKHSTAN</name>
+  <name>Kazakhstan</name>
   <code>KZ</code>
   <subcountry>
     <name>Almaty</name>
@@ -3405,7 +3413,7 @@ q{
 </country>
 
 <country>
-  <name>UNITED ARAB EMIRATES</name>
+  <name>United Arab Emirates</name>
   <code>AE</code>
   <subcountry>
     <name>Abu Dhabi</name>
@@ -3434,6 +3442,7 @@ q{
   </subcountry>
   <subcountry>
     <name>Ra?s al Khaymah</name>
+    <FIPS>05</FIPS>
     <code>RK</code>
   </subcountry>
   <subcountry>
@@ -3444,7 +3453,7 @@ q{
 </country>
 
 <country>
-  <name>AFGHANISTAN</name>
+  <name>Afghanistan</name>
   <code>AF</code>
   <subcountry>
     <name>Badakhshan</name>
@@ -3598,7 +3607,7 @@ q{
 </country>
 
 <country>
-  <name>ALBANIA</name>
+  <name>Albania</name>
   <code>AL</code>
   <subcountry>
     <name>Berat</name>
@@ -3715,7 +3724,7 @@ q{
 </country>
 
 <country>
-  <name>KAZAKHSTAN</name>
+  <name>Kazakhstan</name>
   <code>KZ</code>
   <subcountry>
     <name>Almaty oblysy</name>
@@ -3792,7 +3801,7 @@ q{
 </country>
 
 <country>
-  <name>LAO PEOPLE'S DEMOCRATIC REPUBLIC</name>
+  <name>Lao People's Democratic Republic</name>
   <code>LA</code>
   <subcountry>
     <name>Vientiane</name>
@@ -3902,7 +3911,7 @@ q{
 </country>
 
 <country>
-  <name>MOLDOVA, REPUPLIC OF</name>
+  <name>Moldova, Repuplic Of</name>
   <code>MD</code>
   <subcountry>
     <name>Taraclia</name>
@@ -3913,7 +3922,7 @@ q{
 
 
 <country>
-  <name>LEBANON</name>
+  <name>Lebanon</name>
   <code>LB</code>
   <subcountry>
     <name>Beiroût</name>
@@ -3945,7 +3954,7 @@ q{
 </country>
 
 <country>
-  <name>SRI LANKA</name>
+  <name>Sri Lanka</name>
   <code>LK</code>
   <subcountry>
     <name>Ampara</name>
@@ -4075,7 +4084,7 @@ q{
 </country>
 
 <country>
-  <name>LIBERIA</name>
+  <name>Liberia</name>
   <code>LR</code>
   <subcountry>
     <name>Bomi</name>
@@ -4145,7 +4154,7 @@ q{
 </country>
 
 <country>
-  <name>LESOTHO</name>
+  <name>Lesotho</name>
   <code>LS</code>
   <subcountry>
     <name>Berea</name>
@@ -4199,7 +4208,7 @@ q{
 </country>
 
 <country>
-  <name>LITHUANIA</name>
+  <name>Lithuania</name>
   <code>LT</code>
   <subcountry>
     <name>Alytaus Apskritis</name>
@@ -4244,24 +4253,27 @@ q{
 </country>
 
 <country>
-  <name>LUXEMBOURG</name>
+  <name>Luxembourg</name>
   <code>LU</code>
   <subcountry>
     <name>Diekirch</name>
     <code>D</code>
+    <FIPS>01</FIPS>
   </subcountry>
   <subcountry>
     <name>Grevenmacher</name>
     <code>G</code>
+    <FIPS>02</FIPS>
   </subcountry>
   <subcountry>
     <name>Luxembourg</name>
     <code>L</code>
+    <FIPS>03</FIPS>
   </subcountry>
 </country>
 
 <country>
-  <name>LATVIA</name>
+  <name>Latvia</name>
   <code>LV</code>
   <subcountry>
     <name>Aizkraukles Aprinkis</name>
@@ -4438,7 +4450,7 @@ q{
 </country>
 
 <country>
-  <name>LIBYAN ARAB JAMAHIRIYA</name>
+  <name>Libyan Arab Jamahiriya</name>
   <code>LY</code>
   <subcountry>
     <name>Al Butnan</name>
@@ -4480,7 +4492,7 @@ q{
 </country>
 
 <country>
-  <name>MOROCCO</name>
+  <name>Morocco</name>
   <code>MA</code>
   <subcountry>
     <name>Agadir</name>
@@ -4603,7 +4615,7 @@ q{
 </country>
 
 <country>
-  <name>ALBANIA</name>
+  <name>Albania</name>
   <code>AL</code>
   <subcountry>
     <name>Librazhd</name>
@@ -4709,7 +4721,7 @@ q{
 </country>
 
 <country>
-  <name>ARMENIA</name>
+  <name>Armenia</name>
   <code>AM</code>
   <subcountry>
     <name>Erevan</name>
@@ -4775,7 +4787,7 @@ q{
 </country>
 
 <country>
-  <name>SENEGAL</name>
+  <name>Senegal</name>
   <code>SN</code>
   <subcountry>
     <name>Matam</name>
@@ -4784,7 +4796,7 @@ q{
 </country>
 
 <country>
-  <name>ANGOLA</name>
+  <name>Angola</name>
   <code>AO</code>
   <subcountry>
     <name>Bengo</name>
@@ -4879,7 +4891,7 @@ q{
 </country>
 
 <country>
-  <name>ARGENTINA</name>
+  <name>Argentina</name>
   <code>AR</code>
   <subcountry>
     <name>Capital federal</name>
@@ -5026,7 +5038,7 @@ q{
 </country>
 
 <country>
-  <name>AUSTRIA</name>
+  <name>Austria</name>
   <code>AT</code>
   <subcountry>
     <name>Burgenland</name>
@@ -5076,7 +5088,7 @@ q{
 </country>
 
 <country>
-  <name>AUSTRALIA</name>
+  <name>Australia</name>
   <code>AU</code>
   <subcountry>
     <name>New South Wales</name>
@@ -5129,7 +5141,7 @@ q{
 </country>
 
 <country>
-  <name>AZERBAIJAN</name>
+  <name>Azerbaijan</name>
   <code>AZ</code>
   <subcountry>
     <name>Äli Bayramli</name>
@@ -5590,7 +5602,7 @@ q{
 </country>
 
 <country>
-  <name>BOSNIA AND HERZEGOVINA</name>
+  <name>Bosnia And Herzegovina</name>
   <code>BA</code>
   <subcountry>
     <name>Federacija Bosna i Hercegovina</name>
@@ -5604,7 +5616,7 @@ q{
 </country>
 
 <country>
-  <name>BANGLADESH</name>
+  <name>Bangladesh</name>
   <code>BD</code>
   <subcountry>
     <name>Bagerhat zila</name>
@@ -5930,7 +5942,7 @@ q{
 </country>
 
 <country>
-  <name>BELGIUM</name>
+  <name>Belgium</name>
   <code>BE</code>
   <subcountry>
     <name>Antwerp</name>
@@ -5995,7 +6007,7 @@ q{
 </country>
 
 <country>
-  <name>BURKINA FASO</name>
+  <name>Burkina Faso</name>
   <code>BF</code>
   <subcountry>
     <name>Balé</name>
@@ -6208,7 +6220,7 @@ q{
 </country>
 
 <country>
-  <name>BULGARIA</name>
+  <name>Bulgaria</name>
   <code>BG</code>
   <subcountry>
     <name>Blagoevgrad</name>
@@ -6228,7 +6240,7 @@ q{
 </country>
 
 <country>
-  <name>MOROCCO</name>
+  <name>Morocco</name>
   <code>MA</code>
   <subcountry>
     <name>Figuig</name>
@@ -6408,7 +6420,7 @@ q{
 </country>
 
 <country>
-  <name>MOLDOVA, REPUPLIC OF</name>
+  <name>Moldova, Repuplic Of</name>
   <code>MD</code>
   <subcountry>
     <name>Gagauzia, Unitate Teritoriala Autonoma (UTAG)</name>
@@ -6473,7 +6485,7 @@ q{
 </country>
 
 <country>
-  <name>MADAGASCAR</name>
+  <name>Madagascar</name>
   <code>MG</code>
   <subcountry>
     <name>Antananarivo</name>
@@ -6508,7 +6520,7 @@ q{
 </country>
 
 <country>
-  <name>MARSHALL ISLANDS</name>
+  <name>Marshall Islands</name>
   <code>MH</code>
   <subcountry>
     <name>Ailinglapalap</name>
@@ -6633,7 +6645,7 @@ q{
 </country>
 
 <country>
-  <name>BULGARIA</name>
+  <name>Bulgaria</name>
   <code>BG</code>
   <subcountry>
     <name>Gabrovo</name>
@@ -6742,7 +6754,7 @@ q{
 </country>
 
 <country>
-  <name>BAHRAIN</name>
+  <name>Bahrain</name>
   <code>BH</code>
   <subcountry>
     <name>Al Hadd</name>
@@ -6804,7 +6816,7 @@ q{
 </country>
 
 <country>
-  <name>BURUNDI</name>
+  <name>Burundi</name>
   <code>BI</code>
   <subcountry>
     <name>Bubanza</name>
@@ -6869,7 +6881,7 @@ q{
 </country>
 
 <country>
-  <name>BENIN</name>
+  <name>Benin</name>
   <code>BJ</code>
   <subcountry>
     <name>Alibori</name>
@@ -6928,7 +6940,7 @@ q{
 </country>
 
 <country>
-  <name>BRUNEI DARUSSALAM</name>
+  <name>Brunei Darussalam</name>
   <code>BN</code>
   <subcountry>
     <name>Belait</name>
@@ -6952,7 +6964,7 @@ q{
 </country>
 
 <country>
-  <name>BOLIVIA</name>
+  <name>Bolivia</name>
   <code>BO</code>
   <subcountry>
     <name>Cochabamba</name>
@@ -7002,7 +7014,7 @@ q{
 </country>
 
 <country>
-  <name>BRAZIL</name>
+  <name>Brazil</name>
   <code>BR</code>
   <subcountry>
     <name>Distrito Federal</name>
@@ -7129,7 +7141,7 @@ q{
     <FIPS>23</FIPS>
   </subcountry>
   <subcountry>
-    <name>Rondônia</name>
+    <name>RondFnia</name>
     <code>RO</code>
     <category>state</category>
     <FIPS>24</FIPS>
@@ -7167,7 +7179,7 @@ q{
 </country>
 
 <country>
-  <name>BAHAMAS</name>
+  <name>Bahamas</name>
   <code>BS</code>
   <subcountry>
     <name>Acklins and Crooked Islands</name>
@@ -7277,7 +7289,7 @@ q{
 
 
 <country>
-  <name>BHUTAN</name>
+  <name>Bhutan</name>
   <code>BT</code>
   <subcountry>
     <name>Bumthang</name>
@@ -7374,7 +7386,7 @@ q{
 </country>
 
 <country>
-  <name>BOTSWANA</name>
+  <name>Botswana</name>
   <code>BW</code>
   <subcountry>
     <name>Central</name>
@@ -7420,7 +7432,7 @@ q{
 </country>
 
 <country>
-  <name>BELARUS</name>
+  <name>Belarus</name>
   <code>BY</code>
   <subcountry>
     <name>Brest</name>
@@ -7452,7 +7464,7 @@ q{
 </country>
 
 <country>
-  <name>BELIZE</name>
+  <name>Belize</name>
   <code>BZ</code>
   <subcountry>
     <name>Belize</name>
@@ -7487,7 +7499,7 @@ q{
 </country>
 
 <country>
-  <name>CANADA</name>
+  <name>Canada</name>
   <code>CA</code>
   <subcountry>
     <name>Alberta</name>
@@ -7517,6 +7529,7 @@ q{
     <name>Newfoundland and Labrador</name>
     <code>NL</code>
     <category>province</category>
+  	<FIPS>05</FIPS>
   </subcountry>
   <subcountry>
     <name>Nova Scotia</name>
@@ -7569,7 +7582,7 @@ q{
 </country>
 
 <country>
-  <name>CONGO (KINSHASA)</name>
+  <name>Congo (Kinshasa)</name>
   <code>CD</code>
   <subcountry>
     <name>Kinshasa</name>
@@ -7629,7 +7642,7 @@ q{
 </country>
 
 <country>
-  <name>CENTRAL AFRICAN REPUBLIC</name>
+  <name>Central African Republic</name>
   <code>CF</code>
   <subcountry>
     <name>Bangui</name>
@@ -7731,7 +7744,7 @@ q{
 </country>
 
 <country>
-  <name>CONGO (BRAZZAVILLE)</name>
+  <name>Congo (Brazzaville)</name>
   <code>CG</code>
   <subcountry>
     <name>Brazzaville</name>
@@ -7801,7 +7814,7 @@ q{
 </country>
 
 <country>
-  <name>SWITZERLAND</name>
+  <name>Switzerland</name>
   <code>CH</code>
   <subcountry>
     <name>Aargau</name>
@@ -7934,7 +7947,7 @@ q{
 </country>
 
 <country>
-  <name>CÔTE D'IVOIRE</name>
+  <name>Côte D'Ivoire</name>
   <code>CI</code>
   <subcountry>
     <name>Dix-Huit Montagnes</name>
@@ -8006,7 +8019,7 @@ q{
 </country>
 
 <country>
-  <name>CHILE</name>
+  <name>Chile</name>
   <code>CL</code>
   <subcountry>
     <name>Aisén del General Carlos Ibáñez del Campo</name>
@@ -8074,7 +8087,7 @@ q{
 </country>
 
 <country>
-  <name>CAMEROON</name>
+  <name>Cameroon</name>
   <code>CM</code>
   <subcountry>
     <name>Adamaoua</name>
@@ -8123,7 +8136,7 @@ q{
 </country>
 
 <country>
-  <name>CHINA</name>
+  <name>China</name>
   <code>CN</code>
   <subcountry>
     <name>Beijing</name>
@@ -8329,7 +8342,7 @@ q{
 </country>
 
 <country>
-  <name>COLOMBIA</name>
+  <name>Colombia</name>
   <code>CO</code>
   <subcountry>
     <name>Distrito Capital de Santa Fe de Bogotá</name>
@@ -8530,7 +8543,7 @@ q{
 </country>
 
 <country>
-  <name>COSTA RICA</name>
+  <name>Costa Rica</name>
   <code>CR</code>
   <subcountry>
     <name>Alajuela</name>
@@ -8570,7 +8583,7 @@ q{
 </country>
 
 <country>
-  <name>CUBA</name>
+  <name>Cuba</name>
   <code>CU</code>
   <subcountry>
     <name>Camagüey</name>
@@ -8665,7 +8678,7 @@ q{
 </country>
 
 <country>
-  <name>CAPE VERDE</name>
+  <name>Cape Verde</name>
   <code>CV</code>
   <subcountry>
     <name>Boa Vista</name>
@@ -8766,7 +8779,7 @@ q{
 </country>
 
 <country>
-  <name>CYPRUS</name>
+  <name>Cyprus</name>
   <code>CY</code>
   <subcountry>
     <name>Ammochostos</name>
@@ -8798,7 +8811,7 @@ q{
 </country>
 
 <country>
-  <name>CZECH REPUBLIC</name>
+  <name>Czech Republic</name>
   <code>CZ</code>
   <subcountry>
     <name>Jihoceský kraj</name>
@@ -8859,7 +8872,7 @@ q{
 </country>
 
 <country>
-  <name>GERMANY</name>
+  <name>Germany</name>
   <code>DE</code>
   <subcountry>
     <name>Baden-Württemberg</name>
@@ -8943,7 +8956,7 @@ q{
 </country>
 
 <country>
-  <name>DJIBOUTI</name>
+  <name>Djibouti</name>
   <code>DJ</code>
   <subcountry>
     <name>Ali Sabieh</name>
@@ -8973,7 +8986,7 @@ q{
 </country>
 
 <country>
-  <name>DENMARK</name>
+  <name>Denmark</name>
   <code>DK</code>
   <subcountry>
     <name>Frederiksberg</name>
@@ -9071,7 +9084,7 @@ q{
 </country>
 
 <country>
-  <name>DOMINICAN REPUBLIC</name>
+  <name>Dominican Republic</name>
   <code>DO</code>
   <subcountry>
     <name>Distrito Nacional</name>
@@ -9253,7 +9266,7 @@ q{
 </country>
 
 <country>
-  <name>ALGERIA</name>
+  <name>Algeria</name>
   <code>DZ</code>
   <subcountry>
     <name>Adrar</name>
@@ -9498,7 +9511,7 @@ q{
 </country>
 
 <country>
-  <name>ECUADOR</name>
+  <name>Ecuador</name>
   <code>EC</code>
   <subcountry>
     <name>Azuay</name>
@@ -9608,7 +9621,7 @@ q{
 </country>
 
 <country>
-  <name>ESTONIA</name>
+  <name>Estonia</name>
   <code>EE</code>
   <subcountry>
     <name>Harjumaa</name>
@@ -9685,7 +9698,7 @@ q{
 </country>
 
 <country>
-  <name>EGYPT</name>
+  <name>Egypt</name>
   <code>EG</code>
   <subcountry>
     <name>Ad Daqahliyah</name>
@@ -9817,7 +9830,7 @@ q{
 </country>
 
 <country>
-  <name>ERITREA</name>
+  <name>Eritrea</name>
   <code>ER</code>
   <subcountry>
     <name>Anseba</name>
@@ -9846,7 +9859,7 @@ q{
 </country>
 
 <country>
-  <name>SPAIN</name>
+  <name>Spain</name>
   <code>ES</code>
   <subcountry>
     <name>A Coruña</name>
@@ -10169,7 +10182,7 @@ q{
 </country>
 
 <country>
-  <name>ETHIOPIA</name>
+  <name>Ethiopia</name>
   <code>ET</code>
   <subcountry>
     <name>Adis Abeba</name>
@@ -10226,7 +10239,7 @@ q{
 </country>
 
 <country>
-  <name>FINLAND</name>
+  <name>Finland</name>
   <code>FI</code>
   <subcountry>
     <name>Ahvenanmaan lääni</name>
@@ -10260,7 +10273,7 @@ q{
 </country>
 
 <country>
-  <name>FIJI</name>
+  <name>Fiji</name>
   <code>FJ</code>
   <subcountry>
     <name>Central</name>
@@ -10295,7 +10308,7 @@ q{
 </country>
 
 <country>
-  <name>MICRONESIA (FEDERATED STATES OF)</name>
+  <name>Micronesia (Federated States Of)</name>
   <code>FM</code>
   <subcountry>
     <name>Chuuk</name>
@@ -10320,7 +10333,7 @@ q{
 </country>
 
 <country>
-  <name>FRANCE</name>
+  <name>France</name>
   <code>FR</code>
   <subcountry>
     <name>Ain</name>
@@ -10933,7 +10946,7 @@ q{
 </country>
 
 <country>
-  <name>GABON</name>
+  <name>Gabon</name>
   <code>GA</code>
   <subcountry>
     <name>Estuaire</name>
@@ -10983,7 +10996,7 @@ q{
 </country>
 
 <country>
-  <name>UNITED KINGDOM</name>
+  <name>United Kingdom</name>
   <code>GB</code>
   <subcountry>
     <name>Aberdeen City</name>
@@ -12346,7 +12359,7 @@ q{
 </country>
 
 <country>
-  <name>GHANA</name>
+  <name>Ghana</name>
   <code>GH</code>
   <subcountry>
     <name>Ashanti</name>
@@ -12401,7 +12414,7 @@ q{
 </country>
 
 <country>
-  <name>GAMBIA</name>
+  <name>Gambia</name>
   <code>GM</code>
   <subcountry>
     <name>Banjul</name>
@@ -12442,7 +12455,7 @@ q{
 </country>
 
 <country>
-  <name>GUINEA</name>
+  <name>Guinea</name>
   <code>GN</code>
   <subcountry>
     <name>Beyla</name>
@@ -12644,7 +12657,7 @@ q{
 </country>
 
 <country>
-  <name>MALI</name>
+  <name>Mali</name>
   <code>ML</code>
   <subcountry>
     <name>Bamako</name>
@@ -12700,7 +12713,7 @@ q{
 </country>
 
 <country>
-  <name>MYANMAR</name>
+  <name>Myanmar</name>
   <code>MM</code>
   <subcountry>
     <name>Ayeyarwady</name>
@@ -12782,7 +12795,7 @@ q{
 </country>
 
 <country>
-  <name>MONGOLIA</name>
+  <name>Mongolia</name>
   <code>MN</code>
   <subcountry>
     <name>Ulaanbaatar</name>
@@ -12916,7 +12929,7 @@ q{
 </country>
 
 <country>
-  <name>MAURITANIA</name>
+  <name>Mauritania</name>
   <code>MR</code>
   <subcountry>
     <name>Nouakchott</name>
@@ -12997,7 +13010,7 @@ q{
 </country>
 
 <country>
-  <name>MAURITIUS</name>
+  <name>Mauritius</name>
   <code>MU</code>
   <subcountry>
     <name>Beau Bassin-Rose Hill</name>
@@ -13096,7 +13109,7 @@ q{
 </country>
 
 <country>
-  <name>MALDIVES</name>
+  <name>Maldives</name>
   <code>MV</code>
   <subcountry>
     <name>Male</name>
@@ -13217,7 +13230,7 @@ q{
 </country>
 
 <country>
-  <name>MALAWI</name>
+  <name>Malawi</name>
   <code>MW</code>
   <subcountry>
     <name>Balaka</name>
@@ -13381,7 +13394,7 @@ q{
 </country>
 
 <country>
-  <name>MEXICO</name>
+  <name>Mexico</name>
   <code>MX</code>
   <subcountry>
     <name>Distrito Federal</name>
@@ -13574,7 +13587,7 @@ q{
 </country>
 
 <country>
-  <name>MALAYSIA</name>
+  <name>Malaysia</name>
   <code>MY</code>
   <subcountry>
     <name>Wilayah Persekutuan Kuala Lumpur</name>
@@ -13654,7 +13667,7 @@ q{
 </country>
 
 <country>
-  <name>MOZAMBIQUE</name>
+  <name>Mozambique</name>
   <code>MZ</code>
   <subcountry>
     <name>Maputo</name>
@@ -13725,7 +13738,7 @@ q{
 </country>
 
 <country>
-  <name>NAMIBIA</name>
+  <name>Namibia</name>
   <code>NA</code>
   <subcountry>
     <name>Caprivi</name>
@@ -13795,7 +13808,7 @@ q{
 </country>
 
 <country>
-  <name>NIGER</name>
+  <name>Niger</name>
   <code>NE</code>
   <subcountry>
     <name>Niamey</name>
@@ -13847,7 +13860,7 @@ q{
 </country>
 
 <country>
-  <name>NIGERIA</name>
+  <name>Nigeria</name>
   <code>NG</code>
   <subcountry>
     <name>Abuja Capital Territory</name>
@@ -14074,7 +14087,7 @@ q{
 </country>
 
 <country>
-  <name>NICARAGUA</name>
+  <name>Nicaragua</name>
   <code>NI</code>
   <subcountry>
     <name>Boaco</name>
@@ -14179,7 +14192,7 @@ q{
 </country>
 
 <country>
-  <name>NETHERLANDS</name>
+  <name>Netherlands</name>
   <code>NL</code>
   <subcountry>
     <name>Drenthe</name>
@@ -14199,6 +14212,7 @@ q{
   <subcountry>
     <name>Gelderland</name>
     <code>GE</code>
+    <FIPS>03</FIPS>
   </subcountry>
   <subcountry>
     <name>Groningen</name>
@@ -14208,6 +14222,7 @@ q{
   <subcountry>
     <name>Limburg</name>
     <code>LI</code>
+    <FIPS>05</FIPS>
   </subcountry>
   <subcountry>
     <name>Noord-Brabant</name>
@@ -14232,6 +14247,7 @@ q{
   <subcountry>
     <name>Zeeland</name>
     <code>ZE</code>
+    <FIPS>10</FIPS>
   </subcountry>
   <subcountry>
     <name>Zuid-Holland</name>
@@ -14241,7 +14257,7 @@ q{
 </country>
 
 <country>
-  <name>NORWAY</name>
+  <name>Norway</name>
   <code>NO</code>
   <subcountry>
     <name>Akershus</name>
@@ -14347,7 +14363,7 @@ q{
 </country>
 
 <country>
-  <name>NEPAL</name>
+  <name>Nepal</name>
   <code>NP</code>
   <subcountry>
     <name>Bagmati</name>
@@ -14422,7 +14438,7 @@ q{
 </country>
 
 <country>
-  <name>NEW ZEALAND</name>
+  <name>New Zealand</name>
   <code>NZ</code>
   <subcountry>
     <name>Auckland</name>
@@ -14513,7 +14529,7 @@ q{
 </country>
 
 <country>
-  <name>OMAN</name>
+  <name>Oman</name>
   <code>OM</code>
   <subcountry>
     <name>Ad Dakhiliyah</name>
@@ -14557,7 +14573,7 @@ q{
 </country>
 
 <country>
-  <name>PANAMA</name>
+  <name>Panama</name>
   <code>PA</code>
   <subcountry>
     <name>Bocas del Toro</name>
@@ -14621,7 +14637,7 @@ q{
 </country>
 
 <country>
-  <name>PERU</name>
+  <name>Peru</name>
   <code>PE</code>
   <subcountry>
     <name>El Callao</name>
@@ -14774,7 +14790,7 @@ q{
 </country>
 
 <country>
-  <name>PAPUA NEW GUINEA</name>
+  <name>Papua New Guinea</name>
   <code>PG</code>
   <subcountry>
     <name>National Capital District (Port Moresby)</name>
@@ -14897,7 +14913,7 @@ q{
 </country>
 
 <country>
-  <name>PHILIPPINES</name>
+  <name>Philippines</name>
   <code>PH</code>
   <subcountry>
     <name>Abra</name>
@@ -15372,7 +15388,7 @@ q{
 </country>
 
 <country>
-  <name>PAKISTAN</name>
+  <name>Pakistan</name>
   <code>PK</code>
   <subcountry>
     <name>Islamabad</name>
@@ -15422,7 +15438,7 @@ q{
 </country>
 
 <country>
-  <name>POLAND</name>
+  <name>Poland</name>
   <code>PL</code>
   <subcountry>
     <name>Dolnoslaskie</name>
@@ -15494,7 +15510,7 @@ q{
 </country>
 
 <country>
-  <name>PORTUGAL</name>
+  <name>Portugal</name>
   <code>PT</code>
   <subcountry>
     <name>Aveiro</name>
@@ -15608,16 +15624,18 @@ q{
     <name>Região Autónoma dos Açores</name>
     <code>20</code>
     <category>autonomous region</category>
+    <FIPS>23</FIPS>
   </subcountry>
   <subcountry>
     <name>Região Autónoma da Madeira</name>
     <code>30</code>
     <category>autonomous region</category>
+    <FIPS>10</FIPS>
   </subcountry>
 </country>
 
 <country>
-  <name>PARAGUAY</name>
+  <name>Paraguay</name>
   <code>PY</code>
   <subcountry>
     <name>Asunción</name>
@@ -15730,7 +15748,7 @@ q{
 </country>
 
 <country>
-  <name>QATAR</name>
+  <name>Qatar</name>
   <code>QA</code>
   <subcountry>
     <name>Ad Dawhah</name>
@@ -15780,7 +15798,7 @@ q{
 </country>
 
 <country>
-  <name>ROMANIA</name>
+  <name>Romania</name>
   <code>RO</code>
   <subcountry>
     <name>Bucuresti</name>
@@ -16031,7 +16049,7 @@ q{
 </country>
 
 <country>
-  <name>RUSSIA</name>
+  <name>Russia</name>
   <code>RU</code>
   <subcountry>
     <name>Adygeya, Respublika</name>
@@ -16549,7 +16567,7 @@ q{
 </country>
 
 <country>
-  <name>RWANDA</name>
+  <name>Rwanda</name>
   <code>RW</code>
   <subcountry>
     <name>Butare</name>
@@ -16611,7 +16629,7 @@ q{
 </country>
 
 <country>
-  <name>SAUDI ARABIA</name>
+  <name>Saudi Arabia</name>
   <code>SA</code>
   <subcountry>
     <name>Al Bahah</name>
@@ -16679,7 +16697,7 @@ q{
 </country>
 
 <country>
-  <name>SOLOMON ISLANDS</name>
+  <name>Solomon Islands</name>
   <code>SB</code>
   <subcountry>
     <name>Capital Territory (Honiara)</name>
@@ -16731,7 +16749,7 @@ q{
 </country>
 
 <country>
-  <name>SUDAN</name>
+  <name>Sudan</name>
   <code>SD</code>
   <subcountry>
     <name>Ahali an Nil</name>
@@ -16861,7 +16879,7 @@ q{
 </country>
 
 <country>
-  <name>SWEDEN</name>
+  <name>Sweden</name>
   <code>SE</code>
   <subcountry>
     <name>Blekinge län [SE-10]</name>
@@ -16970,7 +16988,7 @@ q{
 </country>
 
 <country>
-  <name>SAINT HELENA</name>
+  <name>Saint Helena</name>
   <code>SH</code>
   <subcountry>
     <name>Saint Helena</name>
@@ -16993,7 +17011,7 @@ q{
 </country>
 
 <country>
-  <name>SLOVAKIA</name>
+  <name>Slovakia</name>
   <code>SK</code>
   <subcountry>
     <name>Banskobystrický kraj</name>
@@ -17030,7 +17048,7 @@ q{
 </country>
 
 <country>
-  <name>SIERRA LEONE</name>
+  <name>Sierra Leone</name>
   <code>SL</code>
   <subcountry>
     <name>Western Area (Freetown)</name>
@@ -17058,7 +17076,7 @@ q{
 </country>
 
 <country>
-  <name>SENEGAL</name>
+  <name>Senegal</name>
   <code>SN</code>
   <subcountry>
     <name>Dakar</name>
@@ -17113,7 +17131,7 @@ q{
 </country>
 
 <country>
-  <name>SOMALIA</name>
+  <name>Somalia</name>
   <code>SO</code>
   <subcountry>
     <name>Awdal</name>
@@ -17206,7 +17224,7 @@ q{
 </country>
 
 <country>
-  <name>SURINAME</name>
+  <name>Suriname</name>
   <code>SR</code>
   <subcountry>
     <name>Brokopondo</name>
@@ -17261,7 +17279,7 @@ q{
 </country>
 
 <country>
-  <name>SAO TOME AND PRINCIPE</name>
+  <name>Sao Tome And Principe</name>
   <code>ST</code>
   <subcountry>
     <name>Príncipe</name>
@@ -17276,7 +17294,7 @@ q{
 </country>
 
 <country>
-  <name>EL SALVADOR</name>
+  <name>El Salvador</name>
   <code>SV</code>
   <subcountry>
     <name>Ahuachapán</name>
@@ -17351,7 +17369,7 @@ q{
 </country>
 
 <country>
-  <name>SYRIAN ARAB REPUBLIC</name>
+  <name>Syrian Arab Republic</name>
   <code>SY</code>
   <subcountry>
     <name>Al Hasakah</name>
@@ -17425,7 +17443,7 @@ q{
 </country>
 
 <country>
-  <name>SWAZILAND</name>
+  <name>Swaziland</name>
   <code>SZ</code>
   <subcountry>
     <name>Hhohho</name>
@@ -17446,7 +17464,7 @@ q{
 </country>
 
 <country>
-  <name>CHAD</name>
+  <name>Chad</name>
   <code>TD</code>
   <subcountry>
     <name>Batha</name>
@@ -17521,7 +17539,7 @@ q{
 </country>
 
 <country>
-  <name>TOGO</name>
+  <name>Togo</name>
   <code>TG</code>
   <subcountry>
     <name>Centre</name>
@@ -17546,7 +17564,7 @@ q{
 </country>
 
 <country>
-  <name>THAILAND</name>
+  <name>Thailand</name>
   <code>TH</code>
   <subcountry>
     <name>Krung Thep Maha Nakhon [Bangkok]</name>
@@ -18009,7 +18027,7 @@ q{
 </country>
 
 <country>
-  <name>TAJIKISTAN</name>
+  <name>Tajikistan</name>
   <code>TJ</code>
   <subcountry>
     <name>Khatlon</name>
@@ -18030,7 +18048,7 @@ q{
 </country>
 
 <country>
-  <name>TURKMENISTAN</name>
+  <name>Turkmenistan</name>
   <code>TM</code>
   <subcountry>
     <name>Ahal</name>
@@ -18055,7 +18073,7 @@ q{
 </country>
 
 <country>
-  <name>TUNISIA</name>
+  <name>Tunisia</name>
   <code>TN</code>
   <subcountry>
     <name>Béja</name>
@@ -18165,7 +18183,7 @@ q{
 </country>
 
 <country>
-  <name>TURKEY</name>
+  <name>Turkey</name>
   <code>TR</code>
   <subcountry>
     <name>Adana</name>
@@ -18574,7 +18592,7 @@ q{
 </country>
 
 <country>
-  <name>TRINIDAD AND TOBAGO</name>
+  <name>Trinidad And Tobago</name>
   <code>TT</code>
   <subcountry>
     <name>Couva-Tabaquite-Talparo</name>
@@ -18662,7 +18680,7 @@ q{
 </country>
 
 <country>
-  <name>TAIWAN, PROVINCE OF CHINA</name>
+  <name>Taiwan, Province Of China</name>
   <code>TW</code>
   <subcountry>
     <name>Kaohsiung</name>
@@ -18784,7 +18802,7 @@ q{
 </country>
 
 <country>
-  <name>TANZANIA, UNITED REPUBLIC OF</name>
+  <name>Tanzania, United Republic Of</name>
   <code>TZ</code>
   <subcountry>
     <name>Arusha</name>
@@ -18905,7 +18923,7 @@ q{
 </country>
 
 <country>
-  <name>UKRAINE</name>
+  <name>Ukraine</name>
   <code>UA</code>
   <subcountry>
     <name>Cherkas'ka Oblast'</name>
@@ -19069,7 +19087,7 @@ q{
 </country>
 
 <country>
-  <name>UGANDA</name>
+  <name>Uganda</name>
   <code>UG</code>
   <subcountry>
     <name>Apac</name>
@@ -19269,7 +19287,7 @@ q{
 </country>
 
 <country>
-  <name>UNITED STATES MINOR OUTLYING ISLANDS</name>
+  <name>United States Minor Outlying Islands</name>
   <code>UM</code>
   <subcountry>
     <name>Baker Island</name>
@@ -19310,7 +19328,7 @@ q{
 </country>
 
 <country>
-  <name>UNITED STATES</name>
+  <name>United States</name>
   <code>US</code>
   <subcountry>
     <name>Alabama</name>
@@ -19651,7 +19669,7 @@ q{
 </country>
 
 <country>
-  <name>URUGUAY</name>
+  <name>Uruguay</name>
   <code>UY</code>
   <subcountry>
     <name>Artigas</name>
@@ -19751,7 +19769,7 @@ q{
 </country>
 
 <country>
-  <name>UZBEKISTAN</name>
+  <name>Uzbekistan</name>
   <code>UZ</code>
   <subcountry>
     <name>Qoraqalpog'iston Respublikasi</name>
@@ -19832,7 +19850,7 @@ q{
 </country>
 
 <country>
-  <name>VENEZUELA</name>
+  <name>Venezuela</name>
   <code>VE</code>
   <subcountry>
     <name>Distrito Federal</name>
@@ -19981,7 +19999,7 @@ q{
 </country>
 
 <country>
-  <name>VIET NAM</name>
+  <name>Viet Nam</name>
   <code>VN</code>
   <subcountry>
     <name>An Giang</name>
@@ -20287,7 +20305,7 @@ q{
 </country>
 
 <country>
-  <name>VANUATU</name>
+  <name>Vanuatu</name>
   <code>VU</code>
   <subcountry>
     <name>Malampa</name>
@@ -20322,7 +20340,7 @@ q{
 </country>
 
 <country>
-  <name>SAMOA</name>
+  <name>Samoa</name>
   <code>WS</code>
   <subcountry>
     <name>A'ana</name>
@@ -20371,7 +20389,7 @@ q{
 </country>
 
 <country>
-  <name>YEMEN</name>
+  <name>Yemen</name>
   <code>YE</code>
   <subcountry>
     <name>Abyan</name>
@@ -20444,34 +20462,263 @@ q{
 </country>
 
 <country>
-  <name>SERBIA AND MONTENEGRO</name>
-  <code>CS</code>
+  <name>Serbia </name>
+  <code>RS</code>
   <subcountry>
-    <name>Crna Gora</name>
-    <code>CG</code>
-    <category>republic</category>
+    <name>Belgrade</name>
+    <code>BG</code>
   </subcountry>
   <subcountry>
-    <name>Srbija</name>
-    <code>SR</code>
-    <category>republic</category>
+    <name>Bor</name>
+    <code>BO</code>
   </subcountry>
   <subcountry>
-    <name>Kosovo-Metohija</name>
+    <name>Braničevo</name>
+    <code>BR</code>
+  </subcountry>  
+  <subcountry>
+    <name>Central Banat</name>
+    <code>SD</code>
+  </subcountry>
+  <subcountry>
+    <name>Danube</name>
+    <code>PD</code>
+  </subcountry>
+  <subcountry>
+    <name>Jablanica</name>
+    <code>JA</code>
+  </subcountry>  
+  <subcountry>
+    <name>Kolubara</name>
+    <code>KB</code>
+  </subcountry>
+  <subcountry>
+    <name>Kosovo</name>
+    <code>KO</code>
+  </subcountry>
+  <subcountry>
+    <name>Kosovsko-Mitrovica</name>
     <code>KM</code>
-    <regional_division>CS-SR</regional_division>
-    <category>autonomous province</category>
+  </subcountry>  
+  <subcountry>
+    <name>Kosovsko-Pomoravlje</name>
+    <code>KP</code>
   </subcountry>
   <subcountry>
-    <name>Vojvodina</name>
-    <code>VO</code>
-    <regional_division>CS-SR</regional_division>
-    <category>autonomous province</category>
+    <name>Mačva</name>
+    <code>MA</code>
   </subcountry>
+  <subcountry>
+    <name>Morava</name>
+    <code>MR</code>
+  </subcountry>  
+  <subcountry>
+    <name>Nišava</name>
+    <code>NS</code>
+  </subcountry>
+  <subcountry>
+    <name>North Bačka</name>
+    <code>SC</code>
+  </subcountry>
+  <subcountry>
+    <name>North Banat</name>
+    <code>SN</code>
+  </subcountry>  
+  <subcountry>
+    <name>Pčinja</name>
+    <code>PC</code>
+  </subcountry>
+  <subcountry>
+    <name>Peć</name>
+    <code>PE</code>
+  </subcountry>
+  <subcountry>
+    <name>Pirot</name>
+    <code>PI</code>
+  </subcountry>
+  <subcountry>
+    <name>Pomoravlje</name>
+    <code>PM</code>
+  </subcountry>
+  <subcountry>
+    <name>Prizren</name>
+    <code>PZ</code>
+  </subcountry>
+  <subcountry>
+    <name>Rasina</name>
+    <code>RN</code>
+  </subcountry>
+  <subcountry>
+    <name>Raška</name>
+    <code>RS</code>
+  </subcountry>
+  <subcountry>
+    <name>South Bačka</name>
+    <code>JC</code>
+  </subcountry>
+  <subcountry>
+    <name>South Banat</name>
+    <code>JN</code>
+  </subcountry>
+  <subcountry>
+    <name>Srem</name>
+    <code>SM</code>
+  </subcountry>
+  <subcountry>
+    <name>Šumadija</name>
+    <code>SU</code>
+  </subcountry>
+  <subcountry>
+    <name>Toplica</name>
+    <code>TO</code>
+  </subcountry>
+  <subcountry>
+    <name>West Bačka</name>
+    <code>ZC</code>
+  </subcountry>
+  <subcountry>
+    <name>Zaječar</name>
+    <code>ZJ</code>
+  </subcountry>
+  <subcountry>
+    <name>Zlatibor</name>
+    <code>ZL</code>
+  </subcountry>  
 </country>
 
 <country>
-  <name>SOUTH AFRICA</name>
+  <name>Montenegro</name>
+  <code>ME</code>
+  <subcountry>
+    <name>Andrijevica</name>
+    <code>AN</code>
+    <FIPS>01</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Bar</name>
+    <code>BA</code>
+    <FIPS>02</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Berane</name>
+    <code>BE</code>
+    <FIPS>03</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Bijelo Polje</name>
+    <code>BP</code>
+    <FIPS>04</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Budva</name>
+    <code>BU</code>
+    <FIPS>05</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Cetinje</name>
+    <code>CE</code>
+    <FIPS>06</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Danilovgrad</name>
+    <code>DA</code>
+    <FIPS>07</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Herceg Novi</name>
+    <code>HN</code>
+    <FIPS>08</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Kolašin</name>
+    <code>KL</code>
+    <FIPS>09</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Kotor</name>
+    <code>KT</code>
+    <FIPS>10</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Mojkovac</name>
+    <code>MK</code>
+    <FIPS>11</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Nikšić</name>
+    <code>NK</code>
+    <FIPS>12</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Plav</name>
+    <code>PV</code>
+    <FIPS>13</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Pljevlja</name>
+    <code>PL</code>
+    <FIPS>14</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Plužine</name>
+    <code>PU</code>
+    <FIPS>15</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Podgorica</name>
+    <code>PG</code>
+    <FIPS>16</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Rožaje</name>
+    <code>RO</code>
+    <FIPS>17</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Šavnik</name>
+    <code>SA</code>
+    <FIPS>18</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Tivat</name>
+    <code>TI</code>
+    <FIPS>19</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Ulcinj</name>
+    <code>UL</code>
+    <FIPS>20</FIPS>
+    <category>commune</category>    
+  </subcountry>
+  <subcountry>
+    <name>Žabljak</name>
+    <code>ZA</code>
+    <FIPS>21</FIPS>
+    <category>commune</category>    
+  </subcountry>  
+</country>
+
+<country>
+  <name>South Africa</name>
   <code>ZA</code>
   <subcountry>
     <name>Eastern Cape</name>
@@ -20521,7 +20768,7 @@ q{
 </country>
 
 <country>
-  <name>ZAMBIA</name>
+  <name>Zambia</name>
   <code>ZM</code>
   <subcountry>
     <name>Central</name>
@@ -20562,7 +20809,7 @@ q{
 </country>
 
 <country>
-  <name>ZIMBABWE</name>
+  <name>Zimbabwe</name>
   <code>ZW</code>
   <subcountry>
     <name>Bulawayo</name>
@@ -20607,7 +20854,7 @@ q{
 </country>
 
 <country>
-  <name>GEORGIA</name>
+  <name>Georgia</name>
   <code>GE</code>
   <subcountry>
     <name>Abkhazia</name>
@@ -20672,7 +20919,7 @@ q{
 </country>
 
 <country>
-  <name>TIMOR-LESTE</name>
+  <name>Timor-Leste</name>
   <code>TL</code>
   <subcountry>
     <name>Aileu</name>
@@ -20729,7 +20976,7 @@ q{
 </country>
 
 <country>
-  <name>UGANDA</name>
+  <name>Uganda</name>
   <code>UG</code>
   <subcountry>
     <name>Adjumani</name>
@@ -20764,7 +21011,7 @@ q{
 </country>
 
 <country>
-  <name>BURUNDI</name>
+  <name>Burundi</name>
   <code>BI</code>
   <subcountry>
     <name>Mwaro</name>
@@ -20773,7 +21020,7 @@ q{
 </country>
 
 <country>
-  <name>ECUADOR</name>
+  <name>Ecuador</name>
   <code>EC</code>
   <subcountry>
     <name>Orellana</name>
@@ -20782,7 +21029,7 @@ q{
 </country>
 
 <country>
-  <name>ETHIOPIA</name>
+  <name>Ethiopia</name>
   <code>ET</code>
   <subcountry>
     <name>Dire Dawa</name>
@@ -20792,7 +21039,7 @@ q{
 </country>
 
 <country>
-  <name>KYRGYZSTAN</name>
+  <name>Kyrgyzstan</name>
   <code>KG</code>
   <subcountry>
     <name>Bishkek</name>
@@ -20807,7 +21054,7 @@ q{
 </country>
 
 <country>
-  <name>CAMBODIA</name>
+  <name>Cambodia</name>
   <code>KH</code>
   <subcountry>
     <name>Krong Pailin [Krong Pailin]</name>
@@ -20818,7 +21065,7 @@ q{
 
 
 <country>
-  <name>ROMANIA</name>
+  <name>Romania</name>
   <code>RO</code>
   <subcountry>
     <name>Ilfov</name>
@@ -20828,7 +21075,7 @@ q{
 </country>
 
 <country>
-  <name>SLOVENIA</name>
+  <name>Slovenia</name>
   <code>SI</code>
   <subcountry>
     <name>Ajdovšcina</name>
@@ -21605,7 +21852,7 @@ q{
 </country>
 
 <country>
-  <name>UZBEKISTAN</name>
+  <name>Uzbekistan</name>
   <code>UZ</code>
   <subcountry>
     <name>Toshkent</name>
@@ -21615,7 +21862,7 @@ q{
 </country>
 
 <country>
-  <name>VENEZUELA</name>
+  <name>Venezuela</name>
   <code>VE</code>
   <subcountry>
     <name>Vargas</name>
@@ -21625,7 +21872,7 @@ q{
 </country>
 
 <country>
-  <name>HONDURAS</name>
+  <name>Honduras</name>
   <code>HN</code>
   <subcountry>
     <name>Ocotepeque</name>
@@ -21635,7 +21882,7 @@ q{
 </country>
 
 <country>
-  <name>MALAYSIA</name>
+  <name>Malaysia</name>
   <code>MY</code>
   <subcountry>
     <name>Wilayah Persekutuan Putrajaya</name>
@@ -21645,7 +21892,7 @@ q{
 </country>
 
 <country>
-  <name>TANZANIA, UNITED REPUBLIC OF</name>
+  <name>Tanzania, United Republic Of</name>
   <code>TZ</code>
   <subcountry>
     <name>Manyara</name>
@@ -21654,7 +21901,7 @@ q{
 </country>
 
 <country>
-  <name>UGANDA</name>
+  <name>Uganda</name>
   <code>UG</code>
   <subcountry>
     <name>Kaberamaido</name>
@@ -21714,7 +21961,7 @@ q{
 </country>
 
 <country>
-  <name>LIBYAN ARAB JAMAHIRIYA</name>
+  <name>Libyan Arab Jamahiriya</name>
   <code>LY</code>
   <subcountry>
     <name>Ajdabiya</name>
@@ -21823,7 +22070,7 @@ q{
 </country>
 
 <country>
-  <name>TUNISIA</name>
+  <name>Tunisia</name>
   <code>TN</code>
   <subcountry>
     <name>Manouba</name>
@@ -21832,7 +22079,7 @@ q{
 </country>
 
 <country>
-  <name>GUYANA</name>
+  <name>Guyana</name>
   <code>GY</code>
   <subcountry>
     <name>Cuyuni-Mazaruni</name>
@@ -21882,208 +22129,208 @@ q{
 </country>
 
 <country>
-  <name>ANGUILLA</name>
+  <name>Anguilla</name>
   <code>AI</code>
 </country>
 
 <country>
-  <name>SINGAPORE</name>
+  <name>Singapore</name>
   <code>SG</code>
 </country>
 
 <country>
-  <name>NETHERLANDS ANTILLES</name>
+  <name>Netherlands Antilles</name>
   <code>AN</code>
 </country>
 
 <country>
-  <name>ANTARCTICA</name>
+  <name>Antarctica</name>
   <code>AQ</code>
 </country>
 
 <country>
-  <name>ARUBA</name>
+  <name>Aruba</name>
   <code>AW</code>
 </country>
 
 <country>
-  <name>BOUVET ISLAND</name>
+  <name>Bouvet Island</name>
   <code>BV</code>
 </country>
 
 <country>
-  <name>COCOS (KEELING) ISLANDS</name>
+  <name>Cocos (Keeling) Islands</name>
   <code>CC</code>
 </country>
 
 <country>
-  <name>COOK ISLANDS</name>
+  <name>Cook Islands</name>
   <code>CK</code>
 </country>
 
 <country>
-  <name>VIRGIN ISLANDS, BRITISH</name>
+  <name>Virgin Islands, British</name>
   <code>VG</code>
 </country>
 
 <country>
-  <name>VIRGIN ISLANDS, U.S.</name>
+  <name>Virgin Islands, U.S.</name>
   <code>VI</code>
 </country>
 
 <country>
-  <name>WALLIS AND FUTUNA</name>
+  <name>Wallis And Futuna</name>
   <code>WF</code>
 </country>
 
 <country>
-  <name>MAYOTTE</name>
+  <name>Mayotte</name>
   <code>YT</code>
 </country>
 
 <country>
-  <name>AMERICAN SAMOA</name>
+  <name>American Samoa</name>
   <code>AS</code>
 </country>
 
 <country>
-  <name>HOLY SEE (VATICAN CITY STATE)</name>
+  <name>Holy See (Vatican City State)</name>
   <code>VA</code>
 </country>
 
 <country>
-  <name>MALTA</name>
+  <name>Malta</name>
   <code>MT</code>
 </country>
 
 <country>
-  <name>NORTHERN MARIANA ISLANDS</name>
+  <name>Northern Mariana Islands</name>
   <code>MP</code>
 </country>
 
 <country>
-  <name>MONACO</name>
+  <name>Monaco</name>
   <code>MC</code>
 </country>
 
 <country>
-  <name>BRITISH INDIAN OCEAN TERRITORY</name>
+  <name>British Indian Ocean Territory</name>
   <code>IO</code>
 </country>
 
 <country>
-  <name>HEARD ISLAND AND MCDONALD ISLANDS</name>
+  <name>Heard Island And McDonald Islands</name>
   <code>HM</code>
 </country>
 
 <country>
-  <name>GUAM</name>
+  <name>Guam</name>
   <code>GU</code>
 </country>
 
 
 <country>
-  <name>SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</name>
+  <name>South Georgia And The South Sandwich Islands</name>
   <code>GS</code>
 </country>
 
 <country>
-  <name>GREENLAND/GROENLAND</name>
+  <name>Greenland/Groenland</name>
   <code>GL</code>
 </country>
 
 <country>
-  <name>GIBRALTAR</name>
+  <name>Gibraltar</name>
   <code>GI</code>
 </country>
 
 <country>
-  <name>FAROE ISLANDS</name>
+  <name>Faroe Islands</name>
   <code>FO</code>
 </country>
 
 <country>
-  <name>FALKLAND ISLANDS (MALVINAS)</name>
+  <name>Falkland Islands (Malvinas)</name>
   <code>FK</code>
 </country>
 
 <country>
-  <name>WESTERN SAHARA</name>
+  <name>Western Sahara</name>
   <code>EH</code>
 </country>
 
 <country>
-  <name>TOKELAU</name>
+  <name>Tokelau</name>
   <code>TK</code>
 </country>
 
 <country>
-  <name>FRENCH SOUTHERN TERRITORIES</name>
+  <name>French Southern Territories</name>
   <code>TF</code>
 </country>
 
 <country>
-  <name>TURKS AND CAICOS ISLANDS</name>
+  <name>Turks And Caicos Islands</name>
   <code>TC</code>
 </country>
 
 <country>
-  <name>SVALBARD AND JAN MAYEN</name>
+  <name>Svalbard And Jan Mayen</name>
   <code>SJ</code>
 </country>
 
 <country>
-  <name>PALESTINIAN TERRITORY</name>
+  <name>Palestinian Territory</name>
   <code>PS</code>
 </country>
 
 <country>
-  <name>PUERTO RICO</name>
+  <name>Puerto Rico</name>
   <code>PR</code>
 </country>
 
 <country>
-  <name>PITCAIRN</name>
+  <name>Pitcairn</name>
   <code>PN</code>
 </country>
 
 <country>
-  <name>SAINT PIERRE AND MIQUELON</name>
+  <name>Saint Pierre And Miquelon</name>
   <code>PM</code>
 </country>
 
 <country>
-  <name>NIUE</name>
+  <name>Niue</name>
   <code>NU</code>
 </country>
 
 <country>
-  <name>NORFOLK ISLAND</name>
+  <name>Norfolk Island</name>
   <code>NF</code>
 </country>
 
 <country>
-  <name>CHRISTMAS ISLAND</name>
+  <name>Christmas Island</name>
   <code>CX</code>
 </country>
 
 <country>
-  <name>ANTIGUA AND BARBUDA</name>
+  <name>Antigua And Barbuda</name>
   <code>AG</code>
 </country>
 
 <country>
-  <name>BERMUDA</name>
+  <name>Bermuda</name>
   <code>BM</code>
 </country>
 
 <country>
-  <name>BARBADOS</name>
+  <name>Barbados</name>
   <code>BB</code>
 </country>
 
 <country>
-  <name>ANDORRA</name>
+  <name>Andorra</name>
   <code>AD</code>
   <subcountry>
     <name>Andorra la Vella</name>
@@ -22124,62 +22371,62 @@ q{
 
 
 <country>
-  <name>MONTSERRAT</name>
+  <name>Montserrat</name>
   <code>MS</code>
 </country>
 
 <country>
-  <name>MARTINIQUE</name>
+  <name>Martinique</name>
   <code>MQ</code>
 </country>
 
 <country>
-  <name>MACAO</name>
+  <name>Macao</name>
   <code>MO</code>
 </country>
 
 <country>
-  <name>MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF</name>
+  <name>Macedonia, The Former Yugoslav Republic Of</name>
   <code>MK</code>
 </country>
 
 <country>
-  <name>LIECHTENSTEIN</name>
+  <name>Liechtenstein</name>
   <code>LI</code>
 </country>
 
 <country>
-  <name>SAINT LUCIA</name>
+  <name>Saint Lucia</name>
   <code>LC</code>
 </country>
 
 <country>
-  <name>CAYMAN ISLANDS</name>
+  <name>Cayman Islands</name>
   <code>KY</code>
 </country>
 
 <country>
-  <name>SAINT VINCENT AND THE GRENADINES</name>
+  <name>Saint Vincent And The Grenadines</name>
   <code>VC</code>
 </country>
 
 <country>
-  <name>SAINT KITTS AND NEVIS</name>
+  <name>Saint Kitts And Nevis</name>
   <code>KN</code>
 </country>
 
 <country>
-  <name>GUADELOUPE</name>
+  <name>Guadeloupe</name>
   <code>GP</code>
 </country>
 
 <country>
-  <name>FRENCH GUIANA</name>
+  <name>French Guiana</name>
   <code>GF</code>
 </country>
 
 <country>
-  <name>GRENADA</name>
+  <name>Grenada</name>
   <code>GD</code>
   <subcountry>
     <name>Carriacou</name>
@@ -22219,26 +22466,104 @@ q{
 </country>
 
 <country>
-  <name>DOMINICA</name>
+  <name>Hong Kong</name>
+  <code>HK</code>
+  <subcountry>
+    <name>Central and Western</name>
+    <code>CW</code>
+  </subcountry>
+  <subcountry>
+    <name>Eastern</name>
+    <code>EA</code>
+  </subcountry>
+  <subcountry>
+    <name>Islands</name>
+    <code>IS</code>
+  </subcountry>
+  <subcountry>
+    <name>Kowloon City</name>
+    <code>KC</code>
+  </subcountry>
+  <subcountry>
+    <name>Kwai Tsing</name>
+    <code>KI</code>
+  </subcountry>
+  <subcountry>
+    <name>Kwun Tong</name>
+    <code>KU</code>
+  </subcountry>
+  <subcountry>
+    <name>North</name>
+    <code>NO</code>
+  </subcountry>
+  <subcountry>
+    <name>Sai Kung</name>
+    <code>SK</code>
+  </subcountry>
+  <subcountry>
+    <name>Sham Shui Po</name>
+    <code>SS</code>
+  </subcountry>
+  <subcountry>
+    <name>Sha Tin</name>
+    <code>ST</code>
+  </subcountry>
+  <subcountry>
+    <name>Southern</name>
+    <code>SO</code>
+  </subcountry>
+  <subcountry>
+    <name>Tai Po</name>
+    <code>TP</code>
+  </subcountry>
+  <subcountry>
+    <name>Tsuen Wan</name>
+    <code>TW</code>
+  </subcountry>
+  <subcountry>
+    <name>Tuen Mun</name>
+    <code>TM</code>
+  </subcountry>
+  <subcountry>
+    <name>Wan Chai</name>
+    <code>WC</code>
+  </subcountry>
+  <subcountry>
+    <name>Wong Tai Sin</name>
+    <code>WT</code>
+  </subcountry>
+  <subcountry>
+    <name>Yau Tsim Mong</name>
+    <code>YT</code>
+  </subcountry>
+  <subcountry>
+    <name>Yuen Long</name>
+    <code>YL</code>
+  </subcountry>
+</country>  
+
+<country>
+  <name>Dominica</name>
   <code>DM</code>
 </country>
 
 <country>
-  <name>TUVALU</name>
+  <name>Tuvalu</name>
   <code>TV</code>
 </country>
 
 <country>
-  <name>NAURU</name>
+  <name>Nauru</name>
   <code>NR</code>
 </country>
 
 <country>
-  <name>SEYCHELLES</name>
+  <name>Seychelles</name>
   <code>SC</code>
 </country>
 
 </ISO_3166_2>
+
 };
 #-------------------------------------------------------------------------------
 1;

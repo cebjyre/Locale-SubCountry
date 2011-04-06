@@ -1,5 +1,17 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
+1.45 5 Apr 2011
+    Corrected FIPS codes for Repbulic or Ireland and other countries, thanks to Michele Ongaro
+    Added data for Montenegro as a seperate country
+    Added data for Serbia as a separate country
+    Added Hong Kong and its's district (it also appears as a sregion of China)
+    Corrections to documentation
+    
+    Country names are now stored in title case, not all capitals, as in Fiji and not FIJI.
+    This was done to improve readability (orignal ISO date used upper case)
+    NOTE, this means that when calling the new method with a country name, you need
+    to specify the name in title case. It will not work if you use upper case. This
+    could cause some backward compatability issues from your calling code.
 
 1.44 20 Jan 2011
     Moved Locale::SubCountryData to Locale::SubCountry::Data name space

@@ -16,8 +16,8 @@ Locale::SubCountry - convert state, province, county etc. names to/from code
        print($UK->regional_division('DGY'),"\n");   # CT (Scotland)
    }
 
-   my $australia = new Locale::SubCountry('AUSTRALIA');
-   print($australia->country,"\n");                 # AUSTRALIA
+   my $australia = new Locale::SubCountry('AUstralia');
+   print($australia->country,"\n");                 # Australia
    print($australia->country_code,"\n");            # AU
 
    if ( $australia->has_sub_countries )
@@ -125,22 +125,23 @@ single argument, the name of the country that contains the sub country
 that you want to work with. It may be specified either by the ISO 3166-1
 two letter code or the full name. For example:
 
-    AF - AFGHANISTAN
-    AL - ALBANIA
-    DZ - ALGERIA
-    AO - ANGOLA
-    AR - ARGENTINA
-    AM - ARMENIA
-    AU - AUSTRALIA
-    AT - AUSTRIA
+    AF - Afghanistan
+    AL - Albania
+    DZ - Algeria
+    AO - Angola
+    AR - Argentina
+    AM - Armenia
+    AU - Australia
+    AT - Austria
 
 
-All forms of upper/lower case are acceptable in the country's spelling. If a
-country name is supplied that the module doesn't recognised, it will die.
+If the code is specified, such as 'AU'  the format may be in  capitals or lower case
+If the full name is specified, such as 'Australia', the format must be in title case
+If a country name or code is specified that the module doesn't recognised, it will issue a warning.
 
 =head2 country
 
-Returns the current country of a sub country object
+Returns the current country of a sub country object, the format is title case
 
 =head2 country_code
 
@@ -373,7 +374,7 @@ sub all_codes
 
 package Locale::SubCountry;
 
-our $VERSION = '1.44';
+our $VERSION = '1.45';
 
 
 #-------------------------------------------------------------------------------
@@ -476,7 +477,9 @@ our $VERSION = '1.44';
                         }
                         else
                         {
-                            die "Badly formed sub country data\n$current_line $!";
+                            print "Badly formed sub country data in $country_name\n";
+                            print $current_line,"\n";
+                            die;
                         }
                     }
                 }
@@ -495,12 +498,18 @@ our $VERSION = '1.44';
                 }
                 else
                 {
-                    die "Badly formed  country data : $current_line";
+                    print "Badly formed country data in $country_name\n";
+                    print $current_line,"\n";
+                    die;                    
                 }
             }
         
         }
     }
+    
+    # use Data::Dumper;
+    # print Dumper(\%{ $Locale::SubCountry::subcountry_lookup{_full_name_keyed} });
+    # die;
 }
 
 #-------------------------------------------------------------------------------
@@ -511,18 +520,18 @@ sub new
     my $class = shift;
     my ($country_or_code) = @_;
 
-    $country_or_code = uc($country_or_code);
 
     my ($country,$country_code);
 
     # Country may be supplied either as a two letter code, or the full name
     if ( length($country_or_code) == 2 )
     {
+        $country_or_code = uc($country_or_code); # lower case codes may be used, so fold to upper case
         if ( $Locale::SubCountry::country_lookup{_code_keyed}{$country_or_code} )
         {
             $country_code = $country_or_code;
             # set country to it's full name
-            $country = $Locale::SubCountry::country_lookup{_code_keyed}{$country_or_code};
+            $country = $Locale::SubCountry::country_lookup{_code_keyed}{country_code};
         }
         else
         {
@@ -535,11 +544,11 @@ sub new
         if ( $Locale::SubCountry::country_lookup{_full_name_keyed}{$country_or_code} )
         {
             $country = $country_or_code;
-            $country_code = $Locale::SubCountry::country_lookup{_full_name_keyed}{$country_or_code};
+            $country_code = $Locale::SubCountry::country_lookup{_full_name_keyed}{$country};
         }
         else
         {
-            warn "Invalid country name: $country_or_code chosen";
+            warn "Invalid country name: $country_or_code chosen, names mustbe in title case";
             return(undef);
 
         }
