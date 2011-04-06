@@ -1,17 +1,17 @@
 Revision history for Perl CPAN module Locale::SubCountry
 
 1.45 5 Apr 2011
-    Corrected FIPS codes for Repbulic or Ireland and other countries, thanks to Michele Ongaro
-    Added data for Montenegro as a seperate country
+    Corrected FIPS codes for Republic of Ireland and other countries, thanks to Michele Ongaro
+    Added data for Montenegro as a separate country
     Added data for Serbia as a separate country
     Added Hong Kong and its's district (it also appears as a sregion of China)
     Corrections to documentation
     
     Country names are now stored in title case, not all capitals, as in Fiji and not FIJI.
-    This was done to improve readability (orignal ISO date used upper case)
+    This was done to improve readability (original ISO date used upper case)
     NOTE, this means that when calling the new method with a country name, you need
     to specify the name in title case. It will not work if you use upper case. This
-    could cause some backward compatability issues from your calling code.
+    could cause some backward compatibility issues from your calling code.
 
 1.44 20 Jan 2011
     Moved Locale::SubCountryData to Locale::SubCountry::Data name space
@@ -25,7 +25,7 @@ Revision history for Perl CPAN module Locale::SubCountry
     Changed name of UK region St. Helens to Saint Helens, fix for RT bug 38599
     Fixed FIPS codes for UK regions Stafforshire and Saint Helens
     Removed trailing blanks, fix for RT bug 38597
-    Changed encodng of XML data to UTF-8,  thanks to Benjamin Erhart. Fix for RT bug 38559
+    Changed encoding of XML data to UTF-8,  thanks to Benjamin Erhart. Fix for RT bug 38559
     Moved XML data to separate package, Locale::SubCountry::Data and encoded this file as UTF-8
     Added additional tests for unknown sub country codes and names
 
@@ -37,7 +37,7 @@ Revision history for Perl CPAN module Locale::SubCountry
     Converted files to Unix line endings
 
 1.39 6 Jan 2008
-    Alowed for sub countries with no ISO code, such as Shariff Kabunsuan in the Phillipines
+    Allowed for sub countries with no ISO code, such as Shariff Kabunsuan in the Phillipines
     Thanks to Matt Loschert for pointing this out.
     
 
@@ -47,7 +47,7 @@ Revision history for Perl CPAN module Locale::SubCountry
 
 1.37 02 Apr 2006
     Removed invalid characters in data for Iran, United Arab Emirates and Oman
-    Removed alternate names (appended to end of main names in brackects) from many sub countries
+    Removed alternate names (appended to end of main names in brackets) from many sub countries
 
     NOTE: new method now issues warning and returns undef if invalid country code or 
     name parameter is passed. Previous versions died inside the new method.
@@ -149,7 +149,7 @@ Revision history for Perl CPAN module Locale::SubCountry
     Corrected codes for Corsica, France, thanks to Mathias Herberts
 
 1.10 04 Jan 2002
-    Replaced INIT block with annonymous subroutine. This removed problems
+    Replaced INIT block with anonymous subroutine. This removed problems
     that occurred when mod_perl or eval statements were used.
 
 1.09 25 Jul 2001

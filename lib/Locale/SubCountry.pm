@@ -548,7 +548,7 @@ sub new
         }
         else
         {
-            warn "Invalid country name: $country_or_code chosen, names mustbe in title case";
+            warn "Invalid country name: $country_or_code chosen, names must be in title case";
             return(undef);
 
         }

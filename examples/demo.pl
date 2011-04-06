@@ -23,7 +23,7 @@ foreach my $country ( sort @all_countries )
     # Are there any sub countries?
     if ( $current_country->has_sub_countries )
     {
-        # Get a hash, key is sub country code, value is full anme, such as 
+        # Get a hash, key is sub country code, value is full name, such as 
         # SA => 'South Australia', VIC => 'Victoria' ...
         my %sub_countries_keyed_by_code  = $current_country->code_full_name_hash;
         foreach my $code ( sort keys %sub_countries_keyed_by_code )
